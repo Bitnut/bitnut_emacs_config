@@ -32,6 +32,12 @@
 		       expand-region
 		       iedit
 		       helm-ag
+		       ;; lsp-mode
+		       lsp-mode
+		       ;;pyim input method
+		       pyim
+		       ;; prettier
+		       prettier-js
 		       ) "Default packages")
 
 (setq package-selected-packages my/packages)
@@ -88,9 +94,9 @@
 
 ;; config for web-mode
 (defun my-web-mode-indent-setup ()
-  (setq web-mode-markup-indent-offset 2) ; web-mode, html tag in html file
+  (setq web-mode-markup-indent-offset 4) ; web-mode, html tag in html file
   (setq web-mode-css-indent-offset 2)    ; web-mode, css in html file
-  (setq web-mode-code-indent-offset 2)   ; web-mode, js code in html file
+  (setq web-mode-code-indent-offset 4)   ; web-mode, js code in html file
   )
 (add-hook 'web-mode-hook 'my-web-mode-indent-setup)
 
@@ -121,6 +127,26 @@
 (global-set-key (kbd "M-s i") 'counsel-imenu)
 
 (global-set-key (kbd "C-=") 'er/expand-region)
+
+;; pyim config
+(require 'pyim)
+(require 'pyim-basedict) ; 拼音词库设置，五笔用户 *不需要* 此行设置
+(pyim-basedict-enable)   ; 拼音词库，五笔用户 *不需要* 此行设置
+(setq default-input-method "pyim")
+(global-set-key (kbd "C-\\") 'toggle-input-method)
+
+;; prettier-js config
+(require 'prettier-js)
+(add-hook 'js2-mode-hook 'prettier-js-mode)
+(add-hook 'web-mode-hook 'prettier-js-mode)
+
+(setq prettier-js-args '(
+			 "--trailing-comma" "all"
+			 "--tab-width" "4"
+			 "--single-quote" "true"
+			 "--print-width" "120"
+))
+
 
 (provide 'init-packages)
 

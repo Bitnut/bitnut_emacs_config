@@ -11,6 +11,6 @@
 (setq initial-frame-alist (quote ((fullscreen . maximized))))
 
 ;; 字体大小
-(set-face-attribute 'default nil :height 160)
+(set-face-attribute 'default nil :height 120)
 
 (provide 'init-ui)
