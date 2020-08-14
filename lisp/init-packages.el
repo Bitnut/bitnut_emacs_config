@@ -33,11 +33,17 @@
 		       iedit
 		       helm-ag
 		       ;; lsp-mode
-		       lsp-mode
+		       ;;lsp-mode
 		       ;;pyim input method
 		       pyim
 		       ;; prettier
 		       prettier-js
+		       ;;typescritpt
+		       typescript-mode
+		       ;; flycheck
+		       flycheck
+		       ;; magit
+		       magit
 		       ) "Default packages")
 
 (setq package-selected-packages my/packages)
@@ -80,7 +86,8 @@
       (append
        '(("\\.js\\'" . js2-mode)
 	 ("\\.js\\'" . js2-refactor-mode)
-	 ("\\.html\\'" . web-mode))
+	 ("\\.html\\'" . web-mode)
+	 ("\\.vue\\'" . web-mode))
        auto-mode-alist))
 (add-hook 'emacs-lisp-mode-hook 'show-paren-mode)
 ;; nodejs
@@ -145,6 +152,7 @@
 			 "--tab-width" "4"
 			 "--single-quote" "true"
 			 "--print-width" "120"
+			 "--jsx-bracket-same-line" "true"
 ))
 
 

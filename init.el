@@ -1,7 +1,7 @@
  (package-initialize)
 
 (add-to-list 'load-path "~/.emacs.d/lisp/")
-
+(add-to-list 'load-path "~/.emacs.d/packages/tide")
 
 ;; Package Management
 ;; ------------------------------------------------------
@@ -22,6 +22,10 @@
 ;; Keybindings Management
 ;; ------------------------------------------------------
 (require 'init-keybindings)
+
+;; tide config
+;; ------------------------------------------------------
+(require 'init-tide)
 
 ;; pyim
 ;; (require 'init-pyim) 
