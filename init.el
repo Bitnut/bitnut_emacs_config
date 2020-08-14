@@ -23,9 +23,9 @@
 ;; ------------------------------------------------------
 (require 'init-keybindings)
 
-;; tide config
+;; web config
 ;; ------------------------------------------------------
-(require 'init-tide)
+(require 'init-web)
 
 ;; pyim
 ;; (require 'init-pyim) 
@@ -37,6 +37,9 @@
  ;; If there is more than one, they won't work right.
  '(company-idle-delay 0.08)
  '(company-minimum-prefix-length 1)
+ '(package-selected-packages
+   (quote
+    (company-web company hungry-delete swiper counsel smartparens js2-mode nodejs-repl exec-path-from-shell popwin monokai-theme emmet-mode js2-refactor web-mode expand-region iedit helm-ag pyim prettier-js typescript-mode flycheck magit use-package rjsx-mode tide)))
  '(popwin:popup-window-position (quote right))
  '(popwin:popup-window-width 60))
 (custom-set-faces

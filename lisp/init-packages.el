@@ -24,8 +24,7 @@
 		       ;; --- popwin ---
 		       popwin
 		       ;; --- Themes ---
-		       monokai-theme 
-		       ;; solarized-theme
+		       monokai-theme
 		       emmet-mode
 		       js2-refactor
 		       web-mode
@@ -44,6 +43,10 @@
 		       flycheck
 		       ;; magit
 		       magit
+		       use-package
+		       rjsx-mode
+		       tide
+		       ;; 
 		       ) "Default packages")
 
 (setq package-selected-packages my/packages)
@@ -82,14 +85,14 @@
 
 
 ;; js2-mode
-(setq auto-mode-alist
-      (append
-       '(("\\.js\\'" . js2-mode)
-	 ("\\.js\\'" . js2-refactor-mode)
-	 ("\\.html\\'" . web-mode)
-	 ("\\.vue\\'" . web-mode))
-       auto-mode-alist))
-(add-hook 'emacs-lisp-mode-hook 'show-paren-mode)
+;; (setq auto-mode-alist
+;;       (append
+;;        '(("\\.js\\'" . js2-mode)
+;; 	 ("\\.js\\'" . js2-refactor-mode)
+;; 	 ("\\.html\\'" . web-mode)
+;; 	 ("\\.vue\\'" . web-mode))
+;;        auto-mode-alist))
+;; (add-hook 'emacs-lisp-mode-hook 'show-paren-mode)
 ;; nodejs
 (require 'nodejs-repl)
 (global-set-key (kbd "<f5>") 'nodejs-repl-send-buffer)
@@ -100,36 +103,36 @@
 (popwin-mode 1)
 
 ;; config for web-mode
-(defun my-web-mode-indent-setup ()
-  (setq web-mode-markup-indent-offset 4) ; web-mode, html tag in html file
-  (setq web-mode-css-indent-offset 2)    ; web-mode, css in html file
-  (setq web-mode-code-indent-offset 4)   ; web-mode, js code in html file
-  )
-(add-hook 'web-mode-hook 'my-web-mode-indent-setup)
+;; (defun my-web-mode-indent-setup ()
+;;   (setq web-mode-markup-indent-offset 4) ; web-mode, html tag in html file
+;;   (setq web-mode-css-indent-offset 2)    ; web-mode, css in html file
+;;   (setq web-mode-code-indent-offset 4)   ; web-mode, js code in html file
+;;   )
+;; (add-hook 'web-mode-hook 'my-web-mode-indent-setup)
 
 ;; theme here
 (add-to-list 'my/packages 'monokai-theme)
 (load-theme 'monokai 1)
 
 
-(defun js2-imenu-make-index ()
-      (interactive)
-      (save-excursion
-	;; (setq imenu-generic-expression '((nil "describe\\(\"\\(.+\\)\"" 1)))
-	(imenu--generic-function '(("describe" "\\s-*describe\\s-*(\\s-*[\"']\\(.+\\)[\"']\\s-*,.*" 1)
-				   ("it" "\\s-*it\\s-*(\\s-*[\"']\\(.+\\)[\"']\\s-*,.*" 1)
-				   ("test" "\\s-*test\\s-*(\\s-*[\"']\\(.+\\)[\"']\\s-*,.*" 1)
-				   ("before" "\\s-*before\\s-*(\\s-*[\"']\\(.+\\)[\"']\\s-*,.*" 1)
-				   ("after" "\\s-*after\\s-*(\\s-*[\"']\\(.+\\)[\"']\\s-*,.*" 1)
-				   ("Function" "function[ \t]+\\([a-zA-Z0-9_$.]+\\)[ \t]*(" 1)
-				   ("Function" "^[ \t]*\\([a-zA-Z0-9_$.]+\\)[ \t]*=[ \t]*function[ \t]*(" 1)
-				   ("Function" "^var[ \t]*\\([a-zA-Z0-9_$.]+\\)[ \t]*=[ \t]*function[ \t]*(" 1)
-				   ("Function" "^[ \t]*\\([a-zA-Z0-9_$.]+\\)[ \t]*()[ \t]*{" 1)
-				   ("Function" "^[ \t]*\\([a-zA-Z0-9_$.]+\\)[ \t]*:[ \t]*function[ \t]*(" 1)
-				   ("Task" "[. \t]task([ \t]*['\"]\\([^'\"]+\\)" 1)))))
-(add-hook 'js2-mode-hook
-	      (lambda ()
-		(setq imenu-create-index-function 'js2-imenu-make-index)))
+;; (defun js2-imenu-make-index ()
+;;       (interactive)
+;;       (save-excursion
+;; 	;; (setq imenu-generic-expression '((nil "describe\\(\"\\(.+\\)\"" 1)))
+;; 	(imenu--generic-function '(("describe" "\\s-*describe\\s-*(\\s-*[\"']\\(.+\\)[\"']\\s-*,.*" 1)
+;; 				   ("it" "\\s-*it\\s-*(\\s-*[\"']\\(.+\\)[\"']\\s-*,.*" 1)
+;; 				   ("test" "\\s-*test\\s-*(\\s-*[\"']\\(.+\\)[\"']\\s-*,.*" 1)
+;; 				   ("before" "\\s-*before\\s-*(\\s-*[\"']\\(.+\\)[\"']\\s-*,.*" 1)
+;; 				   ("after" "\\s-*after\\s-*(\\s-*[\"']\\(.+\\)[\"']\\s-*,.*" 1)
+;; 				   ("Function" "function[ \t]+\\([a-zA-Z0-9_$.]+\\)[ \t]*(" 1)
+;; 				   ("Function" "^[ \t]*\\([a-zA-Z0-9_$.]+\\)[ \t]*=[ \t]*function[ \t]*(" 1)
+;; 				   ("Function" "^var[ \t]*\\([a-zA-Z0-9_$.]+\\)[ \t]*=[ \t]*function[ \t]*(" 1)
+;; 				   ("Function" "^[ \t]*\\([a-zA-Z0-9_$.]+\\)[ \t]*()[ \t]*{" 1)
+;; 				   ("Function" "^[ \t]*\\([a-zA-Z0-9_$.]+\\)[ \t]*:[ \t]*function[ \t]*(" 1)
+;; 				   ("Task" "[. \t]task([ \t]*['\"]\\([^'\"]+\\)" 1)))))
+;; (add-hook 'js2-mode-hook
+;; 	      (lambda ()
+;; 		(setq imenu-create-index-function 'js2-imenu-make-index)))
 
 (global-set-key (kbd "M-s i") 'counsel-imenu)
 
@@ -143,17 +146,17 @@
 (global-set-key (kbd "C-\\") 'toggle-input-method)
 
 ;; prettier-js config
-(require 'prettier-js)
-(add-hook 'js2-mode-hook 'prettier-js-mode)
-(add-hook 'web-mode-hook 'prettier-js-mode)
+;; (require 'prettier-js)
+;; (add-hook 'js2-mode-hook 'prettier-js-mode)
+;; (add-hook 'web-mode-hook 'prettier-js-mode)
 
-(setq prettier-js-args '(
-			 "--trailing-comma" "all"
-			 "--tab-width" "4"
-			 "--single-quote" "true"
-			 "--print-width" "120"
-			 "--jsx-bracket-same-line" "true"
-))
+;; (setq prettier-js-args '(
+;; 			 "--trailing-comma" "all"
+;; 			 "--tab-width" "4"
+;; 			 "--single-quote" "true"
+;; 			 "--print-width" "120"
+;; 			 "--jsx-bracket-same-line" "true"
+;; ))
 
 
 (provide 'init-packages)
