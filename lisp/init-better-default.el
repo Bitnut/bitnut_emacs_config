@@ -43,3 +43,7 @@
 	regexp-history)
   (call-interactively 'occur))
 (global-set-key (kbd "M-s o") 'occur-dwim)
+
+
+;; region/ background / foreground color config
+(set-face-attribute 'region nil :background "#666" :foreground "#ffffff")

@@ -28,7 +28,7 @@
 (require 'init-web)
 
 ;; pyim
-;; (require 'init-pyim) 
+(require 'init-pyim) 
 
 (custom-set-variables
  ;; custom-set-variables was added by Custom.

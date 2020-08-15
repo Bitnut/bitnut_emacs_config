@@ -2,14 +2,11 @@
   :ensure t
   :mode ("\\.html\\'" "\\.vue\\'")
   :config
-  (setq web-mode-markup-indent-offset 4)
+  (setq web-mode-markup-indent-offset  4)
   (setq web-mode-css-indent-offset 2)
   (setq web-mode-code-indent-offset 4)
   (setq web-mode-enable-current-element-highlight t)
   (setq web-mode-enable-css-colorization t)
-  ;; (set-face-attribute 'web-mode-html-tag-face nil :foreground "royalblue")
-  ;; (set-face-attribute 'web-mode-html-attr-name-face nil :foreground "powderblue")
-  ;; (set-face-attribute 'web-mode-doctype-face nil :foreground "lightskyblue")
   (setq web-mode-content-types-alist
         '(("vue" . "\\.vue\\'")))
   (use-package company-web
@@ -113,21 +110,21 @@
                                         ;                emmet                ;
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 
-;; (use-package emmet-mode
-;;   :ensure t
-;;   :hook (web-mode css-mode scss-mode sgml-mode rjsx-mode)
-;;   :config
-;;   (add-hook 'emmet-mode-hook (lambda()
-;;                               (setq emmet-indent-after-insert t)))
+(use-package emmet-mode
+  :ensure t
+  :hook (web-mode css-mode scss-mode sgml-mode rjsx-mode)
+  :config
+  (add-hook 'emmet-mode-hook (lambda()
+                              (setq emmet-indent-after-insert t)))
 
-;;   )
+  )
 
-;; (use-package mode-local
-;;   :ensure t
-;;   :config
-;;   (setq-mode-local rjsx-mode emmet-expand-jsx-className? t)
-;;   (setq-mode-local web-mode emmet-expand-jsx-className? nil)  
-;;   )
+(use-package mode-local
+  :ensure t
+  :config
+  (setq-mode-local rjsx-mode emmet-expand-jsx-className? t)
+  (setq-mode-local web-mode emmet-expand-jsx-className? t)  
+  )
 
 
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
