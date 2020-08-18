@@ -3,7 +3,7 @@
   :mode ("\\.html\\'" "\\.vue\\'")
   :config
   (setq web-mode-markup-indent-offset  4)
-  (setq web-mode-css-indent-offset 2)
+  (setq web-mode-css-indent-offset 4)
   (setq web-mode-code-indent-offset 4)
   (setq web-mode-enable-current-element-highlight t)
   (setq web-mode-enable-css-colorization t)
@@ -132,12 +132,11 @@
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 (use-package js2-mode
   :ensure t
-  ;; :mode (("\\.js\\'" . js2-mode)
-  ;;        ("\\.json\\'" . javascript-mode))
+  :mode (("\\.json\\'" . javascript-mode))
   :init
   (setq indent-tabs-mode nil)
-  (setq js2-basic-offset 2)
-  (setq js-indent-level 2)
+  (setq js2-basic-offset 4)
+  (setq js-indent-level 4)
   (setq js2-global-externs '("module" "require" "assert" "setInterval" "console" "__dirname__") )
   )
 
@@ -188,19 +187,11 @@
 			   "--trailing-comma" "all"
 			   "--single-quote" "true"
 			   "--print-width" "120"
+			   "--tab-width" "4"
 			   "--jsx-bracket-same-line" "true"
                            ))
   )
 
-;;
-;; restful client
-;;
-
-
-;; (use-package restclient
-;;   :ensure t
-;;   :mode ("\\.http\\'" . restclient-mode)
-;;   )
 
 (provide 'init-web)
 ;;; web.el ends here

@@ -93,6 +93,8 @@
 ;; 	 ("\\.vue\\'" . web-mode))
 ;;        auto-mode-alist))
 ;; (add-hook 'emacs-lisp-mode-hook 'show-paren-mode)
+
+
 ;; nodejs
 (require 'nodejs-repl)
 (global-set-key (kbd "<f5>") 'nodejs-repl-send-buffer)
@@ -150,7 +152,7 @@
 ;; (require 'pyim-basedict) ; 拼音词库设置，五笔用户 *不需要* 此行设置
 ;; (pyim-basedict-enable)   ; 拼音词库，五笔用户 *不需要* 此行设置
 ;; (setq default-input-method "pyim")
-(global-set-key (kbd "C-\\") 'toggle-input-method)
+;; (global-set-key (kbd "C-\\") 'toggle-input-method)
 
 ;; prettier-js config
 ;; (require 'prettier-js)

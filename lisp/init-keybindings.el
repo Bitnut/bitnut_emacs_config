@@ -18,4 +18,6 @@
 
 (global-set-key (kbd "C-c p s") 'helm-do-ag-project-root)
 
+(global-set-key (kbd "C-x g") 'magit-status)
+
 (provide 'init-keybindings)
