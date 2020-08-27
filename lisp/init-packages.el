@@ -40,13 +40,28 @@
 		       typescript-mode
 		       ;; flycheck
 		       flycheck
+		       flycheck-posframe
+		       flycheck-pos-tip
+		       flycheck-popup-tip
 		       ;; magit
 		       magit
 		       use-package
 		       rjsx-mode
 		       tide
-		       ;;
+		       ;; pyim 弹窗
 		       posframe
+		       ;; markdown
+		       markdown-mode
+		       ;; esh-doc
+		       esh-help
+		       eshell-z
+		       eshell-prompt-extras
+		       ;; shell
+		       shell
+		       xterm-color
+		       shell-pop
+		       ;; lsp
+		       lsp-mode
 		       ) "Default packages")
 
 (setq package-selected-packages my/packages)

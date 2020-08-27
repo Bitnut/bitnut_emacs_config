@@ -1,6 +1,6 @@
 (use-package web-mode
   :ensure t
-  :mode ("\\.html\\'" "\\.vue\\'")
+  :mode ("\\.html\\'" "\\.vue\\'" "\\.php\\'")
   :config
   (setq web-mode-markup-indent-offset  4)
   (setq web-mode-css-indent-offset 4)
@@ -9,6 +9,10 @@
   (setq web-mode-enable-css-colorization t)
   (setq web-mode-content-types-alist
         '(("vue" . "\\.vue\\'")))
+  (setq web-mode-engines-alist
+      '(("php"    . "\\.phtml\\'")
+        ("php"  . "\\.tpl\\.php\\'"))
+      )
   (use-package company-web
     :ensure t)
   (add-hook 'web-mode-hook (lambda()
@@ -25,8 +29,8 @@
 (defun my/web-html-setup()
   "Setup for web-mode html files."
   (message "web-mode use html related setup")
-  (flycheck-add-mode 'html-tidy 'web-mode)
-  (flycheck-select-checker 'html-tidy)
+  ;; (flycheck-add-mode 'html-tidy 'web-mode)
+  ;; (flycheck-select-checker 'html-tidy)
   (add-to-list (make-local-variable 'company-backends)
                '(company-web-html company-files company-css company-capf company-dabbrev))
   (add-hook 'before-save-hook #'sgml-pretty-print)
@@ -42,9 +46,9 @@
   (message "web-mode use vue related setup")
   (setup-tide-mode)
   (prettier-js-mode)
-  ;; (flycheck-add-mode 'javascript-eslint 'web-mode)
-  ;; (flycheck-select-checker 'javascript-eslint)
-  ;; (my/use-eslint-from-node-modules)
+  (flycheck-add-mode 'javascript-eslint 'web-mode)
+  (flycheck-select-checker 'javascript-eslint)
+  (my/use-eslint-from-node-modules)
   (add-to-list (make-local-variable 'company-backends)
                '(comany-tide company-web-html company-css company-files))
   )
@@ -62,9 +66,18 @@
                       (expand-file-name "node_modules/eslint/bin/eslint.js"
                                         root))))
     (when (and eslint (file-executable-p eslint))
-      (setq-local flycheck-javascript-eslint-executable eslint))))
+      (setq-local flycheck-javascript-eslint-executable eslint)
+      (setq flycheck-javascript-standard-executable "")
+      )))
 
-;; (add-hook 'flycheck-mode-hook #'my/use-eslint-from-node-modules)
+(defun my/use-global-eslint ()
+  "Use global eslint"
+  (setq flycheck-javascript-eslint-executable   "/usr/lib/node_modules/eslint/bin/eslint.js")
+  (setq flycheck-eslintrc "/home/picher/.emacs.d/js/eslintrc.js")
+  (setq exec-path (append exec-path '("/usr/lib/node_modules/eslint")))
+  )
+
+(add-hook 'flycheck-mode-hook #'my/use-eslint-from-node-modules)
 
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
                                         ;                 rjsx                ;
@@ -144,6 +157,32 @@
                                         ;              typescript             ;
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 
+;; Javascript, Typescript and Flow support for lsp-mode
+;;
+;; Install:
+;;
+;; npm install -g typescript
+;; npm install -g typescript-language-server
+;;
+;; Fixed error "[tsserver] /bin/sh: /usr/local/Cellar/node/10.5.0_1/bin/npm: No such file or directory" :
+;; 
+;; sudo ln -s /usr/local/bin/npm /usr/local/Cellar/node/10.5.0_1/bin/npm
+;;
+;; (add-hook 'js-mode-hook #'lsp-typescript-enable)
+;; (add-hook 'typescript-mode-hook #'lsp-typescript-enable) ;; for typescript support
+;; (add-hook 'js3-mode-hook #'lsp-typescript-enable) ;; for js3-mode support
+;; (add-hook 'rjsx-mode #'lsp-typescript-enable) ;; for rjsx-mode support
+
+;; (defun lsp-company-transformer (candidates)
+;;   (let ((completion-ignore-case t))
+;;     (all-completions (company-grab-symbol) candidates)))
+
+;; (defun lsp-js-hook nil
+;;   (make-local-variable 'company-transformers)
+;;   (push 'lsp-company-transformer company-transformers))
+
+;; (add-hook 'js-mode-hook 'lsp-js-hook)
+
 (defun setup-tide-mode ()
   "Setup tide mode for other mode."
   (interactive)
@@ -177,7 +216,7 @@
 
 (use-package prettier-js
   :ensure t
-  :hook ((js2-mode . prettier-js-mode)
+  :hook (;;(js2-mode . prettier-js-mode)
          (typescript-mode . prettier-js-mode)
          (css-mode . prettier-js-mode)
          (web-mode . prettier-js-mode))
