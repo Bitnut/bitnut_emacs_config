@@ -1,11 +1,15 @@
  (package-initialize)
 
 (add-to-list 'load-path "~/.emacs.d/lisp/")
-(add-to-list 'load-path "~/.emacs.d/packages/tide")
+;; (add-to-list 'load-path "~/.emacs.d/packages/tide")
 
 ;; Package Management
 ;; ------------------------------------------------------
 (require 'init-packages)
+
+;; const vars
+;; ------------------------------------------------------
+(require 'init-const)
 
 ;; UI Management
 ;; ------------------------------------------------------
@@ -28,7 +32,21 @@
 (require 'init-web)
 
 ;; pyim
-(require 'init-pyim) 
+;; ------------------------------------------------------
+(require 'init-pyim)
+
+;; markdown
+;; ------------------------------------------------------
+(require 'init-md)
+
+;; eshell
+;; ------------------------------------------------------
+(require 'init-eshell)
+;; (require 'init-shell)
+
+;; flycheck
+;; ------------------------------------------------------
+(require 'init-flycheck)
 
 (custom-set-variables
  ;; custom-set-variables was added by Custom.
