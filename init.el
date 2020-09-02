@@ -46,7 +46,7 @@
 
 ;; flycheck
 ;; ------------------------------------------------------
-(require 'init-flycheck)
+;; (require 'init-flycheck)
 
 (custom-set-variables
  ;; custom-set-variables was added by Custom.
@@ -55,6 +55,7 @@
  ;; If there is more than one, they won't work right.
  '(company-idle-delay 0.08)
  '(company-minimum-prefix-length 1)
+ '(flycheck-checker-error-threshold 1500)
  '(package-selected-packages
    (quote
     (company-web company hungry-delete swiper counsel smartparens js2-mode nodejs-repl exec-path-from-shell popwin monokai-theme emmet-mode js2-refactor web-mode expand-region iedit helm-ag pyim prettier-js typescript-mode flycheck magit use-package rjsx-mode tide)))
@@ -65,6 +66,7 @@
  ;; If you edit it by hand, you could mess it up, so be careful.
  ;; Your init file should contain only one such instance.
  ;; If there is more than one, they won't work right.
+ '(flycheck-posframe-border-face ((t (:inherit font-lock-comment-face))))
  '(iedit-occurrence ((t (:inherit region))))
  '(js2-error ((t (:foreground "red"))))
  '(js2-external-variable ((t (:foreground "dark gray"))))

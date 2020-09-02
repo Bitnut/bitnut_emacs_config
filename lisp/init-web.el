@@ -45,10 +45,10 @@
   "Setup for js related."
   (message "web-mode use vue related setup")
   (setup-tide-mode)
-  (prettier-js-mode)
-  (flycheck-add-mode 'javascript-eslint 'web-mode)
-  (flycheck-select-checker 'javascript-eslint)
-  (my/use-eslint-from-node-modules)
+  ;; (prettier-js-mode)
+  ;; (flycheck-add-mode 'javascript-eslint 'web-mode)
+  ;; (flycheck-select-checker 'javascript-eslint)
+  ;; (my/use-validate-eslint)
   (add-to-list (make-local-variable 'company-backends)
                '(comany-tide company-web-html company-css company-files))
   )
@@ -77,7 +77,11 @@
   (setq exec-path (append exec-path '("/usr/lib/node_modules/eslint")))
   )
 
-(add-hook 'flycheck-mode-hook #'my/use-eslint-from-node-modules)
+(defun my/use-validate-eslint ()
+  "Use validate eslint"
+  (setq flycheck-javascript-eslint-executable   "/mnt/e/projects/reolink-public/node_modules/eslint/bin/eslint.js")
+  (setq flycheck-eslintrc "/mnt/e/projects/reolink-public/.eslintrc.js"))
+;; (add-hook 'flycheck-mode-hook #'my/use-validate-eslint)
 
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
                                         ;                 rjsx                ;
@@ -214,22 +218,22 @@
   (setq tide-completion-enable-autoimport-suggestions t)
   )
 
-(use-package prettier-js
-  :ensure t
-  :hook (;;(js2-mode . prettier-js-mode)
-         (typescript-mode . prettier-js-mode)
-         (css-mode . prettier-js-mode)
-         (web-mode . prettier-js-mode))
-  :config
-  (setq prettier-js-args '(
-                           "--bracket-spacing" "false"
-			   "--trailing-comma" "all"
-			   "--single-quote" "true"
-			   "--print-width" "120"
-			   "--tab-width" "4"
-			   "--jsx-bracket-same-line" "true"
-                           ))
-  )
+;; (use-package prettier-js
+;;   :ensure t
+;;   :hook (;;(js2-mode . prettier-js-mode)
+;;          (typescript-mode . prettier-js-mode)
+;;          (css-mode . prettier-js-mode)
+;;          (web-mode . prettier-js-mode))
+;;   :config
+;;   (setq prettier-js-args '(
+;;                            "--bracket-spacing" "false"
+;; 			   "--trailing-comma" "all"
+;; 			   "--single-quote" "true"
+;; 			   "--print-width" "120"
+;; 			   "--tab-width" "4"
+;; 			   "--jsx-bracket-same-line" "true"
+;;                            ))
+;;   )
 
 
 (provide 'init-web)

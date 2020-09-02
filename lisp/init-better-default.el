@@ -15,7 +15,7 @@
 (setq recentf-max-menu-item 25)
 
 
-(provide 'init-better-default)
+
 
 (define-advice show-paren-function (:around (fn) fix-show-paren-function)
   "Highlight enclosing parens."
@@ -54,3 +54,8 @@
 
 ;; region/ background / foreground color config
 (set-face-attribute 'region nil :background "#666" :foreground "#ffffff")
+
+;; move through camel words
+(global-subword-mode 1)
+
+(provide 'init-better-default)

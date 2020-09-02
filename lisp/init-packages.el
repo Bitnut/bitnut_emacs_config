@@ -24,7 +24,8 @@
 		       ;; --- popwin ---
 		       popwin
 		       ;; --- Themes ---
-		       monokai-theme
+		       ;;monokai-theme
+		       spacemacs-theme
 		       emmet-mode
 		       js2-refactor
 		       web-mode
@@ -34,8 +35,6 @@
 		       ;;pyim input method
 		       pyim
 		       pyim-basedict
-		       ;; prettier
-		       prettier-js
 		       ;;typescritpt
 		       typescript-mode
 		       ;; flycheck
@@ -62,6 +61,9 @@
 		       shell-pop
 		       ;; lsp
 		       lsp-mode
+		       ;; icons
+		       ;;all-the-icons
+		       ;;spaceline-all-the-icons
 		       ) "Default packages")
 
 (setq package-selected-packages my/packages)
@@ -107,7 +109,8 @@
 ;; 	 ("\\.html\\'" . web-mode)
 ;; 	 ("\\.vue\\'" . web-mode))
 ;;        auto-mode-alist))
-;; (add-hook 'emacs-lisp-mode-hook 'show-paren-mode)
+
+(add-hook 'emacs-lisp-mode-hook 'show-paren-mode)
 
 
 ;; nodejs
@@ -119,18 +122,16 @@
 (require 'popwin)
 (popwin-mode 1)
 
-;; config for web-mode
-;; (defun my-web-mode-indent-setup ()
-;;   (setq web-mode-markup-indent-offset 4) ; web-mode, html tag in html file
-;;   (setq web-mode-css-indent-offset 2)    ; web-mode, css in html file
-;;   (setq web-mode-code-indent-offset 4)   ; web-mode, js code in html file
-;;   )
-;; (add-hook 'web-mode-hook 'my-web-mode-indent-setup)
-
 ;; theme here
-(add-to-list 'my/packages 'monokai-theme)
-(load-theme 'monokai 1)
+;;(add-to-list 'my/packages 'monokai-theme)
+;;(load-theme 'monokai 1)
 
+;;(add-to-list 'my/packages 'spacemacs-theme)
+;;(load-theme 'spacemacs-theme 1)
+
+(use-package spacemacs-theme
+  :defer t
+  :init (load-theme 'spacemacs-dark t))
 
 (defun js2-imenu-make-index ()
       (interactive)
@@ -161,30 +162,17 @@
 ;; iedit
 (require 'iedit)
 
+(use-package helm-ag
+  :config
+  (setq helm-ag-use-grep-ignore-list t)
+  )
 
-;; pyim config
-;; (require 'pyim)
-;; (require 'pyim-basedict) ; 拼音词库设置，五笔用户 *不需要* 此行设置
-;; (pyim-basedict-enable)   ; 拼音词库，五笔用户 *不需要* 此行设置
-;; (setq default-input-method "pyim")
-;; (global-set-key (kbd "C-\\") 'toggle-input-method)
+;; remember to call 'M-x all-the-icons-install-fonts'
+;;(use-package all-the-icons)
 
-;; prettier-js config
-;; (require 'prettier-js)
-;; (add-hook 'js2-mode-hook 'prettier-js-mode)
-;; (add-hook 'web-mode-hook 'prettier-js-mode)
 
-;; (setq prettier-js-args '(
-;; 			 "--trailing-comma" "all"
-;; 			 "--tab-width" "4"
-;; 			 "--single-quote" "true"
-;; 			 "--print-width" "120"
-;; 			 "--jsx-bracket-same-line" "true"
-;; ))
-
+;; (use-package spaceline-all-the-icons 
+;;   :after spaceline
+;;   :config (spaceline-all-the-icons-theme))
 
 (provide 'init-packages)
-
-
-
-

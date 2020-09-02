@@ -2,7 +2,12 @@
 ;;; This format is meant to be slightly human-readable;
 ;;; nevertheless, you probably don't want to edit it.
 ;;; -*- End Of Bookmark File Format Version Stamp -*-
-(("org-capture-last-stored"
+(("todo.org"
+ (filename . "/mnt/e/projects/bcnotes/todo.org")
+ (front-context-string)
+ (rear-context-string . "面\n2. mobile 页面样式")
+ (position . 53))
+("org-capture-last-stored"
  (filename . "~/.emacs.d/gtd.org")
  (front-context-string . "** TODO [#B] hi ")
  (rear-context-string)
