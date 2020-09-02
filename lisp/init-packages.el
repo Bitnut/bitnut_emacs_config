@@ -62,8 +62,8 @@
 		       ;; lsp
 		       lsp-mode
 		       ;; icons
-		       ;;all-the-icons
-		       ;;spaceline-all-the-icons
+		       all-the-icons
+		       spaceline-all-the-icons
 		       ) "Default packages")
 
 (setq package-selected-packages my/packages)
@@ -166,13 +166,17 @@
   :config
   (setq helm-ag-use-grep-ignore-list t)
   )
-
+(use-package all-the-icons)
 ;; remember to call 'M-x all-the-icons-install-fonts'
-;;(use-package all-the-icons)
+;;
+;;	     :ensure t
+ ;; :defer t
+  ;;:init (set-frame-font "all-the-icons" t)
+  ;;:config (set-frame-font "Source Code Pro" t))
 
 
-;; (use-package spaceline-all-the-icons 
-;;   :after spaceline
-;;   :config (spaceline-all-the-icons-theme))
+(use-package spaceline-all-the-icons
+  :config (spaceline-all-the-icons-theme)
+  (setq spaceline-all-the-icons-separator-type 'slant))
 
 (provide 'init-packages)

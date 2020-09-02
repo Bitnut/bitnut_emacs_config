@@ -58,4 +58,8 @@
 ;; move through camel words
 (global-subword-mode 1)
 
+;; encode setting
+(set-language-environment "UTF-8")
+(set-default-coding-systems 'utf-8)
+
 (provide 'init-better-default)
