@@ -2,6 +2,7 @@
 
 (add-to-list 'load-path "~/.emacs.d/lisp/")
 (add-to-list `load-path (expand-file-name "~/.emacs.d/elisp/awesome-tray"))
+(add-to-list `load-path (expand-file-name "~/.emacs.d/elisp/awesome-tab"))
 
 
 ;; Package Management
@@ -49,10 +50,9 @@
 ;; ------------------------------------------------------
 ;; (require 'init-flycheck)
 
-;; awesome-tray
+;; theme
 ;; ------------------------------------------------------
-(require 'awesome-tray)
-(awesome-tray-mode 1)
+(require 'init-theme)
 
 (custom-set-variables
  ;; custom-set-variables was added by Custom.

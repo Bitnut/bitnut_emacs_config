@@ -123,50 +123,6 @@
 (require 'popwin)
 (popwin-mode 1)
 
-;; theme here
-;;(add-to-list 'my/packages 'monokai-theme)
-;;(load-theme 'monokai 1)
-
-;; <Color theme initialization code>
-
-(setq current-theme '(spacemacs-common))
-
-(defun bitnut-theme-is-day ()
-  (let ((current-hour (string-to-number (format-time-string "%H"))))
-    (and (> current-hour 7)
-         (< current-hour 18))))
-
-(defun bitnut-synchronize-theme ()
-  "synchronize theme by current time"
-  (if (bitnut-theme-is-day)
-      (setq now '(spacemacs-common))
-    (setq now '(spacemacs-dark)))
-  (if (equal now current-theme)
-      nil
-    (setq current-theme now)
-    (eval now)))
-
-;; (defun synchronize-theme ()
-;;   (setq hour 
-;;         (string-to-number 
-;;             (substring (current-time-string) 11 13)))
-;;     (if (member hour (number-sequence 6 17))
-;;         (setq now '(color-theme-solarized-light))
-;;       (setq now '(color-theme-solarized-dark))) 
-;;     (if (equal now current-theme)
-;;         nil
-;;         (setq current-theme now)
-;;         (eval now) ) ) ;; end of (defun ...
-
-
-;; (defun bitnut-auto-load-theme
-;;     (run-with-timer 0 3600 'bitnut-synchronize-theme))
-
-
-(use-package spacemacs-theme
-  :defer t
-  :init (load-theme 'spacemacs-dark t))
-
 (defun js2-imenu-make-index ()
   (interactive)
   (save-excursion
@@ -211,5 +167,6 @@
 ;;   (setq separator-scale '1)
 ;;   )
 (add-hook 'dired-mode-hook 'all-the-icons-dired-mode)
+
 
 (provide 'init-packages)
