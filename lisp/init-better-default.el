@@ -1,5 +1,6 @@
 (setq make-backup-files nil)
 
+;; cursor
 (setq-default cursor-type 'bar)
 
 (setq ring-bell-function 'ignore)

@@ -1,7 +1,8 @@
  (package-initialize)
 
 (add-to-list 'load-path "~/.emacs.d/lisp/")
-;; (add-to-list 'load-path "~/.emacs.d/packages/tide")
+(add-to-list `load-path (expand-file-name "~/.emacs.d/elisp/awesome-tray"))
+
 
 ;; Package Management
 ;; ------------------------------------------------------
@@ -47,6 +48,11 @@
 ;; flycheck
 ;; ------------------------------------------------------
 ;; (require 'init-flycheck)
+
+;; awesome-tray
+;; ------------------------------------------------------
+(require 'awesome-tray)
+(awesome-tray-mode 1)
 
 (custom-set-variables
  ;; custom-set-variables was added by Custom.
