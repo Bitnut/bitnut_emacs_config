@@ -51,6 +51,7 @@
 		      posframe
 		      ;; markdown
 		      markdown-mode
+		      grip-mode
 		      ;; esh-doc
 		      esh-help
 		      eshell-z
@@ -61,6 +62,7 @@
 		      shell-pop
 		      ;; lsp
 		      lsp-mode
+		      eglot
 		      ;; icons
 		      all-the-icons
 		      spaceline-all-the-icons

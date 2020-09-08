@@ -44,7 +44,7 @@
 (defun my/web-vue-setup()
   "Setup for js related."
   (message "web-mode use vue related setup")
-  (setup-tide-mode)
+  ;; (setup-tide-mode)
   ;; (prettier-js-mode)
   ;; (flycheck-add-mode 'javascript-eslint 'web-mode)
   ;; (flycheck-select-checker 'javascript-eslint)
@@ -190,7 +190,7 @@
 (defun setup-tide-mode ()
   "Setup tide mode for other mode."
   (interactive)
-  (message "setup tide mode")
+  (message "seting up tide mode")
   (tide-setup)
   (flycheck-mode +1)
   (setq flycheck-check-syntax-automatically '(save mode-enabled))
@@ -202,9 +202,9 @@
   (company-mode +1))
 
 
-(add-hook 'js2-mode-hook #'setup-tide-mode)
-(add-hook 'typescript-mode-hook #'setup-tide-mode)
-(add-hook 'rjsx-mode-hook #'setup-tide-mode)
+;;(add-hook 'js2-mode-hook #'setup-tide-mode)
+;;(add-hook 'typescript-mode-hook #'setup-tide-mode)
+;;(add-hook 'rjsx-mode-hook #'setup-tide-mode)
 
 
 
@@ -235,6 +235,8 @@
 ;;                            ))
 ;;   )
 
+(add-hook 'js-mode-hook 'eglot-ensure)
+(add-hook 'typescript-mode-hook 'eglot-ensure)
 
 (provide 'init-web)
 ;;; web.el ends here

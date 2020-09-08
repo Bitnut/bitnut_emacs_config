@@ -41,7 +41,7 @@
 
 
 (defun bitnut-auto-load-theme ()
-  (run-with-timer 0 (* 60 60) 'bitnut-theme-load))
+  (run-with-timer 0 (* 30 60) 'bitnut-theme-load))
 
 (bitnut-auto-load-theme)
 
