@@ -1,0 +1,9 @@
+* write my own blog
+** TODO new blogs [0/6]
+1. [ ] box-sizing
+2. [ ] box-shadow 学习
+3. [ ] height 设值无法成功的问题
+4. [ ] height vs padding （height 失效）
+5. [ ] 下拉动画
+6. [ ] box-shadow 阴影被覆盖 https://stackoverflow.com/questions/5505118/css-box-shadow-hidden-z-index-does-not-fix
+

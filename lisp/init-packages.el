@@ -67,6 +67,8 @@
 		      all-the-icons
 		      spaceline-all-the-icons
 		      all-the-icons-dired
+		      ;; code folding
+		      origami
 		      ) "Default packages")
 
 (setq package-selected-packages my/packages)
@@ -169,6 +171,12 @@
 ;;   (setq separator-scale '1)
 ;;   )
 (add-hook 'dired-mode-hook 'all-the-icons-dired-mode)
+
+;; code folding
+(add-hook 'prog-mode-hook 'origami-mode)
+(with-eval-after-load 'origami
+    (define-key origami-mode-map (kbd "C-c f") 'origami-recursively-toggle-node)
+    (define-key origami-mode-map (kbd "C-c F") 'origami-toggle-all-nodes))
 
 
 (provide 'init-packages)
