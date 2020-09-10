@@ -23,25 +23,14 @@
 		      exec-path-from-shell
 		      ;; --- popwin ---
 		      popwin
-		      ;; --- Themes ---
-		      ;;monokai-theme
-		      spacemacs-theme
 		      emmet-mode
 		      js2-refactor
 		      web-mode
 		      expand-region
 		      iedit
 		      helm-ag
-		      ;;pyim input method
-		      pyim
-		      pyim-basedict
 		      ;;typescritpt
 		      typescript-mode
-		      ;; flycheck
-		      flycheck
-		      flycheck-posframe
-		      flycheck-pos-tip
-		      flycheck-popup-tip
 		      ;; magit
 		      magit
 		      use-package
@@ -52,23 +41,39 @@
 		      ;; markdown
 		      markdown-mode
 		      grip-mode
-		      ;; esh-doc
-		      esh-help
-		      eshell-z
-		      eshell-prompt-extras
-		      ;; shell
-		      shell
-		      xterm-color
-		      shell-pop
-		      ;; lsp
-		      lsp-mode
-		      eglot
+		      ;; package groups
+		      ;;;;;;;;;;;;;;;;;;;;;;;;;;;
+		      ;; code folding
+		      origami
 		      ;; icons
 		      all-the-icons
 		      spaceline-all-the-icons
 		      all-the-icons-dired
-		      ;; code folding
-		      origami
+		      ;; lsp
+		      lsp-mode
+		      eglot
+		      ;; shell
+		      shell
+		      xterm-color
+		      shell-pop
+		      ;; esh-doc
+		      esh-help
+		      eshell-z
+		      eshell-prompt-extras
+		      ;; flycheck
+		      flycheck
+		      flycheck-posframe
+		      flycheck-pos-tip
+		      flycheck-popup-tip
+		      ;;pyim input method
+		      pyim
+		      pyim-basedict
+		      ;; --- Themes ---
+		      ;;monokai-theme
+		      spacemacs-theme
+		      ;; netease-music
+		      request
+		      async
 		      ) "Default packages")
 
 (setq package-selected-packages my/packages)

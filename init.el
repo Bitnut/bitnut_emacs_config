@@ -3,6 +3,7 @@
 (add-to-list 'load-path "~/.emacs.d/lisp/")
 (add-to-list `load-path (expand-file-name "~/.emacs.d/elisp/awesome-tray"))
 (add-to-list `load-path (expand-file-name "~/.emacs.d/elisp/awesome-tab"))
+(add-to-list `load-path (expand-file-name "~/.emacs.d/elisp/netease-cloud-music.el"))
 
 
 ;; Package Management
@@ -53,6 +54,10 @@
 ;; theme
 ;; ------------------------------------------------------
 (require 'init-theme)
+
+;; netease
+;; ------------------------------------------------------
+(require 'init-netease)
 
 (custom-set-variables
  ;; custom-set-variables was added by Custom.
