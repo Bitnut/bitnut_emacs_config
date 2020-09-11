@@ -17,7 +17,7 @@ border/padding vs width/height
 经过排查，发现是由 css 的 padding 属性引起的 bug。接下来先给出代码，描述问题之后，列出相关知识点，再说明解决方案。
 
 *** box-sizing
-MDN: [[https://developer.mozilla.org/en-US/docs/Web/CSS][CSS]] 中的 box-sizing 属性定义了 [[https://developer.mozilla.org/zh-CN/docs/Glossary/User_agent][user agent]] 应该如何计算一个元素的总宽度和总高度。
+[[https://developer.mozilla.org/zh-CN/docs/Web/CSS/box-sizing][MDN]]: [[https://developer.mozilla.org/en-US/docs/Web/CSS][CSS]] 中的 box-sizing 属性定义了 [[https://developer.mozilla.org/zh-CN/docs/Glossary/User_agent][user agent]] 应该如何计算一个元素的总宽度和总高度。
 在 CSS 盒子模型的默认定义里，你对一个元素所设置的 width 与 height 只会应用到这个元素的内容区。如果这个元素有任何的 border 或 padding ，
 绘制到屏幕上时的盒子宽度和高度会加上设置的边框和内边距值。这意味着当你调整一个元素的宽度和高度时需要时刻注意到这个元素的边框和内边距。当我们实现响应式布局时，这个特点尤其烦人。
 
@@ -29,7 +29,21 @@ width减去(border + padding)的值。大多数情况下，这使得我们更容
 
 *** box-shadow
 
+[[https://developer.mozilla.org/zh-CN/docs/Web/CSS/box-shadow#shadow][MDN]]: CSS box-shadow 属性用于在元素的框架上添加阴影效果。你可以在同一个元素上设置多个阴影效果，并用逗号将他们分隔开。该属性可设置的值包括阴影的X轴偏移量、Y轴偏移量、模糊半径、扩散半径和颜色。
+
 *** height 设值
+
+height 设值的问题曾经多次遇到，主要表现在给某个元素设值后，然后发现效果并非像我们想象中的那样。
+这个问题集中出现在 css 基础薄弱的同学身上（比如我），其实高度的问题，除了和上文中提到过的计算方法相关外，还与一开始被设值的元素的特性相关。
+
+最常见的错误用法是，给一个非块元素（如行内元素）设高度、宽度。这是无效的操作。必须指定元素的显示属性为块，才能设置有效的高度或者宽度值。
+比如，使用 display 的 inline-block/block/flex 等，都可以将非块元素转化为块元素。
+
+块元素的典型特征是： 在文档流中每个块元素会换行，而行内元素这种是不会的。
+
+*Link*
+块元素
+行内元素
     
 *** height vs padding (height 失效)
 

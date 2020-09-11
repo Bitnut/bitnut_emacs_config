@@ -33,7 +33,7 @@
   ;; (flycheck-select-checker 'html-tidy)
   (add-to-list (make-local-variable 'company-backends)
                '(company-web-html company-files company-css company-capf company-dabbrev))
-  (add-hook 'before-save-hook #'sgml-pretty-print)
+  ;; (add-hook 'before-save-hook #'sgml-pretty-print)
 
   )
 
@@ -105,16 +105,15 @@
                                         ;                 css                 ;
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 
-;; (use-package css-mode
-;;   :ensure t
-;;   :mode "\\.css\\'"
-;;   :config
-;;   (add-hook 'css-mode-hook (lambda()
-;;                              (add-to-list (make-local-variable 'company-backends)
-;;                                           '(company-css company-files company-yasnippet company-capf))))
-;;   (setq css-indent-offset 2)
-;;   (setq flycheck-stylelintrc "~/.stylelintrc")
-;;   )
+(use-package css-mode
+  :ensure t
+  :mode "\\.css\\'"
+  :config
+  (add-hook 'css-mode-hook (lambda()
+                             (add-to-list (make-local-variable 'company-backends)
+					  '(company-css company-files company-yasnippet company-capf))))
+  (setq css-indent-offset 4)
+  )
 
 
 ;; (use-package scss-mode
@@ -151,7 +150,6 @@
   :ensure t
   :mode (("\\.json\\'" . javascript-mode))
   :init
-  (setq indent-tabs-mode nil)
   (setq js2-basic-offset 4)
   (setq js-indent-level 4)
   (setq js2-global-externs '("module" "require" "assert" "setInterval" "console" "__dirname__") )
@@ -160,32 +158,6 @@
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
                                         ;              typescript             ;
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
-
-;; Javascript, Typescript and Flow support for lsp-mode
-;;
-;; Install:
-;;
-;; npm install -g typescript
-;; npm install -g typescript-language-server
-;;
-;; Fixed error "[tsserver] /bin/sh: /usr/local/Cellar/node/10.5.0_1/bin/npm: No such file or directory" :
-;; 
-;; sudo ln -s /usr/local/bin/npm /usr/local/Cellar/node/10.5.0_1/bin/npm
-;;
-;; (add-hook 'js-mode-hook #'lsp-typescript-enable)
-;; (add-hook 'typescript-mode-hook #'lsp-typescript-enable) ;; for typescript support
-;; (add-hook 'js3-mode-hook #'lsp-typescript-enable) ;; for js3-mode support
-;; (add-hook 'rjsx-mode #'lsp-typescript-enable) ;; for rjsx-mode support
-
-;; (defun lsp-company-transformer (candidates)
-;;   (let ((completion-ignore-case t))
-;;     (all-completions (company-grab-symbol) candidates)))
-
-;; (defun lsp-js-hook nil
-;;   (make-local-variable 'company-transformers)
-;;   (push 'lsp-company-transformer company-transformers))
-
-;; (add-hook 'js-mode-hook 'lsp-js-hook)
 
 (defun setup-tide-mode ()
   "Setup tide mode for other mode."
@@ -208,34 +180,34 @@
 
 
 
-(use-package tide
-  :ensure t
-  :after (typescript-mode company flycheck)
-  :hook ((typescript-mode . tide-setup)
-         (typescript-mode . tide-hl-identifier-mode))
-  ;;(before-save . tide-format-before-save))
-  :config
-  (setq tide-completion-enable-autoimport-suggestions t)
-  )
-
-;; (use-package prettier-js
+;; (use-package tide
 ;;   :ensure t
-;;   :hook (;;(js2-mode . prettier-js-mode)
-;;          (typescript-mode . prettier-js-mode)
-;;          (css-mode . prettier-js-mode)
-;;          (web-mode . prettier-js-mode))
+;;   :after (typescript-mode company flycheck)
+;;   :hook ((typescript-mode . tide-setup)
+;;          (typescript-mode . tide-hl-identifier-mode))
+;;   ;;(before-save . tide-format-before-save))
 ;;   :config
-;;   (setq prettier-js-args '(
-;;                            "--bracket-spacing" "false"
-;; 			   "--trailing-comma" "all"
-;; 			   "--single-quote" "true"
-;; 			   "--print-width" "120"
-;; 			   "--tab-width" "4"
-;; 			   "--jsx-bracket-same-line" "true"
-;;                            ))
+;;   (setq tide-completion-enable-autoimport-suggestions t)
 ;;   )
 
-(add-hook 'js-mode-hook 'eglot-ensure)
+(use-package prettier-js
+  :ensure t
+  :hook (;;(js2-mode . prettier-js-mode)
+         (typescript-mode . prettier-js-mode)
+         (css-mode . prettier-js-mode)
+         (web-mode . prettier-js-mode))
+  :config
+  (setq prettier-js-args '(
+                           "--bracket-spacing" "false"
+			   "--trailing-comma" "all"
+			   "--single-quote" "true"
+			   "--print-width" "120"
+			   "--tab-width" "4"
+			   "--jsx-bracket-same-line" "true"
+                           ))
+  )
+
+(add-hook 'js2-mode-hook 'eglot-ensure)
 (add-hook 'typescript-mode-hook 'eglot-ensure)
 
 (provide 'init-web)

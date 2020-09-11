@@ -63,4 +63,6 @@
 (set-language-environment "UTF-8")
 (set-default-coding-systems 'utf-8)
 
+(setq-default indent-tabs-mode nil)
+
 (provide 'init-better-default)

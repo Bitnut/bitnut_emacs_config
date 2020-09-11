@@ -41,6 +41,8 @@
 		      ;; markdown
 		      markdown-mode
 		      grip-mode
+		      ;; editorconfig
+		      editorconfig
 		      ;; package groups
 		      ;;;;;;;;;;;;;;;;;;;;;;;;;;;
 		      ;; code folding
@@ -112,13 +114,11 @@
 
 
 ;; js2-mode
-;; (setq auto-mode-alist
-;;       (append
-;;        '(("\\.js\\'" . js2-mode)
-;; 	 ("\\.js\\'" . js2-refactor-mode)
-;; 	 ("\\.html\\'" . web-mode)
-;; 	 ("\\.vue\\'" . web-mode))
-;;        auto-mode-alist))
+(setq auto-mode-alist
+      (append
+       '(("\\.js\\'" . js2-mode)
+	 ("\\.js\\'" . js2-refactor-mode))
+       auto-mode-alist))
 
 (add-hook 'emacs-lisp-mode-hook 'show-paren-mode)
 
@@ -183,5 +183,7 @@
     (define-key origami-mode-map (kbd "C-c f") 'origami-recursively-toggle-node)
     (define-key origami-mode-map (kbd "C-c F") 'origami-toggle-all-nodes))
 
+;; snails fuzzy search tool
+(require 'snails)
 
 (provide 'init-packages)
