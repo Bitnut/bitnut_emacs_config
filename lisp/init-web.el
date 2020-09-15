@@ -53,6 +53,14 @@
                '(comany-tide company-web-html company-css company-files))
   )
 
+;; vue config for eglot
+;; (define-derived-mode bitnut-vue-mode web-mode "customVue"
+;;   "A major mode derived from web-mode, for editing .vue files with LSP support.")
+;; (add-to-list 'auto-mode-alist '("\\.vue\\'" . bitnut-vue-mode))
+;; (add-hook 'bitnut-vue-mode-hook #'eglot-ensure)
+;; (add-to-list 'eglot-server-programs '(bitnut-vue-mode "vls"))
+
+
 
 ;;
 ;; eslint use local
@@ -190,25 +198,30 @@
 ;;   (setq tide-completion-enable-autoimport-suggestions t)
 ;;   )
 
-(use-package prettier-js
-  :ensure t
-  :hook (;;(js2-mode . prettier-js-mode)
-         (typescript-mode . prettier-js-mode)
-         (css-mode . prettier-js-mode)
-         (web-mode . prettier-js-mode))
-  :config
-  (setq prettier-js-args '(
-                           "--bracket-spacing" "false"
-			   "--trailing-comma" "all"
-			   "--single-quote" "true"
-			   "--print-width" "120"
-			   "--tab-width" "4"
-			   "--jsx-bracket-same-line" "true"
-                           ))
-  )
+;; (use-package prettier-js
+;;   :ensure t
+;;   :hook (;;(js2-mode . prettier-js-mode)
+;;          (typescript-mode . prettier-js-mode)
+;;          (css-mode . prettier-js-mode)
+;;          (web-mode . prettier-js-mode))
+;;   :config
+;;   (setq prettier-js-args '(
+;;                            "--bracket-spacing" "false"
+;; 			   "--trailing-comma" "all"
+;; 			   "--single-quote" "true"
+;; 			   "--print-width" "120"
+;; 			   "--tab-width" "4"
+;; 			   "--jsx-bracket-same-line" "true"
+;;                            ))
+;;   )
 
 (add-hook 'js2-mode-hook 'eglot-ensure)
 (add-hook 'typescript-mode-hook 'eglot-ensure)
+
+;; flymake-keybindings
+(require 'flymake)
+(define-key flymake-mode-map (kbd "M-n") 'flymake-goto-next-error)
+(define-key flymake-mode-map (kbd "M-p") 'flymake-goto-prev-error)
 
 (provide 'init-web)
 ;;; web.el ends here
