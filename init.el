@@ -5,6 +5,7 @@
 (add-to-list `load-path (expand-file-name "~/.emacs.d/elisp/awesome-tab"))
 (add-to-list `load-path (expand-file-name "~/.emacs.d/elisp/netease-cloud-music.el"))
 (add-to-list `load-path (expand-file-name "~/.emacs.d/elisp/snails"))
+(add-to-list `load-path (expand-file-name "~/.emacs.d/elisp/auto-save"))
 
 
 ;; Package Management
@@ -63,6 +64,10 @@
 ;; netease
 ;; ------------------------------------------------------
 (require 'init-editorconfig)
+
+;; netease
+;; ------------------------------------------------------
+(require 'init-autosave)
 
 (custom-set-variables
  ;; custom-set-variables was added by Custom.

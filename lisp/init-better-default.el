@@ -64,7 +64,7 @@
 (set-default-coding-systems 'utf-8)
 
 
-(setq default-tab-width 4)
-(setq indent-tabs-mode nil)
+(setq-default default-tab-width 4)
+(setq-default indent-tabs-mode nil)
 
 (provide 'init-better-default)

@@ -10,3 +10,6 @@
 [submodule "elisp/awesome-tab"]
 	path = elisp/awesome-tab
 	url = git@github.com:manateelazycat/awesome-tab.git
+[submodule "elisp/auto-save"]
+	path = elisp/auto-save
+	url = git@github.com:manateelazycat/auto-save.git

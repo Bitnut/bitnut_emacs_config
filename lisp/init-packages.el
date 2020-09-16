@@ -29,6 +29,8 @@
 		      expand-region
 		      iedit
 		      helm-ag
+                      ;; org
+                      org-superstar
 		      ;;typescritpt
 		      typescript-mode
 		      ;; magit
@@ -126,7 +128,7 @@
 ;; nodejs
 (require 'nodejs-repl)
 (global-set-key (kbd "<f5>") 'nodejs-repl-send-buffer)
-(global-set-key (kbd "C-`") 'nodejs-repl)
+
 
 ;; popwin
 (require 'popwin)
@@ -185,5 +187,12 @@
 
 ;; snails fuzzy search tool
 (require 'snails)
+
+
+;; org-prettier
+(add-hook 'org-mode-hook (lambda () (org-superstar-mode 1)))
+
+;; eshell
+(global-set-key (kbd "C-`") 'eshell)
 
 (provide 'init-packages)
