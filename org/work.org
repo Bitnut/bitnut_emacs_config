@@ -1,0 +1,38 @@
+* 9月代码变更
+** TODO 等待合并代码 [100%]
+DEADLINE: <2020-09-20 日>
+ 1. [X] 动态项目 [2/2]
+    - [X] dev-hpc-whats-in-the-box 有变更
+    - [X] dev-hpc-trail-backend
+ 2. [X] 静态项目 [3/3]
+    - [X] dev-hpc-img-change
+    - [X] dev-hpc-rand-notice
+    - [X] dev-hpc-wib
+ 3. [X] 公共项目 [2/2]
+    - [X] dev-hpc-validate
+    - [X] dev-hpc-nav
+
+** TODO 帐户中心项目
+<2020-09-15 二>--<2020-09-28 一>
+DEADLINE: <2020-09-29 二>
+[50%]
+- [X] 看以前的代码和注意事项
+- [X] 配置好项目开发环境和打包流程 [5/5]
+  - [X] webpack
+  - [X] eslint
+  - [X] commmit-lint lint-staged
+  - [X] build
+  - [X] dev-server
+- [-] 规格文档 [3/4]
+  - [X] 需求分析
+  - [X] 完成文档
+  - [X] 文档评审
+  - [ ] 修改文档
+- [-] 开始开发 [0/4]
+  - [-] login 界面
+    - [X] 解决配置意外情况： eslint / typescript 配置冲突，优化配置环境
+    - [ ] 获取验证码
+    - [ ] 登录验证
+  - [ ] api 封装
+  - [ ]
+  - [ ]

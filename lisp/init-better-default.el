@@ -67,4 +67,8 @@
 (setq-default default-tab-width 4)
 (setq-default indent-tabs-mode nil)
 
+
+
+(setq-default smerge-command-prefix "\C-cv")
+
 (provide 'init-better-default)

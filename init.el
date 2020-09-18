@@ -61,13 +61,20 @@
 ;; ------------------------------------------------------
 (require 'init-netease)
 
-;; netease
+;; editorconfig
 ;; ------------------------------------------------------
 (require 'init-editorconfig)
 
-;; netease
+;; autosave
 ;; ------------------------------------------------------
 (require 'init-autosave)
+
+;; acewindow
+;; ------------------------------------------------------
+(require 'init-acewindow)
+
+;; company
+(require 'init-company)
 
 (custom-set-variables
  ;; custom-set-variables was added by Custom.

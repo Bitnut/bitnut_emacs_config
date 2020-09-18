@@ -4,14 +4,15 @@
 
 (when (>= emacs-major-version 24)
   ;;(require 'package)
-  
+
   (setq package-archives '(("gnu"   . "http://elpa.emacs-china.org/gnu/")
 			   ("melpa" . "http://elpa.emacs-china.org/melpa/"))))
 ;; Add Packages
 (defvar my/packages '(
 		      ;; --- Auto-completion ---
 		      company
-		      ;; --- Better Editor ---		       	       
+                      company-quickhelp
+		      ;; --- Better Editor ---
 		      hungry-delete
 		      swiper
 		      counsel
@@ -45,6 +46,10 @@
 		      grip-mode
 		      ;; editorconfig
 		      editorconfig
+                      ;; ace-window
+                      ace-window
+                      ;; diminish
+                      diminish
 		      ;; package groups
 		      ;;;;;;;;;;;;;;;;;;;;;;;;;;;
 		      ;; code folding
@@ -83,21 +88,18 @@
 (setq package-selected-packages my/packages)
 
 (defun my/packages-installed-p ()
-  (loop for pkg in my/packages	
-	when (not (package-installed-p pkg)) do (return nil)	
+  (loop for pkg in my/packages
+	when (not (package-installed-p pkg)) do (return nil)
 	finally (return t)))
 (unless (my/packages-installed-p)
   (message "%s" "Refreshing package database...")
   (package-refresh-contents)
-  (dolist (pkg my/packages)    
+  (dolist (pkg my/packages)
     (when (not (package-installed-p pkg))
       (package-install pkg))))
 
 ;; requirements bellow
 ;; same order as above
-
-;; company
-(add-hook 'after-init-hook 'global-company-mode) 
 
 ;; hungry
 (require 'hungry-delete)
