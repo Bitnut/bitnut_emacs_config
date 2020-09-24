@@ -1,6 +1,7 @@
  (package-initialize)
 
 (add-to-list 'load-path "~/.emacs.d/lisp/")
+(add-to-list `load-path (expand-file-name "~/.emacs.d/elisp"))
 (add-to-list `load-path (expand-file-name "~/.emacs.d/elisp/awesome-tray"))
 (add-to-list `load-path (expand-file-name "~/.emacs.d/elisp/awesome-tab"))
 (add-to-list `load-path (expand-file-name "~/.emacs.d/elisp/netease-cloud-music.el"))

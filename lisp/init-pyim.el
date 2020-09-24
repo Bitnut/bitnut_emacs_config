@@ -15,9 +15,9 @@
   (setq default-input-method "pyim")
   ;; 我使用全拼
   (setq pyim-default-scheme 'quanpin)
-  
+
   ;; 开启拼音搜索功能
-  (pyim-isearch-mode 1)
+  ;; (pyim-isearch-mode 1)
 
   ;; 使用 popup-el 来绘制选词框, 如果用 emacs26, 建议设置
   ;; 为 'posframe, 速度很快并且菜单不会变形，不过需要用户
