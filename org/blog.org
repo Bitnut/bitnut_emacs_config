@@ -44,7 +44,34 @@ height 设值的问题曾经多次遇到，主要表现在给某个元素设值�
 *Link*
 块元素
 行内元素
-    
+
 *** height vs padding (height 失效)
 
+*** nth-child , 高亮条转换特效。
+
+*** 滑动提示样式
+
 ** new blog on html
+
+** new blog on ts vue js
+
+使用 ts+vue 编写本地插件
+
+** new blog on babel and webpack
+
+webpack ... 展开运算符错误
+
+不是 es6!
+
+Just install babel-plugin-transform-object-rest-spread module. https://www.npmjs.com/package/babel-plugin-transform-object-rest-spread
+
+Then add it to .babelrc:
+
+"plugins": [
+    "babel-plugin-transform-object-rest-spread",
+  ],
+
+
+webpack No data received ERR_EMPTY_RESPONSE 错误
+
+给 webpack-dev-server 添加 --host xxxxxxxx(设好的 host 映射，或者指定的域名)

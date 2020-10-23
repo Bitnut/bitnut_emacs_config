@@ -23,7 +23,6 @@
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 (global-set-key (kbd "C-c p s") 'helm-do-ag-project-root)
 (global-set-key (kbd "C-c b s") 'helm-do-ag-buffers)
-;;(global-set-key (kbd "C-c b s") 'helm-do-ag-buffers)
 
 
 

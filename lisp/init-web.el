@@ -44,13 +44,14 @@
 (defun my/web-vue-setup()
   "Setup for js related."
   (message "web-mode use vue related setup")
+  (add-hook 'typescript-mode-hook 'eglot-ensure)
   ;; (setup-tide-mode)
   ;; (prettier-js-mode)
   ;; (flycheck-add-mode 'javascript-eslint 'web-mode)
   ;; (flycheck-select-checker 'javascript-eslint)
   ;; (my/use-validate-eslint)
   (add-to-list (make-local-variable 'company-backends)
-               '(comany-tide company-web-html company-css company-files))
+               '(company-tide company-web-html company-css company-files))
   )
 
 ;; vue config for eglot
@@ -147,7 +148,7 @@
   :ensure t
   :config
   (setq-mode-local rjsx-mode emmet-expand-jsx-className? t)
-  (setq-mode-local web-mode emmet-expand-jsx-className? t)  
+  (setq-mode-local web-mode emmet-expand-jsx-className? t)
   )
 
 
