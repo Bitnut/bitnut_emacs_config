@@ -19,6 +19,7 @@
 		      smartparens
 		      ;; --- Major Mode ---
 		      js2-mode
+                      go-mode
 		      ;; --- Minor Mode ---
 		      nodejs-repl
 		      exec-path-from-shell

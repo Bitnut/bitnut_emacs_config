@@ -1,27 +1,16 @@
 ;; code here
 
 (use-package lsp-mode
-     :defines (lsp-clients-python-library-directories
-               lsp-rust-server)
-     :commands (lsp-enable-which-key-integration
-                lsp-format-buffer
-                lsp-organize-imports)
+     :commands (lsp-enable-which-key-integration)
      :diminish
      :hook ((prog-mode . (lambda ()
                            (unless (derived-mode-p 'emacs-lisp-mode 'lisp-mode)
                              (lsp-deferred))))
             (lsp-mode . (lambda ()
                           ;; Integrate `which-key'
-                          (lsp-enable-which-key-integration)
-
-                          ;; Format and organize imports
-                          (unless (apply #'derived-mode-p centaur-lsp-format-on-save-ignore-modes)
-                            (add-hook 'before-save-hook #'lsp-format-buffer t t)
-                            (add-hook 'before-save-hook #'lsp-organize-imports t t)))))
+                          (lsp-enable-which-key-integration))))
      :bind (:map lsp-mode-map
-            ("C-c C-d" . lsp-describe-thing-at-point)
-            ([remap xref-find-definitions] . lsp-find-definition)
-            ([remap xref-find-references] . lsp-find-references))
+            ("C-c C-d" . lsp-describe-thing-at-point))
      :init
      ;; @see https://emacs-lsp.github.io/lsp-mode/page/performance
      (setq read-process-output-max (* 1024 1024)) ;; 1MB
@@ -41,11 +30,6 @@
 
            lsp-enable-indentation nil
            lsp-enable-on-type-formatting nil)
-
-     ;; For `lsp-clients'
-     (setq lsp-clients-python-library-directories '("/usr/local/" "/usr/"))
-     (when (executable-find "rust-analyzer")
-       (setq lsp-rust-server 'rust-analyzer))
      :config
      (with-no-warnings
        (defun my-lsp--init-if-visible (func &rest args)

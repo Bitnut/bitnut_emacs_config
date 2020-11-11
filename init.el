@@ -50,10 +50,6 @@
 (require 'init-eshell)
 ;; (require 'init-shell)
 
-;; flycheck
-;; ------------------------------------------------------
-;; (require 'init-flycheck)
-
 ;; theme
 ;; ------------------------------------------------------
 (require 'init-theme)

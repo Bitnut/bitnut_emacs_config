@@ -52,12 +52,10 @@ height 设值的问题曾经多次遇到，主要表现在给某个元素设值�
 *** 滑动提示样式
 
 ** new blog on html
-
-** new blog on ts vue js
-
+** new blog on babel and webpack
 使用 ts+vue 编写本地插件
 
-** new blog on babel and webpack
+** new blog on ts vue js
 
 webpack ... 展开运算符错误
 
@@ -72,6 +70,120 @@ Then add it to .babelrc:
   ],
 
 
-webpack No data received ERR_EMPTY_RESPONSE 错误
-
+newwebpack No data received ERR_EMPTY_RESPONSE 错误
 给 webpack-dev-server 添加 --host xxxxxxxx(设好的 host 映射，或者指定的域名)
+
+** new blog for learning org mode
+官方解释 & 简单语法：
+
+Org mode is for keeping notes, maintaining to-do lists, planning
+ projects, authoring documents, computational notebooks, literate
+=programming= and +more+ — in a fast and *effective* _plain_ /text system/.
+
+org mode 是一款为了 记笔记、维护 todo list、计划项目、编辑文档，记账，文字编程等等
+设计的快速、高效的纯文本系统。
+
+
+简易教程：
+ * This Is A Heading
+ ** This Is A Sub-Heading
+ *** And A Sub-Sub-Heading
+
+ Paragraphs are separated by at least one empty line.
+
+ *bold* /italic/ _underlined_ +strikethrough+ =monospaced=
+ [[http://Karl-Voit.at][Link description]]
+ http://Karl-Voit.at → link without description
+
+ - list item
+ - another item
+   - sub-item
+     1. also enumerated
+     2. if you like
+ - [ ] yet to be done
+ - [X] item which is done
+
+ : Simple pre-formatted text such as for source code.
+ : This also respects the line breaks. *bold* is not bold here.
+
+ #+BEGIN_SRC python
+ myresult = 42 * 23
+ print('Hello Europe! ' + str(myresult))
+ #+END_SRC'
+
+
+ Prefix headings:
+
+ # Heading 1
+ ## Heading 2
+ ### Heading 3
+
+ Pre- and postfix headings:
+
+ = Heading 1 =
+ == Heading 2 ==
+ === Heading 3 ===
+
+ Underlined headings:
+
+ Heading 1
+ =========
+
+ Heading 2
+ ~~~~~~~~~
+
+ Heading 3
+ *********
+* follow great programmers
+1. Steve Purcell
+2. Sacha Chua
+3. chen_bin
+
+* community
+加入社区更上一层楼
+最重要的是专一.
+
+例如, Quora.com 上有很多有趣的话题. 请克制兴趣, 不去定阅和 Emacs 无关的话题.
+
+Reddit
+Reddit 是最好的. 能从中国大陆访问.
+
+GitHub 是高手云集的地方
+GitHub 的版本控制服务很好. 现在它的社区化倾向越来越强了, 我喜欢.
+
+例如, 可以看一下 https://github.com/search?p=1&q=stars%3A%3E20+extension%3Ael+language%3Aelisp&ref=searchresults&type=Repositories 上最酷的 Emacs 插件.
+
+Emacs 牛人的博客
+最好的是 Planet EmacsLife, 多个 Emacs 博客的集合.
+
+在 twitter 上以 “emacs lang:en” 定期搜索
+twitter 人多, 更新结果快.
+
+之所以加上 “lang:en” 是因为要排除日文内容, 因我不懂日文.
+
+如果你懂日文, 则应充分利用日文资源, 其质量相当高.
+
+也可以用 Advanced Search 搜索 (Winy Song 提供此技巧).
+
+在 Stack Overflow 上搜索相关讨论
+google “emacs-related-keywords site:stackoverflow.com”
+
+我会定期搜索, 同一帖子反复精读. 因为讨论质量很高.
+
+http://emacs.stackexchange.com 是 Stack Overflow 旗下专门的 Emacs 问答社区.
+
+到 Youtube 上看 emacs 相关的视频
+我就是看了 Google Tech Talks 上这个 Org-mode 作者的介绍 而爱上 org-mode.
+
+不过 Youtube 搜索结果是最佳匹配的. 由于相关视频并不多, 如按照默认算法, 每次总是那几个. 所以如果关注最新进展, 搜索应以时间排序.
+
+
+
+
+
+* How to improve myself
+1. 学习 golang
+2. 学习 eamcs
+3. 学习 计算机基础
+4. 加入社区
+5. 贡献开源项目

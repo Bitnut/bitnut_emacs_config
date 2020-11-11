@@ -218,11 +218,17 @@
 
 (add-hook 'js2-mode-hook 'eglot-ensure)
 (add-hook 'typescript-mode-hook 'eglot-ensure)
+(add-hook 'go-mode-hook 'eglot-ensure)
 
 ;; flymake-keybindings
 (require 'flymake)
 (define-key flymake-mode-map (kbd "M-n") 'flymake-goto-next-error)
 (define-key flymake-mode-map (kbd "M-p") 'flymake-goto-prev-error)
+
+(use-package go-mode
+  :ensure t
+  :mode ("\\.go\\'")
+  )
 
 (provide 'init-web)
 ;;; web.el ends here

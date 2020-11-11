@@ -9,6 +9,8 @@
 	 :empty-lines 1)))
   )
 
+;; indent of org
+(setq org-startup-indented t)
 
 ;; r represents remember
 (global-set-key (kbd "C-c r") 'org-capture)
