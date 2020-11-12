@@ -1,5 +1,8 @@
 (use-package flycheck
   :diminish
+  :bind (:map flycheck-mode-map
+              ("M-n" . flycheck-next-error)
+              ("M-p" . flycheck-previous-error))
   :commands flycheck-redefine-standard-error-levels
   :hook (after-init . global-flycheck-mode)
   :init (setq flycheck-global-modes

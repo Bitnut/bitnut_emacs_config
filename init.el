@@ -51,7 +51,7 @@
 ;; eshell
 ;; ------------------------------------------------------
 (require 'init-eshell)
-;; (require 'init-shell)
+(require 'init-shell)
 
 ;; theme
 ;; ------------------------------------------------------
@@ -69,10 +69,6 @@
 ;; ------------------------------------------------------
 (require 'init-autosave)
 
-;; projectile
-;; ------------------------------------------------------
-(require 'init-projectile)
-
 ;; acewindow
 ;; ------------------------------------------------------
 (require 'init-acewindow)
@@ -83,7 +79,9 @@
 ;; lsp
 (require 'init-lsp)
 
-
+;; projectile
+;; ------------------------------------------------------
+(require 'init-projectile)
 
 (custom-set-variables
  ;; custom-set-variables was added by Custom.

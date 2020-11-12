@@ -1,4 +1,3 @@
-* 工作安排
-
-** TODO [#B] hi i am todo
-
+Global List of TODO items of type: INTR
+Global List of TODO items of type: PROG
+Global List of TODO items of type: NEXT

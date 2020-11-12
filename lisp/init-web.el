@@ -177,10 +177,10 @@
                                         ;              php                    ;
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 
-(use-package php-mode
-  :ensure t
-  :mode ("\\.php\\'")
-  )
+;; (use-package php-mode
+;;   :ensure t
+;;   :mode ("\\.php\\'")
+;;   )
 
 ;; (add-hook 'js2-mode-hook 'eglot-ensure)
 ;; (add-hook 'typescript-mode-hook 'eglot-ensure)
@@ -190,6 +190,8 @@
 (require 'flymake)
 (define-key flymake-mode-map (kbd "M-n") 'flymake-goto-next-error)
 (define-key flymake-mode-map (kbd "M-p") 'flymake-goto-prev-error)
+
+
 
 (use-package go-mode
   :ensure t

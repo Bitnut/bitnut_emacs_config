@@ -48,7 +48,7 @@
             ("M-<f6>" . lsp-ui-hydra/body)
             ("M-RET" . lsp-ui-sideline-apply-code-actions))
      :hook (lsp-mode . lsp-ui-mode)
-     :init (setq lsp-ui-sideline-show-diagnostics nil
+     :init (setq ;;lsp-ui-sideline-show-diagnostics nil
                  lsp-ui-sideline-ignore-duplicate t
                  lsp-ui-doc-border (face-foreground 'font-lock-comment-face)
                  lsp-ui-imenu-colors `(,(face-foreground 'font-lock-keyword-face)

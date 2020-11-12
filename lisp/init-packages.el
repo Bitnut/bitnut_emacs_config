@@ -24,6 +24,8 @@
 		      ;; --- Minor Mode ---
 		      nodejs-repl
 		      exec-path-from-shell
+                      vterm
+                      shell-pop
 		      ;; --- popwin ---
 		      popwin
                       projectile
@@ -172,10 +174,10 @@
 ;; iedit
 (require 'iedit)
 
-(use-package helm-ag
-  :config
-  (setq helm-ag-use-grep-ignore-list t)
-  )
+;; (use-package helm-ag
+;;   :config
+;;   (setq helm-ag-use-grep-ignore-list t)
+;;   )
 
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;;; all-the icons/modeline;;remember to call 'M-x all-the-icons-install-fonts'
