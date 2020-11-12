@@ -13,6 +13,9 @@
 ;; ------------------------------------------------------
 (require 'init-packages)
 
+;; utils
+(require 'init-utils)
+
 ;; const vars
 ;; ------------------------------------------------------
 (require 'init-const)
@@ -72,6 +75,9 @@
 
 ;; company
 (require 'init-company)
+
+;; lsp
+(require 'init-lsp)
 
 (custom-set-variables
  ;; custom-set-variables was added by Custom.

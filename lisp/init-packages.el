@@ -37,9 +37,10 @@
 		      typescript-mode
 		      ;; magit
 		      magit
+                      git-timemachine
 		      use-package
 		      rjsx-mode
-		      tide
+		      ;; tide
 		      ;; pyim 弹窗
 		      posframe
 		      ;; markdown
@@ -61,6 +62,7 @@
 		      all-the-icons-dired
 		      ;; lsp
 		      lsp-mode
+                      lsp-ui
 		      eglot
 		      ;; shell
 		      shell
@@ -70,6 +72,8 @@
 		      esh-help
 		      eshell-z
 		      eshell-prompt-extras
+                      ;; which key
+                      which-key
 		      ;; flycheck
 		      flycheck
 		      flycheck-posframe

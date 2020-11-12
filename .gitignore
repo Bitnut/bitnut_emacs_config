@@ -7,3 +7,5 @@ gtd.org
 /transient
 /packages
 recentf
+.cache
+.lsp*

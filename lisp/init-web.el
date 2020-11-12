@@ -29,8 +29,6 @@
 (defun my/web-html-setup()
   "Setup for web-mode html files."
   (message "web-mode use html related setup")
-  ;; (flycheck-add-mode 'html-tidy 'web-mode)
-  ;; (flycheck-select-checker 'html-tidy)
   (add-to-list (make-local-variable 'company-backends)
                '(company-web-html company-files company-css company-capf company-dabbrev))
   ;; (add-hook 'before-save-hook #'sgml-pretty-print)
@@ -44,12 +42,7 @@
 (defun my/web-vue-setup()
   "Setup for js related."
   (message "web-mode use vue related setup")
-  (add-hook 'typescript-mode-hook 'eglot-ensure)
-  ;; (setup-tide-mode)
-  ;; (prettier-js-mode)
-  ;; (flycheck-add-mode 'javascript-eslint 'web-mode)
-  ;; (flycheck-select-checker 'javascript-eslint)
-  ;; (my/use-validate-eslint)
+  ;; (add-hook 'typescript-mode-hook 'eglot-ensure)
   (add-to-list (make-local-variable 'company-backends)
                '(company-tide company-web-html company-css company-files))
   )
@@ -171,8 +164,6 @@
 (defun setup-tide-mode ()
   "Setup tide mode for other mode."
   (interactive)
-  (message "seting up tide mode")
-  (tide-setup)
   (flycheck-mode +1)
   (setq flycheck-check-syntax-automatically '(save mode-enabled))
   (eldoc-mode +1)
@@ -182,42 +173,8 @@
   ;; `M-x package-install [ret] company`
   (company-mode +1))
 
-
-;;(add-hook 'js2-mode-hook #'setup-tide-mode)
-;;(add-hook 'typescript-mode-hook #'setup-tide-mode)
-;;(add-hook 'rjsx-mode-hook #'setup-tide-mode)
-
-
-
-;; (use-package tide
-;;   :ensure t
-;;   :after (typescript-mode company flycheck)
-;;   :hook ((typescript-mode . tide-setup)
-;;          (typescript-mode . tide-hl-identifier-mode))
-;;   ;;(before-save . tide-format-before-save))
-;;   :config
-;;   (setq tide-completion-enable-autoimport-suggestions t)
-;;   )
-
-;; (use-package prettier-js
-;;   :ensure t
-;;   :hook (;;(js2-mode . prettier-js-mode)
-;;          (typescript-mode . prettier-js-mode)
-;;          (css-mode . prettier-js-mode)
-;;          (web-mode . prettier-js-mode))
-;;   :config
-;;   (setq prettier-js-args '(
-;;                            "--bracket-spacing" "false"
-;; 			   "--trailing-comma" "all"
-;; 			   "--single-quote" "true"
-;; 			   "--print-width" "120"
-;; 			   "--tab-width" "4"
-;; 			   "--jsx-bracket-same-line" "true"
-;;                            ))
-;;   )
-
-(add-hook 'js2-mode-hook 'eglot-ensure)
-(add-hook 'typescript-mode-hook 'eglot-ensure)
+;; (add-hook 'js2-mode-hook 'eglot-ensure)
+;; (add-hook 'typescript-mode-hook 'eglot-ensure)
 (add-hook 'go-mode-hook 'eglot-ensure)
 
 ;; flymake-keybindings
