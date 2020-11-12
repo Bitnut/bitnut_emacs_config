@@ -7,6 +7,7 @@
                            (unless (derived-mode-p 'emacs-lisp-mode 'lisp-mode)
                              (lsp-deferred))))
             (js2-mode . lsp)
+            (php-mode . lsp)
             (typescript-mode-hook . lsp)
             (lsp-mode . lsp-enable-which-key-integration))
      :bind (:map lsp-mode-map

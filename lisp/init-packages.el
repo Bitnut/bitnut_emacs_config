@@ -20,11 +20,13 @@
 		      ;; --- Major Mode ---
 		      js2-mode
                       go-mode
+                      php-mode
 		      ;; --- Minor Mode ---
 		      nodejs-repl
 		      exec-path-from-shell
 		      ;; --- popwin ---
 		      popwin
+                      projectile
 		      emmet-mode
 		      js2-refactor
 		      web-mode

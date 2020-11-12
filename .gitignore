@@ -9,3 +9,6 @@ gtd.org
 recentf
 .cache
 .lsp*
+lsp*
+projectile-bookmarks.eld
+projects

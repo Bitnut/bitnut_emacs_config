@@ -173,6 +173,15 @@
   ;; `M-x package-install [ret] company`
   (company-mode +1))
 
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+                                        ;              php                    ;
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+
+(use-package php-mode
+  :ensure t
+  :mode ("\\.php\\'")
+  )
+
 ;; (add-hook 'js2-mode-hook 'eglot-ensure)
 ;; (add-hook 'typescript-mode-hook 'eglot-ensure)
 (add-hook 'go-mode-hook 'eglot-ensure)

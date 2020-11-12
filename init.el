@@ -69,6 +69,10 @@
 ;; ------------------------------------------------------
 (require 'init-autosave)
 
+;; projectile
+;; ------------------------------------------------------
+(require 'init-projectile)
+
 ;; acewindow
 ;; ------------------------------------------------------
 (require 'init-acewindow)
@@ -78,6 +82,8 @@
 
 ;; lsp
 (require 'init-lsp)
+
+
 
 (custom-set-variables
  ;; custom-set-variables was added by Custom.
