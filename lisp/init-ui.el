@@ -1,4 +1,4 @@
-
+(require 'init-const)
 
 ;; remove toolbar & menu bar
 (tool-bar-mode -1)
@@ -15,6 +15,9 @@
 (setq initial-frame-alist (quote ((fullscreen . maximized))))
 
 ;; 字体大小
-(set-face-attribute 'default nil :height 120)
+(cond
+ (sys/win32p (set-face-attribute 'default nil :height 120))
+ (sys/linuxp (set-face-attribute 'default nil :height 160)))
+
 
 (provide 'init-ui)

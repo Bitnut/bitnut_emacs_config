@@ -1,5 +1,6 @@
 ;;; Code:
 
+(message "%s" system-type)
 (defconst sys/win32p
   (eq system-type 'windows-nt)
   "Are we running on a WinTel system?")
@@ -11,22 +12,6 @@
 (defconst sys/macp
   (eq system-type 'darwin)
   "Are we running on a Mac system?")
-
-(defconst sys/mac-x-p
-  (and (display-graphic-p) sys/macp)
-  "Are we running under X on a Mac system?")
-
-(defconst sys/mac-cocoa-p
-  (featurep 'cocoa)
-  "Are we running with Cocoa on a Mac system?")
-
-(defconst sys/linux-x-p
-  (and (display-graphic-p) sys/linuxp)
-  "Are we running under X on a GNU/Linux system?")
-
-(defconst sys/cygwinp
-  (eq system-type 'cygwin)
-  "Are we running on a Cygwin system?")
 
 (defconst sys/rootp
   (string-equal "root" (getenv "USER"))
@@ -53,6 +38,13 @@
   (or emacs/>=26p
       (and (= emacs-major-version 25) (>= emacs-minor-version 2)))
   "Emacs is 25.2 or above.")
+
+(when sys/win32p (message "hello"))
+(when sys/linuxp (message "in sys linux"))
+(cond
+ (sys/win32p (message "in sys windows"))
+ (sys/linuxp (message "in sys linux"))
+ )
 
 (provide 'init-const)
 
