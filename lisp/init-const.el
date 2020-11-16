@@ -1,12 +1,17 @@
 ;;; Code:
 
-(message "%s" system-type)
 (defconst sys/win32p
   (eq system-type 'windows-nt)
   "Are we running on a WinTel system?")
 
 (defconst sys/linuxp
-  (eq system-type 'gnu/linux)
+  (and (eq system-type 'gnu/linux)
+       (not (string-match "-[Mm]icrosoft" operating-system-release)))
+  "Are we running on a GNU/Linux system?")
+
+(defconst sys/WSL
+  (and (eq system-type 'gnu/linux)
+       (string-match "-[Mm]icrosoft" operating-system-release))
   "Are we running on a GNU/Linux system?")
 
 (defconst sys/macp

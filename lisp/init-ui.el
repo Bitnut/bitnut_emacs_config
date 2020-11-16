@@ -16,8 +16,9 @@
 
 ;; 字体大小
 (cond
- (sys/win32p (set-face-attribute 'default nil :height 120))
- (sys/linuxp (set-face-attribute 'default nil :height 160)))
+ (sys/linuxp (set-face-attribute 'default nil :height 160))
+ (sys/win32p (set-face-attribute 'default nil :height 140))
+ (sys/WSL (set-face-attribute 'default nil :height 140)))
 
 
 (provide 'init-ui)
