@@ -7,6 +7,12 @@
 (add-to-list `load-path (expand-file-name "~/.emacs.d/elisp/netease-cloud-music.el"))
 (add-to-list `load-path (expand-file-name "~/.emacs.d/elisp/snails"))
 (add-to-list `load-path (expand-file-name "~/.emacs.d/elisp/auto-save"))
+(add-to-list `load-path (expand-file-name "~/.emacs.d/elisp/yasnippet-snippets"))
+
+(setq pyim-dicts
+      '((:name "dict1" :file "/home/picher/.emacs.d/pyim-another-dict.pyim")))
+(add-hook 'emacs-startup-hook
+          #'(lambda () (pyim-restart-1 t)))
 
 
 ;; Package Management
@@ -82,6 +88,10 @@
 ;; projectile
 ;; ------------------------------------------------------
 (require 'init-projectile)
+
+;; yasnippet
+;; ------------------------------------------------------
+(require 'init-yasnippet)
 
 (custom-set-variables
  ;; custom-set-variables was added by Custom.

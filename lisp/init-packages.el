@@ -35,6 +35,7 @@
 		      expand-region
 		      iedit
 		      helm-ag
+                      yasnippet
                       ;; org
                       org-superstar
 		      ;;typescritpt
@@ -204,6 +205,6 @@
 (add-hook 'org-mode-hook (lambda () (org-superstar-mode 1)))
 
 ;; eshell
-(global-set-key (kbd "C-`") 'eshell)
+(global-set-key (kbd "C-`") 'vterm)
 
 (provide 'init-packages)
