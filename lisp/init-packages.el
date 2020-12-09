@@ -36,6 +36,7 @@
 		      iedit
 		      helm-ag
                       yasnippet
+                      ivy-yasnippet
                       ;; org
                       org-superstar
 		      ;;typescritpt
@@ -119,6 +120,9 @@
 (ivy-mode 1)
 (setq ivy-use-virtual-buffers t)
 (setq enable-recursive-minibuffers t)
+
+(use-package ivy-yasnippet
+    :bind ("C-c C-y" . ivy-yasnippet))
 
 ;; smartparens
 ;; (require 'smartparens-config)
