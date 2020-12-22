@@ -118,6 +118,7 @@
 
 ;; swiper counsel
 (ivy-mode 1)
+(global-set-key (kbd "C-c n") 'counsel-fzf)
 (setq ivy-use-virtual-buffers t)
 (setq enable-recursive-minibuffers t)
 
