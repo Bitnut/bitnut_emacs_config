@@ -2,6 +2,8 @@
 
 ;; cursor
 (setq-default cursor-type 'bar)
+(blink-cursor-mode 0)
+
 
 (setq ring-bell-function 'ignore)
 

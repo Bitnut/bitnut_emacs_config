@@ -139,6 +139,14 @@
 	 ("\\.js\\'" . js2-refactor-mode))
        auto-mode-alist))
 
+(defun my-js2-mode-hook ()
+      (progn
+        (setq forward-sexp-function nil)
+        ;; (set (make-local-variable 'indent-line-function) 'my-js2-indent-function)
+        (set (make-local-variable 'semantic-mode) nil)
+        ))
+(add-hook 'js2-mode-hook 'my-js2-mode-hook)
+
 (add-hook 'emacs-lisp-mode-hook 'show-paren-mode)
 
 

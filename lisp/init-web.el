@@ -86,24 +86,6 @@
 ;; (add-hook 'flycheck-mode-hook #'my/use-validate-eslint)
 
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
-                                        ;                 rjsx                ;
-;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
-;; (use-package rjsx-mode
-;;   :ensure t
-;;   :mode ("\\.js\\'")
-;;   :config
-;;   (setq js2-basic-offset 2)
-;;   (add-hook 'rjsx-mode-hook (lambda()
-;;                               (flycheck-add-mode 'javascript-eslint 'rjsx-mode)
-;;                               (my/use-eslint-from-node-modules)
-;;                               (flycheck-select-checker 'javascript-eslint)
-;;                               ))
-;;   (setq js2-basic-offset 2)
-;;   )
-
-;; (use-package react-snippets
-;;   :ensure t)
-;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
                                         ;                 css                 ;
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 
@@ -116,13 +98,6 @@
 					  '(company-css company-files company-yasnippet company-capf))))
   (setq css-indent-offset 4)
   )
-
-
-;; (use-package scss-mode
-;;   :ensure t
-;;   :mode "\\scss\\'"
-;;   )
-
 
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
                                         ;                emmet                ;

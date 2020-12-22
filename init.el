@@ -14,7 +14,6 @@
 (add-hook 'emacs-startup-hook
           #'(lambda () (pyim-restart-1 t)))
 
-
 ;; Package Management
 ;; ------------------------------------------------------
 (require 'init-packages)
@@ -92,6 +91,9 @@
 ;; yasnippet
 ;; ------------------------------------------------------
 (require 'init-yasnippet)
+
+;; awesome-tray
+(require 'init-awesome-tray)
 
 (custom-set-variables
  ;; custom-set-variables was added by Custom.
