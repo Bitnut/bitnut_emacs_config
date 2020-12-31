@@ -62,6 +62,9 @@
 ;; ------------------------------------------------------
 (require 'init-theme)
 
+;; awesome-tray
+;; (require 'init-awesome-tray)
+
 ;; netease
 ;; ------------------------------------------------------
 (require 'init-netease)
@@ -92,8 +95,9 @@
 ;; ------------------------------------------------------
 (require 'init-yasnippet)
 
-;; awesome-tray
-(require 'init-awesome-tray)
+;; todo
+;; ------------------------------------------------------
+;; (require 'init-todo)
 
 (custom-set-variables
  ;; custom-set-variables was added by Custom.

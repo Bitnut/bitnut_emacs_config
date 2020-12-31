@@ -26,7 +26,6 @@
 		      exec-path-from-shell
                       vterm
                       shell-pop
-		      ;; --- popwin ---
 		      popwin
                       projectile
 		      emmet-mode
@@ -37,6 +36,7 @@
 		      helm-ag
                       yasnippet
                       ivy-yasnippet
+                      hl-todo
                       ;; org
                       org-superstar
 		      ;;typescritpt
@@ -121,6 +121,10 @@
 (global-set-key (kbd "C-c n") 'counsel-fzf)
 (setq ivy-use-virtual-buffers t)
 (setq enable-recursive-minibuffers t)
+(global-set-key (kbd "C-c v") 'ivy-push-view)
+(global-set-key (kbd "C-c V") 'ivy-pop-view)
+(global-set-key (kbd "C-c s") 'ivy-switch-view)
+
 
 (use-package ivy-yasnippet
     :bind ("C-c C-y" . ivy-yasnippet))
