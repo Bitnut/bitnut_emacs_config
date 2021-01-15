@@ -43,8 +43,9 @@
 (defun bitnut-auto-load-theme ()
   (run-with-timer 0 (* 30 60) 'bitnut-theme-load))
 
-(bitnut-auto-load-theme)
 
+;; FIXME disrupt hl-todo face config
+(add-hook 'after-init-hook 'bitnut-auto-load-theme)
 
 
 (provide 'init-theme)

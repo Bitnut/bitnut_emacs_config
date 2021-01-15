@@ -58,16 +58,16 @@
 (require 'init-eshell)
 (require 'init-shell)
 
-;; theme
+;; todo
 ;; ------------------------------------------------------
-(require 'init-theme)
+(require 'init-todo)
 
 ;; awesome-tray
 ;; (require 'init-awesome-tray)
 
 ;; netease
 ;; ------------------------------------------------------
-(require 'init-netease)
+;; (require 'init-netease)
 
 ;; editorconfig
 ;; ------------------------------------------------------
@@ -91,13 +91,15 @@
 ;; ------------------------------------------------------
 (require 'init-projectile)
 
+;; theme
+;; ------------------------------------------------------
+(require 'init-theme)
+
 ;; yasnippet
 ;; ------------------------------------------------------
 (require 'init-yasnippet)
 
-;; todo
-;; ------------------------------------------------------
-;; (require 'init-todo)
+
 
 (custom-set-variables
  ;; custom-set-variables was added by Custom.

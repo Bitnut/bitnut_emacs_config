@@ -8,8 +8,8 @@
  (rear-context-string . "面\n2. mobile 页面样式")
  (position . 53))
 ("org-capture-last-stored"
- (filename . "~/.emacs.d/gtd.org")
- (front-context-string . "** TODO [#B] hi ")
- (rear-context-string)
- (position . 9))
+ (filename . "~/org/work.org")
+ (front-context-string . "** TODO [#B]完成 t")
+ (rear-context-string . "08 Fri>\n* 工作安排\n\n")
+ (position . 1351))
 )

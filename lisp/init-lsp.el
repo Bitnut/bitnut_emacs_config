@@ -16,6 +16,8 @@
      :init
      ;; @see https://emacs-lsp.github.io/lsp-mode/page/performance
      (setq read-process-output-max (* 1024 1024)) ;; 1MB
+     (setq gc-cons-threshold 100000000)
+     (setq lsp-idle-delay 0.5)
 
      (setq lsp-keymap-prefix "C-c l"
            lsp-keep-workspace-alive nil
