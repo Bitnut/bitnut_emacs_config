@@ -116,7 +116,7 @@
 ;; (define-key dired-mode-map "Y" 'ora-dired-rsync)
 
 ;; font
-(set-face-attribute 'default nil :font "Sarasa Mono Slab CL" )
+;; (set-face-attribute 'default nil :font "Sarasa Mono Slab CL" )
 
 (setq dired-dwim-target t)
 
