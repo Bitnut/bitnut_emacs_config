@@ -4,9 +4,6 @@
 [submodule "elisp/awesome-tray"]
 	path = elisp/awesome-tray
 	url = https://github.com/manateelazycat/awesome-tray.git
-[submodule "elisp/netease-cloud-music.el"]
-	path = elisp/netease-cloud-music.el
-	url = https://github.com/SpringHan/netease-cloud-music.el.git
 [submodule "elisp/awesome-tab"]
 	path = elisp/awesome-tab
 	url = git@github.com:manateelazycat/awesome-tab.git

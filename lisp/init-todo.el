@@ -12,7 +12,7 @@
   :hook
   (after-init . global-hl-todo-mode)
   (global-hl-todo . set-todo-faces)
-
+  (global-hl-todo-mode)
   )
 
 (provide 'init-todo)

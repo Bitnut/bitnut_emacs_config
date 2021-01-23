@@ -4,7 +4,6 @@
 (add-to-list `load-path (expand-file-name "~/.emacs.d/elisp"))
 (add-to-list `load-path (expand-file-name "~/.emacs.d/elisp/awesome-tray"))
 (add-to-list `load-path (expand-file-name "~/.emacs.d/elisp/awesome-tab"))
-(add-to-list `load-path (expand-file-name "~/.emacs.d/elisp/netease-cloud-music.el"))
 (add-to-list `load-path (expand-file-name "~/.emacs.d/elisp/snails"))
 (add-to-list `load-path (expand-file-name "~/.emacs.d/elisp/auto-save"))
 (add-to-list `load-path (expand-file-name "~/.emacs.d/elisp/yasnippet-snippets"))
@@ -29,7 +28,7 @@
 ;; ------------------------------------------------------
 (require 'init-ui)
 
-;; Default Management
+;; Default Managementq
 ;; ------------------------------------------------------
 (require 'init-better-default)
 
@@ -60,14 +59,10 @@
 
 ;; todo
 ;; ------------------------------------------------------
-(require 'init-todo)
+;; (require 'init-todo)
 
 ;; awesome-tray
 ;; (require 'init-awesome-tray)
-
-;; netease
-;; ------------------------------------------------------
-;; (require 'init-netease)
 
 ;; editorconfig
 ;; ------------------------------------------------------
@@ -108,11 +103,12 @@
  ;; If there is more than one, they won't work right.
  '(company-idle-delay 0.08)
  '(company-minimum-prefix-length 1)
+ '(custom-safe-themes
+   '("fa2b58bb98b62c3b8cf3b6f02f058ef7827a8e497125de0254f56e373abee088" default))
  '(flycheck-checker-error-threshold 1500)
  '(package-selected-packages
-   (quote
-    (company-web company hungry-delete swiper counsel smartparens js2-mode nodejs-repl exec-path-from-shell popwin monokai-theme emmet-mode js2-refactor web-mode expand-region iedit helm-ag pyim prettier-js typescript-mode flycheck magit use-package rjsx-mode tide)))
- '(popwin:popup-window-position (quote right))
+   '(company-web company hungry-delete swiper counsel smartparens js2-mode nodejs-repl exec-path-from-shell popwin monokai-theme emmet-mode js2-refactor web-mode expand-region iedit helm-ag pyim prettier-js typescript-mode flycheck magit use-package rjsx-mode tide))
+ '(popwin:popup-window-position 'right)
  '(popwin:popup-window-width 60))
 (custom-set-faces
  ;; custom-set-faces was added by Custom.
@@ -123,4 +119,5 @@
  '(iedit-occurrence ((t (:inherit region))))
  '(js2-error ((t (:foreground "red"))))
  '(js2-external-variable ((t (:foreground "dark gray"))))
- '(js2-function-call ((t (:foreground "yellow green")))))
+ '(js2-function-call ((t (:foreground "yellow green"))))
+ '(lsp-ui-sideline-code-action ((t (:inherit warning)))))
