@@ -1,6 +1,3 @@
-[submodule "elisp/snails"]
-	path = elisp/snails
-	url = git@github.com:manateelazycat/snails.git
 [submodule "elisp/awesome-tray"]
 	path = elisp/awesome-tray
 	url = https://github.com/manateelazycat/awesome-tray.git
