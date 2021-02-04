@@ -8,6 +8,7 @@
                              (lsp-deferred))))
             (js2-mode . lsp)
             (js-mode . lsp)
+            (json-mode . lsp)
             (php-mode . lsp)
             (typescript-mode-hook . lsp)
             (lsp-mode . lsp-enable-which-key-integration))

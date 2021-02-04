@@ -71,9 +71,10 @@
   (command-execute  'global-hl-todo-mode)
   )
 
+(bitnut-auto-load-theme)
 
 ;; FIXME disrupt hl-todo face config
-(add-hook 'after-init-hook 'bitnut-auto-load-theme)
+;; (add-hook 'after-init-hook 'bitnut-auto-load-theme)
 
 
 (provide 'init-theme)

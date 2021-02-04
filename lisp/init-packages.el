@@ -17,10 +17,16 @@
 		      swiper
 		      counsel
 		      smartparens
+                      wgrep
+                      keyfreq
+                      ;; --- Hydra ---
+                      hydra
+                      pretty-hydra
 		      ;; --- Major Mode ---
 		      js2-mode
                       go-mode
                       php-mode
+                      json-mode
 		      ;; --- Minor Mode ---
 		      nodejs-repl
 		      exec-path-from-shell
@@ -214,14 +220,15 @@
     (define-key origami-mode-map (kbd "C-c f") 'origami-recursively-toggle-node)
     (define-key origami-mode-map (kbd "C-c F") 'origami-toggle-all-nodes))
 
-;; snails fuzzy search tool
-(require 'snails)
-
-
 ;; org-prettier
 (add-hook 'org-mode-hook (lambda () (org-superstar-mode 1)))
 
 ;; eshell
 (global-set-key (kbd "C-`") 'vterm)
+
+;; keyfreq
+(require 'keyfreq)
+(keyfreq-mode 1)
+(keyfreq-autosave-mode 1)
 
 (provide 'init-packages)

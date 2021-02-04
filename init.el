@@ -4,7 +4,6 @@
 (add-to-list `load-path (expand-file-name "~/.emacs.d/elisp"))
 (add-to-list `load-path (expand-file-name "~/.emacs.d/elisp/awesome-tray"))
 (add-to-list `load-path (expand-file-name "~/.emacs.d/elisp/awesome-tab"))
-(add-to-list `load-path (expand-file-name "~/.emacs.d/elisp/snails"))
 (add-to-list `load-path (expand-file-name "~/.emacs.d/elisp/auto-save"))
 (add-to-list `load-path (expand-file-name "~/.emacs.d/elisp/yasnippet-snippets"))
 
@@ -27,6 +26,9 @@
 ;; UI Management
 ;; ------------------------------------------------------
 (require 'init-ui)
+
+;; move-text
+(require 'init-move-text)
 
 ;; Default Managementq
 ;; ------------------------------------------------------
@@ -89,6 +91,10 @@
 ;; theme
 ;; ------------------------------------------------------
 (require 'init-theme)
+
+;; hydra
+;; ------------------------------------------------------
+(require 'init-hydra)
 
 ;; yasnippet
 ;; ------------------------------------------------------
