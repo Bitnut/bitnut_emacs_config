@@ -19,6 +19,7 @@
 		      smartparens
                       wgrep
                       keyfreq
+                      meow
                       ;; --- Hydra ---
                       hydra
                       pretty-hydra
