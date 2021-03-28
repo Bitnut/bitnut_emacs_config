@@ -83,7 +83,8 @@
   "Use validate eslint"
   (setq flycheck-javascript-eslint-executable   "/mnt/e/projects/reolink-public/node_modules/eslint/bin/eslint.js")
   (setq flycheck-eslintrc "/mnt/e/projects/reolink-public/.eslintrc.js"))
-;; (add-hook 'flycheck-mode-hook #'my/use-validate-eslint)
+
+(add-hook 'flycheck-mode-hook #'my/use-eslint-from-node-modules)
 
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
                                         ;                 css                 ;
@@ -118,14 +119,18 @@
   (setq-mode-local rjsx-mode emmet-expand-jsx-className? t)
   (setq-mode-local web-mode emmet-expand-jsx-className? t)
   )
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+                                        ;                  json               ;
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 
+(use-package json-mode
+  :ensure t)
 
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
                                         ;                  js                 ;
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 (use-package js2-mode
   :ensure t
-  :mode (("\\.json\\'" . javascript-mode))
   :init
   (setq js2-basic-offset 4)
   (setq js-indent-level 4)

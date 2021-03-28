@@ -1,11 +1,45 @@
+;;; init.el --- -*- lexical-binding: t -*-
+;;
+;; Filename: init.el
+;; Description: Initialize bitnut-emacs
+;; Author: Bitnut
+;; Copyright (C) 2021 Bitnut
+;; Version: 1.0
+;; URL: https://github.com/Bitnut/bitnut_emacs_config.git
+;; Keywords: Bitnut .emacs.d init
+;; Compatibility: emacs-version >= 26.1
+;;
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+;;
+;;; Commentary:
+;;
+;; This is the init.el file for M-EMACS
+;;
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+;;
+;; This program is free software: you can redistribute it and/or modify
+;; it under the terms of the GNU General Public License as published by
+;; the Free Software Foundation, either version 3 of the License, or (at
+;; your option) any later version.
+;;
+;; This program is distributed in the hope that it will be useful, but
+;; WITHOUT ANY WARRANTY; without even the implied warranty of
+;; MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the GNU
+;; General Public License for more details.
+;;
+;; You should have received a copy of the GNU General Public License
+;; along with GNU Emacs.  If not, see <https://www.gnu.org/licenses/>.
+;;
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+;;
+;;; Code:
+
 (package-initialize)
 
 (add-to-list 'load-path "~/.emacs.d/lisp/")
 (add-to-list `load-path (expand-file-name "~/.emacs.d/elisp"))
 (add-to-list `load-path (expand-file-name "~/.emacs.d/elisp/awesome-tray"))
 (add-to-list `load-path (expand-file-name "~/.emacs.d/elisp/awesome-tab"))
-(add-to-list `load-path (expand-file-name "~/.emacs.d/elisp/netease-cloud-music.el"))
-(add-to-list `load-path (expand-file-name "~/.emacs.d/elisp/snails"))
 (add-to-list `load-path (expand-file-name "~/.emacs.d/elisp/auto-save"))
 (add-to-list `load-path (expand-file-name "~/.emacs.d/elisp/yasnippet-snippets"))
 
@@ -29,7 +63,10 @@
 ;; ------------------------------------------------------
 (require 'init-ui)
 
-;; Default Management
+;; move-text
+(require 'init-move-text)
+
+;; Default Managementq
 ;; ------------------------------------------------------
 (require 'init-better-default)
 
@@ -58,17 +95,6 @@
 (require 'init-eshell)
 (require 'init-shell)
 
-;; theme
-;; ------------------------------------------------------
-(require 'init-theme)
-
-;; awesome-tray
-;; (require 'init-awesome-tray)
-
-;; netease
-;; ------------------------------------------------------
-(require 'init-netease)
-
 ;; editorconfig
 ;; ------------------------------------------------------
 (require 'init-editorconfig)
@@ -87,17 +113,20 @@
 ;; lsp
 (require 'init-lsp)
 
+;; meow
+(require 'init-meow)
+
 ;; projectile
 ;; ------------------------------------------------------
 (require 'init-projectile)
 
+;; theme
+;; ------------------------------------------------------
+(require 'init-theme)
+
 ;; yasnippet
 ;; ------------------------------------------------------
 (require 'init-yasnippet)
-
-;; todo
-;; ------------------------------------------------------
-;; (require 'init-todo)
 
 (custom-set-variables
  ;; custom-set-variables was added by Custom.
@@ -106,11 +135,12 @@
  ;; If there is more than one, they won't work right.
  '(company-idle-delay 0.08)
  '(company-minimum-prefix-length 1)
+ '(custom-safe-themes
+   '("fa2b58bb98b62c3b8cf3b6f02f058ef7827a8e497125de0254f56e373abee088" default))
  '(flycheck-checker-error-threshold 1500)
  '(package-selected-packages
-   (quote
-    (company-web company hungry-delete swiper counsel smartparens js2-mode nodejs-repl exec-path-from-shell popwin monokai-theme emmet-mode js2-refactor web-mode expand-region iedit helm-ag pyim prettier-js typescript-mode flycheck magit use-package rjsx-mode tide)))
- '(popwin:popup-window-position (quote right))
+   '(company-web company hungry-delete swiper counsel smartparens js2-mode nodejs-repl exec-path-from-shell popwin monokai-theme emmet-mode js2-refactor web-mode expand-region iedit helm-ag pyim prettier-js typescript-mode flycheck magit use-package rjsx-mode tide))
+ '(popwin:popup-window-position 'right)
  '(popwin:popup-window-width 60))
 (custom-set-faces
  ;; custom-set-faces was added by Custom.
@@ -121,4 +151,5 @@
  '(iedit-occurrence ((t (:inherit region))))
  '(js2-error ((t (:foreground "red"))))
  '(js2-external-variable ((t (:foreground "dark gray"))))
- '(js2-function-call ((t (:foreground "yellow green")))))
+ '(js2-function-call ((t (:foreground "yellow green"))))
+ '(lsp-ui-sideline-code-action ((t (:inherit warning)))))

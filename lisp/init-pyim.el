@@ -3,6 +3,10 @@
 ;; (pyim-basedict-enable)   ; 拼音词库，五笔用户 *不需要* 此行设置
 ;; (setq default-input-method "pyim")
 
+(defun pyim-probe-meow-normal ()
+  "用于解决 meow 和 pyim 的冲突问题"
+  (and (boundp 'meow-normal-mode) meow-normal-mode))
+
 (use-package pyim
   :ensure nil
   :demand t
@@ -15,6 +19,9 @@
   (setq default-input-method "pyim")
   ;; 我使用全拼
   (setq pyim-default-scheme 'quanpin)
+  (setq-default pyim-english-input-switch-functions
+                '(pyim-probe-isearch-mode
+                  pyim-probe-meow-normal))
 
   ;; 开启拼音搜索功能
   ;; (pyim-isearch-mode 1)
