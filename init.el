@@ -120,6 +120,10 @@
 ;; ------------------------------------------------------
 (require 'init-projectile)
 
+;; treemacs
+;; ------------------------------------------------------
+(require 'init-treemacs)
+
 ;; theme
 ;; ------------------------------------------------------
 (require 'init-theme)
@@ -127,6 +131,18 @@
 ;; yasnippet
 ;; ------------------------------------------------------
 (require 'init-yasnippet)
+
+;; todo-hl
+;; ------------------------------------------------------
+(require 'init-todo)
+
+;; dape-mode
+;; ------------------------------------------------------
+;; (require 'init-debug)
+
+;; rust-mode
+;; ------------------------------------------------------
+(require 'init-rust)
 
 (custom-set-variables
  ;; custom-set-variables was added by Custom.

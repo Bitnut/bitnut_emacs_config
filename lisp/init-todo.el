@@ -1,18 +1,13 @@
-(setq hl-todo-keyword-faces
-      '(("TODO"   . "#00FF00")
-        ("FIXME"  . "#FF0000")
-        ("DEBUG"  . "#A020F0")
-        ("GOTCHA" . "#FF4500")
-        ("DONE"   . "#1E90FF")))
 (use-package hl-todo
-  :bind (:map hl-todo-mode-map
-              ("C-c t p" . hl-todo-previous)
-              ("C-c t n" . hl-todo-next)
-              ("C-c t o" . hl-todo-occur))
-  :hook
-  (after-init . global-hl-todo-mode)
-  (global-hl-todo . set-todo-faces)
-  (global-hl-todo-mode)
-  )
+  :hook (prog-mode . hl-todo-mode)
+  :config
+  (setq hl-todo-highlight-punctuation ":"
+        hl-todo-keyword-faces
+        `(("TODO"       warning bold)
+          ("FIXME"      error bold)
+          ("HACK"       font-lock-constant-face bold)
+          ("REVIEW"     font-lock-keyword-face bold)
+          ("NOTE"       success bold)
+          ("DEPRECATED" font-lock-doc-face bold))))
 
 (provide 'init-todo)

@@ -17,8 +17,9 @@
     :config (pyim-basedict-enable))
 
   (setq default-input-method "pyim")
-  ;; 我使用全拼
-  (setq pyim-default-scheme 'quanpin)
+  ;; 默认使用双拼
+  (setq pyim-default-scheme 'pyim-shuangpin)
+  (setq pyim-assistant-scheme 'pyim-quanpin)
   (setq-default pyim-english-input-switch-functions
                 '(pyim-probe-isearch-mode
                   pyim-probe-meow-normal))
@@ -40,5 +41,17 @@
    ))
 
 (global-set-key (kbd "C-\\") 'toggle-input-method)
+
+
+(defun pyim-go-quanpin ()
+  "change to quanpin method"
+  (interactive)
+  (setq pyim-default-scheme 'pyim-quanpin))
+
+(defun pyim-go-shuangpin ()
+  "change to quanpin method"
+  (interactive)
+  (setq pyim-default-scheme 'pyim-shuangpin))
+
 
 (provide 'init-pyim)

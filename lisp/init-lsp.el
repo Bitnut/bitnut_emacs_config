@@ -12,7 +12,9 @@
             (php-mode . lsp)
             (typescript-mode-hook . lsp)
             (lsp-mode . lsp-enable-which-key-integration))
-     :bind (:map lsp-mode-map
+     :bind (("M-n" . flycheck-next-error)
+            ("M-p" . flycheck-previous-error)
+            :map lsp-mode-map
             ("C-c C-d" . lsp-describe-thing-at-point))
      :init
      ;; @see https://emacs-lsp.github.io/lsp-mode/page/performance
