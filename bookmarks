@@ -1,4 +1,4 @@
-;;;; Emacs Bookmark Format Version 1 ;;;; -*- coding: utf-8-emacs -*- 
+;;;; Emacs Bookmark Format Version 1 ;;;; -*- coding: utf-8-emacs -*-
 ;;; This format is meant to be slightly human-readable;
 ;;; nevertheless, you probably don't want to edit it.
 ;;; -*- End Of Bookmark File Format Version Stamp -*-
@@ -8,8 +8,8 @@
  (rear-context-string . "面\n2. mobile 页面样式")
  (position . 53))
 ("org-capture-last-stored"
- (filename . "~/org/work.org")
- (front-context-string . "** TODO [#B]完成 t")
- (rear-context-string . "08 Fri>\n* 工作安排\n\n")
- (position . 1351))
+ (filename . "~/org/gtd.org")
+ (front-context-string . "** TODO [#A] 进程相")
+ (rear-context-string . "<2021-01-12 二>\n\n")
+ (position . 190))
 )
