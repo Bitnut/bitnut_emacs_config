@@ -6,111 +6,114 @@
   ;;(require 'package)
 
   (setq package-archives '(("gnu"   . "http://elpa.emacs-china.org/gnu/")
-			               ("melpa" . "http://elpa.emacs-china.org/melpa/"))))
+			   ("melpa" . "http://elpa.emacs-china.org/melpa/"))))
 ;; Add Packages
 (defvar my/packages '(
-		              ;; --- Auto-completion ---
-		              company
+		      ;; --- Auto-completion ---
+		      company
                       company-quickhelp
-		              ;; --- Better Editor ---
-		              hungry-delete
-		              swiper
-		              counsel
-		              smartparens
+		      ;; --- Better Editor ---
+		      hungry-delete
+		      swiper
+		      counsel
+		      smartparens
                       wgrep
                       keyfreq
                       meow
+                      elfeed
+                      elfeed-dashboard
+                      elfeed-org
                       ;; --- Hydra ---
                       hydra
                       pretty-hydra
-		              ;; --- Major Mode ---
-		              js2-mode
+		      ;; --- Major Mode ---
+		      js2-mode
                       go-mode
                       php-mode
                       json-mode
-		              ;; --- Minor Mode ---
+		      ;; --- Minor Mode ---
                       treemacs
                       treemacs-icons-dired
-		              nodejs-repl
-		              exec-path-from-shell
+		      nodejs-repl
+		      exec-path-from-shell
                       vterm
                       shell-pop
-		              popwin
+		      popwin
                       projectile
-		              emmet-mode
-		              js2-refactor
-		              web-mode
-		              expand-region
-		              iedit
-		              helm-ag
+		      emmet-mode
+		      js2-refactor
+		      web-mode
+		      expand-region
+		      iedit
+		      helm-ag
                       yasnippet
                       ivy-yasnippet
                       hl-todo
                       ;; org
                       org-superstar
-		              ;;typescritpt
-		              typescript-mode
-		              ;; magit
-		              magit
+		      ;;typescritpt
+		      typescript-mode
+		      ;; magit
+		      magit
                       git-timemachine
-		              use-package
-		              rjsx-mode
-		              ;; tide
-		              ;; pyim 弹窗
-		              posframe
-		              ;; markdown
-		              markdown-mode
-		              grip-mode
-		              ;; editorconfig
-		              editorconfig
+		      use-package
+		      rjsx-mode
+		      ;; tide
+		      ;; pyim 弹窗
+		      posframe
+		      ;; markdown
+		      markdown-mode
+		      grip-mode
+		      ;; editorconfig
+		      editorconfig
                       ;; ace-window
                       ace-window
                       ;; diminish
                       diminish
-		              ;; package groups
+		      ;; package groups
 		      ;;;;;;;;;;;;;;;;;;;;;;;;;;;
-		              ;; code folding
-		              origami
-		              ;; icons
-		              all-the-icons
-		              spaceline-all-the-icons
-		              all-the-icons-dired
-		              ;; lsp
-		              lsp-mode
+		      ;; code folding
+		      origami
+		      ;; icons
+		      all-the-icons
+		      spaceline-all-the-icons
+		      all-the-icons-dired
+		      ;; lsp
+		      lsp-mode
                       lsp-ui
-		              eglot
-		              ;; shell
-		              shell
-		              xterm-color
-		              shell-pop
-		              ;; esh-doc
-		              esh-help
-		              eshell-z
-		              eshell-prompt-extras
+		      eglot
+		      ;; shell
+		      shell
+		      xterm-color
+		      shell-pop
+		      ;; esh-doc
+		      esh-help
+		      eshell-z
+		      eshell-prompt-extras
                       ;; which key
                       which-key
-		              ;; flycheck
-		              flycheck
-		              flycheck-posframe
-		              flycheck-pos-tip
-		              flycheck-popup-tip
-		              ;;pyim input method
-		              pyim
-		              pyim-basedict
-		              ;; --- Themes ---
-		              ;;monokai-theme
-		              spacemacs-theme
-		              ;; netease-music
-		              request
-		              async
-		              ) "Default packages")
+		      ;; flycheck
+		      flycheck
+		      flycheck-posframe
+		      flycheck-pos-tip
+		      flycheck-popup-tip
+		      ;;pyim input method
+		      pyim
+		      pyim-basedict
+		      ;; --- Themes ---
+		      ;;monokai-theme
+		      spacemacs-theme
+		      ;; netease-music
+		      request
+		      async
+		      ) "Default packages")
 
 (setq package-selected-packages my/packages)
 
 (defun my/packages-installed-p ()
   (loop for pkg in my/packages
-	    when (not (package-installed-p pkg)) do (return nil)
-	    finally (return t)))
+	when (not (package-installed-p pkg)) do (return nil)
+	finally (return t)))
 (unless (my/packages-installed-p)
   (message "%s" "Refreshing package database...")
   (package-refresh-contents)
@@ -139,17 +142,16 @@
   :bind ("C-c C-y" . ivy-yasnippet))
 
 ;; smartparens
-;; (require 'smartparens-config)
-;;(add-hook 'emacs-lisp-mode-hook 'smartparens-mode)
 (smartparens-global-mode t)
 (sp-local-pair '(emacs-lisp-mode lisp-interaction-mode) "'" nil :actions nil)
+(add-hook 'awk-mode-hook (lambda () (setq-local smartparens-global-mode nil)))
 
 
 ;; js2-mode
 (setq auto-mode-alist
       (append
        '(("\\.js\\'" . js2-mode)
-	     ("\\.js\\'" . js2-refactor-mode))
+	 ("\\.js\\'" . js2-refactor-mode))
        auto-mode-alist))
 
 (defun my-js2-mode-hook ()
@@ -177,19 +179,19 @@
   (save-excursion
     ;; (setq imenu-generic-expression '((nil "describe\\(\"\\(.+\\)\"" 1)))
     (imenu--generic-function '(("describe" "\\s-*describe\\s-*(\\s-*[\"']\\(.+\\)[\"']\\s-*,.*" 1)
-			                   ("it" "\\s-*it\\s-*(\\s-*[\"']\\(.+\\)[\"']\\s-*,.*" 1)
-			                   ("test" "\\s-*test\\s-*(\\s-*[\"']\\(.+\\)[\"']\\s-*,.*" 1)
-			                   ("before" "\\s-*before\\s-*(\\s-*[\"']\\(.+\\)[\"']\\s-*,.*" 1)
-			                   ("after" "\\s-*after\\s-*(\\s-*[\"']\\(.+\\)[\"']\\s-*,.*" 1)
-			                   ("Function" "function[ \t]+\\([a-zA-Z0-9_$.]+\\)[ \t]*(" 1)
-			                   ("Function" "^[ \t]*\\([a-zA-Z0-9_$.]+\\)[ \t]*=[ \t]*function[ \t]*(" 1)
-			                   ("Function" "^var[ \t]*\\([a-zA-Z0-9_$.]+\\)[ \t]*=[ \t]*function[ \t]*(" 1)
-			                   ("Function" "^[ \t]*\\([a-zA-Z0-9_$.]+\\)[ \t]*()[ \t]*{" 1)
-			                   ("Function" "^[ \t]*\\([a-zA-Z0-9_$.]+\\)[ \t]*:[ \t]*function[ \t]*(" 1)
-			                   ("Task" "[. \t]task([ \t]*['\"]\\([^'\"]+\\)" 1)))))
+			       ("it" "\\s-*it\\s-*(\\s-*[\"']\\(.+\\)[\"']\\s-*,.*" 1)
+			       ("test" "\\s-*test\\s-*(\\s-*[\"']\\(.+\\)[\"']\\s-*,.*" 1)
+			       ("before" "\\s-*before\\s-*(\\s-*[\"']\\(.+\\)[\"']\\s-*,.*" 1)
+			       ("after" "\\s-*after\\s-*(\\s-*[\"']\\(.+\\)[\"']\\s-*,.*" 1)
+			       ("Function" "function[ \t]+\\([a-zA-Z0-9_$.]+\\)[ \t]*(" 1)
+			       ("Function" "^[ \t]*\\([a-zA-Z0-9_$.]+\\)[ \t]*=[ \t]*function[ \t]*(" 1)
+			       ("Function" "^var[ \t]*\\([a-zA-Z0-9_$.]+\\)[ \t]*=[ \t]*function[ \t]*(" 1)
+			       ("Function" "^[ \t]*\\([a-zA-Z0-9_$.]+\\)[ \t]*()[ \t]*{" 1)
+			       ("Function" "^[ \t]*\\([a-zA-Z0-9_$.]+\\)[ \t]*:[ \t]*function[ \t]*(" 1)
+			       ("Task" "[. \t]task([ \t]*['\"]\\([^'\"]+\\)" 1)))))
 (add-hook 'js2-mode-hook
-	      (lambda ()
-	        (setq imenu-create-index-function 'js2-imenu-make-index)))
+	  (lambda ()
+	    (setq imenu-create-index-function 'js2-imenu-make-index)))
 
 ;; call imenu to list functions
 (global-set-key (kbd "M-s i") 'counsel-imenu)

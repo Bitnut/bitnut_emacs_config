@@ -27,14 +27,12 @@
            lsp-signature-auto-activate nil
            lsp-modeline-code-actions-enable nil
            lsp-modeline-diagnostics-enable nil
-
            lsp-enable-file-watchers nil
            lsp-enable-file-watchers nil
            lsp-enable-folding nil
            lsp-enable-semantic-highlighting nil
            lsp-enable-symbol-highlighting nil
            lsp-enable-text-document-color nil
-
            lsp-enable-indentation nil
            lsp-enable-on-type-formatting nil)
      :config
@@ -71,5 +69,24 @@
                  (setq lsp-ui-doc-border (face-foreground 'font-lock-comment-face))
                  (set-face-background 'lsp-ui-doc-background
                                       (face-background 'tooltip)))))
+
+;; (with-eval-after-load 'lsp-mode
+;;   ;; enable log only for debug
+;;   (setq lsp-log-io nil)
+;;   ;; handle yasnippet by myself
+;;   (setq lsp-enable-snippet nil)
+;;   ;; auto restart lsp
+;;   (setq lsp-restart 'auto-restart)
+;;   ;; don't watch 3rd party javascript libraries
+;;   (push "[/\\\\][^/\\\\]*\\.\\(json\\|html\\|jade\\|awk\\)$" lsp-file-watch-ignored)
+;;   ;; don't ping LSP language server too frequently
+;;   (defvar lsp-on-touch-time 0)
+;;   (defun my-lsp-on-change-hack (orig-fun &rest args)
+;;     ;; do NOT run `lsp-on-change' too frequently
+;;     (when (> (- (float-time (current-time))
+;;                 lsp-on-touch-time) 120) ;; 2 mins
+;;       (setq lsp-on-touch-time (float-time (current-time)))
+;;       (apply orig-fun args)))
+;;   (advice-add 'lsp-on-change :around #'my-lsp-on-change-hack))
 
 (provide 'init-lsp)
