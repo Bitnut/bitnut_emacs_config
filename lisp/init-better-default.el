@@ -11,15 +11,6 @@
 
 (delete-selection-mode 1)
 
-
-;; recentf-mode 配置
-(require 'recentf)
-(recentf-mode 1)
-(setq recentf-max-menu-item 25)
-
-
-
-
 (define-advice show-paren-function (:around (fn) fix-show-paren-function)
   "Highlight enclosing parens."
   (cond ((looking-at-p "\\s(") (funcall fn))

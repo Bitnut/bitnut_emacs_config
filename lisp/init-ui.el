@@ -18,7 +18,7 @@
 (cond
  (sys/linuxp (set-face-attribute 'default nil :height 160))
  (sys/win32p (set-face-attribute 'default nil :height 140))
- (sys/WSL (set-face-attribute 'default nil :height 140)))
+ (sys/WSL (set-face-attribute 'default nil :height 132)))
 
 
 (provide 'init-ui)

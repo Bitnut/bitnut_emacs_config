@@ -14,6 +14,11 @@
        (string-match "-[Mm]icrosoft" operating-system-release))
   "Are we running on a GNU/Linux system?")
 
+(defconst sys/WSL-proxy
+  (cond
+   (sys/WSL (shell-command-to-string "echo -n $hostip")))
+  "Are we running on a GNU/Linux system?")
+
 (defconst sys/macp
   (eq system-type 'darwin)
   "Are we running on a Mac system?")

@@ -63,6 +63,10 @@
 ;; ------------------------------------------------------
 (require 'init-ui)
 
+;; recentf config
+;; ------------------------------------------------------
+(require 'init-recentf)
+
 ;; move-text
 (require 'init-move-text)
 

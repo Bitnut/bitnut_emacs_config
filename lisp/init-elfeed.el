@@ -1,7 +1,7 @@
 (use-package elfeed
   :custom ((elfeed-use-curl t)
            (elfeed-db-directory "~/Documents/elfeed/db/")
-           (elfeed-curl-extra-arguments '("-x" "socks5://172.18.48.1:10808")))
+           (elfeed-curl-extra-arguments '("-x" "socks5://172.21.192.1:10808")))
   :bind (:map elfeed-show-mode-map
               ("h" . evil-backward-char)
               ("8" . my/elfeed-toggle-star)
