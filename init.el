@@ -67,6 +67,10 @@
 ;; ------------------------------------------------------
 (require 'init-recentf)
 
+;; recentf config
+;; ------------------------------------------------------
+(require 'init-func)
+
 ;; move-text
 (require 'init-move-text)
 
@@ -146,7 +150,10 @@
 
 ;; rust-mode
 ;; ------------------------------------------------------
-(require 'init-rust)
+;; (require 'init-rust)
+
+;; dashboard
+(require 'init-dashboard)
 
 ;; elfeed
 ;; ------------------------------------------------------

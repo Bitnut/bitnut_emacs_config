@@ -1,3 +1,28 @@
 ;;; -*- coding: utf-8 -*-
-(("/home/picher/.emacs.d/lisp/init-recentf.el" . 688)
- ("/home/picher/.emacs.d/recentf" . 1809))
+(("/home/picher/.emacs.d/init.el" . 2380)
+ ("/home/picher/.emacs.d/lisp/init-func.el" . 1138)
+ ("/home/picher/Documents/elfeed/db/index" . 630)
+ ("/home/picher/.emacs.d/recentf" . 1328)
+ ("/home/picher/.emacs.d/images/"
+  (dired-filename . "/home/picher/.emacs.d/images/huaji.png"))
+ ("/home/picher/work/emacs/.emacs.d/elisp/init-func.el" . 1338)
+ ("/home/picher/work/emacs/.emacs.d/README.md" . 46748)
+ ("/home/picher/work/emacs/.emacs.d/elisp/init-dashboard.el" . 2604)
+ ("/home/picher/.emacs.d/lisp/init-dashboard.el" . 2080)
+ ("/home/picher/.emacs.d/lisp/"
+  (dired-filename . "/home/picher/.emacs.d/lisp/.."))
+ ("/home/picher/.emacs.d/lisp/init-packages.el" . 8027)
+ ("/home/picher/.emacs.d/"
+  (dired-filename . "/home/picher/.emacs.d/lisp"))
+ ("/home/picher/"
+  (dired-filename . "/home/picher/work"))
+ ("/home/picher/work/"
+  (dired-filename . "/home/picher/work/emacs"))
+ ("/home/picher/work/emacs/"
+  (dired-filename . "/home/picher/work/emacs/.emacs.d"))
+ ("/home/picher/work/emacs/.emacs.d/"
+  (dired-filename . "/home/picher/work/emacs/.emacs.d/images"))
+ ("/home/picher/work/emacs/.emacs.d/images/"
+  (dired-filename . "/home/picher/work/emacs/.emacs.d/images/KEC_Light_BK.png"))
+ ("/home/picher/.emacs.d/elpa/rust-mode-20210423.1157/rust-mode-autoloads.el" . 1864)
+ ("/home/picher/.emacs.d/lisp/init-recentf.el" . 688))

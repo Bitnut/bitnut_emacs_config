@@ -61,6 +61,9 @@
                       go-mode
                       php-mode
                       json-mode
+                      ;; dashboard
+                      dashboard
+                      page-break-lines
 		      ;; --- Minor Mode ---
                       treemacs
                       treemacs-icons-dired
