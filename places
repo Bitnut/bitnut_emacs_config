@@ -1,28 +1,65 @@
 ;;; -*- coding: utf-8 -*-
-(("/home/picher/.emacs.d/init.el" . 2380)
- ("/home/picher/.emacs.d/lisp/init-func.el" . 1138)
- ("/home/picher/Documents/elfeed/db/index" . 630)
- ("/home/picher/.emacs.d/recentf" . 1328)
- ("/home/picher/.emacs.d/images/"
-  (dired-filename . "/home/picher/.emacs.d/images/huaji.png"))
- ("/home/picher/work/emacs/.emacs.d/elisp/init-func.el" . 1338)
- ("/home/picher/work/emacs/.emacs.d/README.md" . 46748)
- ("/home/picher/work/emacs/.emacs.d/elisp/init-dashboard.el" . 2604)
- ("/home/picher/.emacs.d/lisp/init-dashboard.el" . 2080)
- ("/home/picher/.emacs.d/lisp/"
-  (dired-filename . "/home/picher/.emacs.d/lisp/.."))
- ("/home/picher/.emacs.d/lisp/init-packages.el" . 8027)
- ("/home/picher/.emacs.d/"
-  (dired-filename . "/home/picher/.emacs.d/lisp"))
- ("/home/picher/"
-  (dired-filename . "/home/picher/work"))
- ("/home/picher/work/"
-  (dired-filename . "/home/picher/work/emacs"))
- ("/home/picher/work/emacs/"
-  (dired-filename . "/home/picher/work/emacs/.emacs.d"))
- ("/home/picher/work/emacs/.emacs.d/"
-  (dired-filename . "/home/picher/work/emacs/.emacs.d/images"))
- ("/home/picher/work/emacs/.emacs.d/images/"
-  (dired-filename . "/home/picher/work/emacs/.emacs.d/images/KEC_Light_BK.png"))
- ("/home/picher/.emacs.d/elpa/rust-mode-20210423.1157/rust-mode-autoloads.el" . 1864)
- ("/home/picher/.emacs.d/lisp/init-recentf.el" . 688))
+(("/home/picher/org/work.org" . 4618)
+ ("/home/picher/my-research/redis/src/redis.h" . 14764)
+ ("/home/picher/my-research/redis/src/redis.c" . 59821)
+ ("/home/picher/my-research/redis/src/ae.h" . 3277)
+ ("/mnt/e/projects/bcnotes/dev-profile.md" . 834)
+ ("/home/picher/my-research/redis/src/ae.c" . 3610)
+ ("/home/picher/Documents/elfeed/db/index" . 616273)
+ ("/home/picher/.emacs.d/recentf" . 4815)
+ ("/home/picher/work/shop-service/src/server/Services/PaymentMethods/SDKs/utils/Aes.ts" . 681)
+ ("/home/picher/work/shop-service/node_modules/@types/node/querystring.d.ts" . 16)
+ ("/home/picher/work/shop-service/node_modules/@litert/typeguard/src/common.ts" . 631)
+ ("/home/picher/work/shop-service/src/server/Services/PaymentMethods/Gateways/Alipay/Internal.ts" . 2530)
+ ("/home/picher/work/shop-service/src/server/Services/PaymentMethods/SDKs/Wechat-client/common/WechatApi.ts" . 299)
+ ("/home/picher/work/shop-service/src/server/Services/PaymentMethods/SDKs/Wechat-client/common/WechatType.ts" . 500)
+ ("/home/picher/work/shop-service/src/server/Services/PaymentMethods/SDKs/Wechat-client/common/WechatClient.ts" . 338)
+ ("/home/picher/work/shop-service/src/server/Services/PaymentMethods/Gateways/WechatPay/Common.ts" . 315)
+ ("/home/picher/work/shop-service/src/server/Services/PaymentMethods/SDKs/utils/utilConst.ts" . 334)
+ ("/home/picher/work/shop-service/src/server/Services/PaymentMethods/SDKs/Wechat-client/common/WechatConst.ts" . 777)
+ ("/home/picher/work/shop-service/src/server/Services/PaymentMethods/SDKs/Wechat-client/Client.ts" . 3352)
+ ("/home/picher/work/shop-service/src/server/Services/PaymentMethods/Gateways/Alipay/Gateway.ts" . 9119)
+ ("/home/picher/work/shop-service/src/server/Services/PaymentMethods/Gateways/WechatPay/Gateway.ts" . 4989)
+ ("/home/picher/.gitconfig" . 152)
+ ("/home/picher/.ssh/config" . 260)
+ ("/home/picher/.emacs.d/init.el" . 1268)
+ ("/home/picher/.emacs.d/lisp/init-packages.el" . 2740)
+ ("/home/picher/.emacs.d/lisp/init-dashboard.el" . 1674)
+ ("/home/picher/.emacs.d/lisp/init-lsp.el" . 551)
+ ("/home/picher/.emacs.d/.gitignore" . 75)
+ ("/home/picher/work/shop-service/src/server/Services/Subscriptions/Service.ts" . 15188)
+ ("/home/picher/work/shop-service/src/server/Services/Subscriptions/index.ts" . 2414)
+ ("/home/picher/work/shop-service/src/server/timers/ExpireApprovedOrders.ts-bak" . 494)
+ ("/home/picher/work/shop-service/src/server/timers/CheckSubscriptionExpiration.ts" . 510)
+ ("/home/picher/work/shop-service/src/server/Services/PaymentMethods/SDKs/utils/"
+  (dired-filename . "/home/picher/work/shop-service/src/server/Services/PaymentMethods/SDKs/utils/index.ts"))
+ ("/home/picher/work/TEST/test.html" . 34)
+ ("/home/picher/work/TEST/awk/filter-wechat.sh" . 84)
+ ("/home/picher/work/shop-service/src/server/Services/PaymentMethods/SDKs/Wechat-client/api/Refund.ts" . 966)
+ ("/home/picher/work/shop-service/src/server/Services/PaymentMethods/SDKs/common/ClientConfig.ts" . 49)
+ ("/home/picher/work/shop-service/src/server/Services/PaymentMethods/SDKs/PayPal-client/common/PaypalClient.ts" . 344)
+ ("/home/picher/work/shop-service/src/server/Services/PaymentMethods/SDKs/PayPal-client/Client.ts" . 276)
+ ("/home/picher/work/shop-service/src/server/Services/PaymentMethods/index.ts" . 1736)
+ ("/home/picher/work/java_sdk_v3.0.9/src/"
+  (dired-filename . "/home/picher/work/java_sdk_v3.0.9/src/main"))
+ ("/home/picher/work/java_sdk_v3.0.9/src/main/"
+  (dired-filename . "/home/picher/work/java_sdk_v3.0.9/src/main/java"))
+ ("/home/picher/work/java_sdk_v3.0.9/src/main/java/"
+  (dired-filename . "/home/picher/work/java_sdk_v3.0.9/src/main/java/com"))
+ ("/home/picher/work/java_sdk_v3.0.9/src/main/java/com/"
+  (dired-filename . "/home/picher/work/java_sdk_v3.0.9/src/main/java/com/github"))
+ ("/home/picher/work/java_sdk_v3.0.9/src/main/java/com/github/"
+  (dired-filename . "/home/picher/work/java_sdk_v3.0.9/src/main/java/com/github/wxpay"))
+ ("/home/picher/work/java_sdk_v3.0.9/src/main/java/com/github/wxpay/"
+  (dired-filename . "/home/picher/work/java_sdk_v3.0.9/src/main/java/com/github/wxpay/sdk"))
+ ("/home/picher/.nvm/versions/node/v14.15.4/lib/node_modules/typescript/lib/lib.es2015.symbol.wellknown.d.ts" . 9576)
+ ("/home/picher/work/shop-service/node_modules/@types/node/crypto.d.ts" . 11437)
+ ("/home/picher/work/shop-service/node_modules/@types/node/globals.d.ts" . 8544)
+ ("/home/picher/work/java_sdk_v3.0.9/src/main/java/com/github/wxpay/sdk/"
+  (dired-filename . "/home/picher/work/java_sdk_v3.0.9/src/main/java/com/github/wxpay/sdk/WXPayUtil.java"))
+ ("/home/picher/work/java_sdk_v3.0.9/src/main/java/com/github/wxpay/sdk/IWXPayDomain.java" . 108)
+ ("/home/picher/work/java_sdk_v3.0.9/src/main/java/com/github/wxpay/sdk/WXPayConfig.java" . 31)
+ ("/home/picher/work/java_sdk_v3.0.9/src/main/java/com/github/wxpay/sdk/WXPayUtil.java" . 685)
+ ("/home/picher/work/java_sdk_v3.0.9/src/main/java/com/github/wxpay/sdk/WXPayConstants.java" . 170)
+ ("/home/picher/.emacs.d/lisp/init-better-default.el" . 398)
+ ("/home/picher/.emacs.d/lisp/init-recentf.el" . 526))

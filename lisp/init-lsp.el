@@ -11,7 +11,9 @@
             (json-mode . lsp)
             (php-mode . lsp)
             (typescript-mode-hook . lsp)
-            (lsp-mode . lsp-enable-which-key-integration))
+            (lsp-mode . lsp-enable-which-key-integration)
+            ((c-mode c++-mode objc-mode cuda-mode) .
+             (lambda () (require 'ccls) (lsp))))
      :bind (("M-n" . flycheck-next-error)
             ("M-p" . flycheck-previous-error)
             :map lsp-mode-map
@@ -21,7 +23,7 @@
      (setq read-process-output-max (* 1024 1024)) ;; 1MB
      (setq gc-cons-threshold 100000000)
      (setq lsp-idle-delay 0.5)
-
+     (setq ccls-executable "~/languageServer/ccls/Release/ccls")
      (setq lsp-keymap-prefix "C-c l"
            lsp-keep-workspace-alive nil
            lsp-signature-auto-activate nil

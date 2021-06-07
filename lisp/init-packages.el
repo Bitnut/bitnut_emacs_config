@@ -82,6 +82,7 @@
                       yasnippet
                       ivy-yasnippet
                       hl-todo
+                      ccls
                       ;; org
                       org-superstar
 		      ;;typescritpt
