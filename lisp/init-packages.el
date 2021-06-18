@@ -81,6 +81,8 @@
 		      helm-ag
                       yasnippet
                       ivy-yasnippet
+                      ivy-rich
+                      all-the-icons-ivy-rich
                       hl-todo
                       ccls
                       ;; org
@@ -161,19 +163,6 @@
 ;; hungry
 (require 'hungry-delete)
 (global-hungry-delete-mode t)
-
-;; swiper counsel
-(ivy-mode 1)
-(global-set-key (kbd "C-c n") 'counsel-fzf)
-(setq ivy-use-virtual-buffers t)
-(setq enable-recursive-minibuffers t)
-(global-set-key (kbd "C-c v") 'ivy-push-view)
-(global-set-key (kbd "C-c V") 'ivy-pop-view)
-(global-set-key (kbd "C-c s") 'ivy-switch-view)
-
-
-(use-package ivy-yasnippet
-  :bind ("C-c C-y" . ivy-yasnippet))
 
 ;; smartparens
 (smartparens-global-mode t)

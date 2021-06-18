@@ -38,7 +38,7 @@
     ("F" . dashboard-previous-section)))
   :custom
   (dashboard-banner-logo-title "Dao can tell, can not tell.")
-  (dashboard-startup-banner (expand-file-name "images/huaji.png" user-emacs-directory))
+  (dashboard-startup-banner (expand-file-name "images/sharkCantBreath.png" user-emacs-directory))
   (dashboard-items '((recents  . 7)
                      (bookmarks . 7)
                      (agenda . 5)))
