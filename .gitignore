@@ -18,4 +18,5 @@ projectile-bookmarks.eld
 projects
 projectile.cache
 places
+/var/*
 /url/*

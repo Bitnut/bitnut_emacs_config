@@ -104,7 +104,7 @@
 
 ;; eshell
 ;; ------------------------------------------------------
-(require 'init-eshell)
+;; (require 'init-eshell)
 (require 'init-shell)
 
 ;; editorconfig
@@ -118,9 +118,6 @@
 ;; acewindow
 ;; ------------------------------------------------------
 (require 'init-acewindow)
-
-;; company
-(require 'init-company)
 
 ;; lsp
 (require 'init-lsp)
@@ -144,13 +141,10 @@
 ;; ------------------------------------------------------
 (require 'init-yasnippet)
 
-;; todo-hl
+;; company
 ;; ------------------------------------------------------
-;; (require 'init-todo)
+(require 'init-company)
 
-;; dape-mode
-;; ------------------------------------------------------
-;; (require 'init-debug)
 
 ;; rust-mode
 ;; ------------------------------------------------------
@@ -161,7 +155,7 @@
 
 ;; elfeed
 ;; ------------------------------------------------------
-(require 'init-elfeed)
+;; (require 'init-elfeed)
 
 (custom-set-variables
  ;; custom-set-variables was added by Custom.
@@ -174,7 +168,7 @@
    '("fa2b58bb98b62c3b8cf3b6f02f058ef7827a8e497125de0254f56e373abee088" default))
  '(flycheck-checker-error-threshold 1500)
  '(package-selected-packages
-   '(company-web company hungry-delete swiper counsel smartparens js2-mode nodejs-repl exec-path-from-shell popwin monokai-theme emmet-mode js2-refactor web-mode expand-region iedit helm-ag pyim prettier-js typescript-mode flycheck magit use-package rjsx-mode tide))
+   '(company-web company hungry-delete swiper counsel smartparens js2-mode nodejs-repl exec-path-from-shell popwin monokai-theme emmet-mode js2-refactor web-mode expand-region iedit pyim prettier-js typescript-mode flycheck magit use-package rjsx-mode tide))
  '(popwin:popup-window-position 'right)
  '(popwin:popup-window-width 60))
 (custom-set-faces

@@ -25,6 +25,26 @@
 ;;
 ;;; Code:
 
+(defun swap (LIST el1 el2)
+  "in LIST swap indices EL1 and EL2 in place"
+  (let ((tmp (elt LIST el1)))
+    (setf (elt LIST el1) (elt LIST el2))
+    (setf (elt LIST el2) tmp)))
+
+
+(defun shuffle (LIST)
+  "Shuffle the elements in LIST.
+shuffling is done in place."
+  (loop for i in (reverse (number-sequence 1 (1- (length LIST))))
+        do (let ((j (random (+ i 1))))
+             (swap LIST i j)))
+  LIST)
+
+(setq dash/banner (concat "images/" (car (shuffle '("sharkCantBreath.png"
+                                                       "huaji.png"
+                                                       "gua.png"
+                                                       "watermelon.png")))))
+
 ;; DashboardPac
 (use-package dashboard
   :demand
@@ -38,10 +58,11 @@
     ("F" . dashboard-previous-section)))
   :custom
   (dashboard-banner-logo-title "Dao can tell, can not tell.")
-  (dashboard-startup-banner (expand-file-name "images/sharkCantBreath.png" user-emacs-directory))
+  (dashboard-startup-banner (expand-file-name dash/banner user-emacs-directory))
   (dashboard-items '((recents  . 7)
                      (bookmarks . 7)
-                     (agenda . 5)))
+                     (agenda . 5)
+                     (projects . 5)))
   (initial-buffer-choice (lambda () (get-buffer dashboard-buffer-name)))
   (dashboard-set-heading-icons t)
   (dashboard-set-navigator t)

@@ -84,6 +84,11 @@
    '("0" . meow-head)
    '("<escape>" . meow-last-buffer)))
 
+(use-package unicode-fonts
+   :ensure t
+   :config
+    (unicode-fonts-setup))
+
 (use-package meow
   :demand t
   :init
