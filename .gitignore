@@ -20,3 +20,5 @@ projectile.cache
 places
 /var/*
 /url/*
+/.extension/*
+.dap-breakpoints

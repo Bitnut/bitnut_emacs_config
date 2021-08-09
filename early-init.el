@@ -1,3 +1,8 @@
-;; @see https://www.reddit.com/r/emacs/comments/ofhket/further_boost_start_up_time_with_a_simple_tweak/
-;; 10% speed up of startup for my configuration
-(setq gc-cons-threshold 8000000)
+(setq
+ ;; 不要缩放frame.
+ frame-inhibit-implied-resize t
+ ;; 默认用最简单的模式
+ initial-major-mode 'fundamental-mode
+ ;; 不要自动启用package
+ package-enable-at-startup nil
+ package--init-file-ensured t)

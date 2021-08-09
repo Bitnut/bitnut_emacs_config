@@ -85,6 +85,8 @@
                       hl-todo
                       ccls
                       doom-modeline
+                      ;; dap
+                      dap-mode
                       ;; org
                       org-superstar
 		      ;;typescritpt
@@ -193,8 +195,8 @@
 
 
 ;; nodejs
-(require 'nodejs-repl)
-(global-set-key (kbd "<f5>") 'nodejs-repl-send-buffer)
+;; (require 'nodejs-repl)
+;; (global-set-key (kbd "<f5>") 'nodejs-repl-send-buffer)
 
 
 ;; popwin
