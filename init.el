@@ -286,7 +286,7 @@
    '("fa2b58bb98b62c3b8cf3b6f02f058ef7827a8e497125de0254f56e373abee088" default))
  '(flycheck-checker-error-threshold 1500)
  '(package-selected-packages
-   '(treemacs-persp treemacs-magit treemacs-projectile company-web company hungry-delete swiper counsel smartparens js2-mode nodejs-repl exec-path-from-shell popwin monokai-theme emmet-mode js2-refactor web-mode expand-region iedit pyim prettier-js typescript-mode flycheck magit use-package rjsx-mode tide))
+   '(org-pomodoro treemacs-persp treemacs-magit treemacs-projectile company-web company hungry-delete swiper counsel smartparens js2-mode nodejs-repl exec-path-from-shell popwin monokai-theme emmet-mode js2-refactor web-mode expand-region iedit pyim prettier-js typescript-mode flycheck magit use-package rjsx-mode tide))
  '(popwin:popup-window-position 'right)
  '(popwin:popup-window-width 60))
 (custom-set-faces

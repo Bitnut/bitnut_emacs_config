@@ -56,6 +56,37 @@
  (sys/linuxp (message "in sys linux"))
  )
 
+(defcustom centaur-prettify-org-symbols-alist
+  '(("[ ]" . ?☐)
+    ("[X]" . ?☑)
+    ("[-]" . ?⛝)
+
+    ("#+ARCHIVE:" . ?📦)
+    ("#+AUTHOR:" . ?👤)
+    ("#+CREATOR:" . ?💁)
+    ("#+DATE:" . ?📆)
+    ("#+DESCRIPTION:" . ?⸙)
+    ("#+EMAIL:" . ?📧)
+    ("#+OPTIONS:" . ?⛭)
+    ("#+SETUPFILE:" . ?⛮)
+    ("#+TAGS:" . ?🏷)
+    ("#+TITLE:" . ?📓)
+
+    ("#+BEGIN_SRC" . ?✎)
+    ("#+END_SRC" . ?□)
+    ("#+BEGIN_QUOTE" . ?»)
+    ("#+END_QUOTE" . ?«)
+    ("#+HEADERS" . ?☰)
+    ("#+RESULTS:" . ?💻))
+  "Alist of symbol prettifications for `org-mode'."
+  :group 'bitnut
+  :type '(alist :key-type string :value-type (choice character sexp)))
+
+(defcustom my/org-directory (expand-file-name "~/org/")
+  "Set org directory."
+  :group 'bitnut
+  :type 'string)
+
 (provide 'init-const)
 
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;

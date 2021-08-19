@@ -236,11 +236,7 @@
 ;;; all-the icons/modeline;;remember to call 'M-x all-the-icons-install-fonts'
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 (use-package all-the-icons)
-;; (use-package spaceline-all-the-icons
-;;   :config (spaceline-all-the-icons-theme)
-;;   (setq spaceline-all-the-icons-separator-type 'slant)
-;;   (setq separator-scale '1)
-;;   )
+
 (add-hook 'dired-mode-hook 'all-the-icons-dired-mode)
 
 ;; code folding
@@ -248,9 +244,6 @@
 (with-eval-after-load 'origami
   (define-key origami-mode-map (kbd "C-c f") 'origami-recursively-toggle-node)
   (define-key origami-mode-map (kbd "C-c F") 'origami-toggle-all-nodes))
-
-;; org-prettier
-(add-hook 'org-mode-hook (lambda () (org-superstar-mode 1)))
 
 ;; eshell
 (global-set-key (kbd "C-`") 'vterm)
