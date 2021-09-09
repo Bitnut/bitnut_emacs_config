@@ -38,13 +38,13 @@
 
 (let (
       ;; see https://github.com/manateelazycat/lazycat-emacs/blob/8f3dee8a6fe724ec52cd2b17155cfc2cefc8066b/site-lisp/config/init.el#L7
-      (gc-cons-threshold most-positive-fixnum)
-      (gc-cons-percentage 0.6)
+      ;; (gc-cons-threshold most-positive-fixnum)
+      ;; (gc-cons-percentage 0.6)
       (file-name-handler-alist nil))
   (add-to-list 'load-path "~/.emacs.d/lisp/")
-  (add-to-list `load-path (expand-file-name "~/.emacs.d/elisp"))
-  (add-to-list `load-path (expand-file-name "~/.emacs.d/elisp/awesome-tray"))
-  (add-to-list `load-path (expand-file-name "~/.emacs.d/elisp/awesome-tab"))
+  ;; (add-to-list `load-path (expand-file-name "~/.emacs.d/elisp"))
+  ;; (add-to-list `load-path (expand-file-name "~/.emacs.d/elisp/awesome-tray"))
+  ;; (add-to-list `load-path (expand-file-name "~/.emacs.d/elisp/awesome-tab"))
   (add-to-list `load-path (expand-file-name "~/.emacs.d/elisp/auto-save"))
   (add-to-list `load-path (expand-file-name "~/.emacs.d/elisp/yasnippet-snippets"))
 
@@ -162,9 +162,9 @@
   ;; ------------------------------------------------------
   ;; (require 'init-elfeed)
   (add-to-list 'load-path "~/.emacs.d/lisp/")
-  (add-to-list `load-path (expand-file-name "~/.emacs.d/elisp"))
-  (add-to-list `load-path (expand-file-name "~/.emacs.d/elisp/awesome-tray"))
-  (add-to-list `load-path (expand-file-name "~/.emacs.d/elisp/awesome-tab"))
+  ;; (add-to-list `load-path (expand-file-name "~/.emacs.d/elisp"))
+  ;; (add-to-list `load-path (expand-file-name "~/.emacs.d/elisp/awesome-tray"))
+  ;; (add-to-list `load-path (expand-file-name "~/.emacs.d/elisp/awesome-tab"))
   (add-to-list `load-path (expand-file-name "~/.emacs.d/elisp/auto-save"))
   (add-to-list `load-path (expand-file-name "~/.emacs.d/elisp/yasnippet-snippets"))
 
@@ -236,10 +236,6 @@
   ;; ------------------------------------------------------
   (require 'init-editorconfig)
 
-  ;; autosave
-  ;; ------------------------------------------------------
-  (require 'init-autosave)
-
   ;; acewindow
   ;; ------------------------------------------------------
   (require 'init-acewindow)
@@ -299,4 +295,8 @@
  '(js2-error ((t (:foreground "red"))))
  '(js2-external-variable ((t (:foreground "dark gray"))))
  '(js2-function-call ((t (:foreground "yellow green"))))
- '(lsp-ui-sideline-code-action ((t (:inherit warning)))))
+ '(lsp-ui-sideline-code-action ((t (:inherit warning))))
+ '(org-ellipsis ((t (:foreground nil))))
+ '(org-pomodoro-mode-line ((t (:inherit warning))))
+ '(org-pomodoro-mode-line-break ((t (:inherit success))))
+ '(org-pomodoro-mode-line-overtime ((t (:inherit error)))))

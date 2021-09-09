@@ -57,7 +57,7 @@
 (set-default-coding-systems 'utf-8)
 
 
-(setq-default default-tab-width 4)
+(setq-default tab-width 4)
 (setq-default indent-tabs-mode nil)
 (electric-pair-mode 1)
 

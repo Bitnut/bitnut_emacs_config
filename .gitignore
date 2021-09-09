@@ -1,4 +1,4 @@
-recentf~
+recentf
 /elisp/*
 tramp
 /elpa
@@ -22,3 +22,7 @@ places
 /url/*
 /.extension/*
 .dap-breakpoints
+.lsp-session-v1
+/transient
+/url
+/var

@@ -11,7 +11,7 @@
 (global-set-key (kbd "<f3>") 'open-init-file)
 (defun open-note-file-at-bc()
   (interactive)
-  (find-file "/mnt/e/projects/bcnotes/dev-profile.md"))
+  (find-file "~/work/reolink/bcnotes/dev-profile.md"))
 (global-set-key (kbd "<f8>") 'open-note-file-at-bc)
 
 (global-set-key "\C-s" 'swiper)
