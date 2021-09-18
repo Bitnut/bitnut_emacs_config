@@ -11,6 +11,7 @@
          (json-mode . lsp)
          (php-mode . lsp)
          (typescript-mode . lsp)
+         (web-mode . lsp)
          (lsp-mode . lsp-enable-which-key-integration)
          ((c-mode c++-mode objc-mode cuda-mode) .
           (lambda () (require 'ccls) (lsp))))
@@ -38,6 +39,7 @@
         lsp-enable-indentation nil
         lsp-enable-on-type-formatting nil)
   :config
+  (add-to-list 'lsp-language-id-configuration '(web-mode . "html"))
   (with-no-warnings
     (defun my-lsp--init-if-visible (func &rest args)
       "Not enabling lsp in `git-timemachine-mode'."

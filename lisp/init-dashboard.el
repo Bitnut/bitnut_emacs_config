@@ -45,6 +45,7 @@ shuffling is done in place."
                                                        "gua.png"
                                                        "watermelon.png")))))
 
+
 ;; DashboardPac
 (use-package dashboard
   :demand
@@ -57,7 +58,7 @@ shuffling is done in place."
     ("N" . dashboard-next-section)
     ("F" . dashboard-previous-section)))
   :custom
-  (dashboard-banner-logo-title "Dao can tell, can not tell.")
+  (dashboard-banner-logo-title "Welcome to Emacs!")
   (dashboard-startup-banner (expand-file-name dash/banner user-emacs-directory))
   (dashboard-items '((recents  . 7)
                      (bookmarks . 7)
@@ -93,6 +94,54 @@ shuffling is done in place."
     (goto-char (point-min))
     (delete-other-windows)))
 ;; -DashboardPac
+
+;; tang poem start
+
+
+(defvar poem-file "~/.emacs.d/.poem.json")
+(defvar poem-cache nil)
+
+(defun poem-update ()
+  "Download poem from `jinrishici.com`"
+  (let ((url-request-extra-headers
+	 '(("X-User-Token" . "1mKLjzllYduP0s/rFGTVQDxGwl47+x4J"))))
+    (ignore-errors
+      (url-retrieve
+       "https://v2.jinrishici.com/sentence"
+       (lambda (status)
+	 (write-region url-http-end-of-headers (point-max) poem-file)))))
+  (setq poem-cache nil))
+
+(defun poem-get (prop)
+  "Get poem from cache file, PROP can be 'content, 'origin"
+  (ignore-errors
+    (if poem-cache
+        (alist-get prop poem-cache)
+      (with-temp-buffer
+        (insert-file-contents poem-file)
+        (let ((data (alist-get 'data (json-read))))
+          (setq poem-cache data)
+          (alist-get prop data))))))
+
+(defun poem-get-formatted ()
+  (let* ((poem (poem-get 'origin))
+         (lines (alist-get 'content poem))
+         (content (mapconcat #'identity lines "\n")))
+    (format "%s\n%s · %s\n%s"
+            (alist-get 'title poem)
+            (alist-get 'dynasty poem)
+            (alist-get 'author poem)
+            content)))
+
+
+(advice-add #'dashboard-refresh-buffer :after #'poem-update)
+
+(defun dashboard-poem (list-size)
+   (insert (poem-get-formatted)))
+(add-to-list 'dashboard-item-generators '(poem . dashboard-poem))
+(add-to-list 'dashboard-items '(poem) t)
+;; tang poem end
+
 
 ;; PBLPac
 (use-package page-break-lines

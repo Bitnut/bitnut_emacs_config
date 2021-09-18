@@ -34,17 +34,40 @@
 ;;
 ;;; Code:
 
-(package-initialize)
+;; (when (version< emacs-version "25.1")
+;;   (error "Requires Emacs 25.1 and above!"))
 
-(let (
-      ;; see https://github.com/manateelazycat/lazycat-emacs/blob/8f3dee8a6fe724ec52cd2b17155cfc2cefc8066b/site-lisp/config/init.el#L7
-      ;; (gc-cons-threshold most-positive-fixnum)
-      ;; (gc-cons-percentage 0.6)
-      (file-name-handler-alist nil))
+;; ;; for speedup, case-sensitive search is perfect
+;; (setq auto-mode-case-fold nil)
+
+;; (add-hook 'emacs-startup-hook
+;;           (lambda ()
+;;             "Recover GC values after startup."
+;;             (setq gc-cons-threshold 800000
+;;                   gc-cons-percentage 0.1)))
+
+;; ;; Load path
+;; ;; Optimize: Force "lisp"" and "site-lisp" at the head to reduce the startup time.
+;; (defun update-load-path (&rest _)
+;;   "Update `load-path'."
+;;   (dolist (dir '("elisp" "lisp"))
+;;     (push (expand-file-name dir user-emacs-directory) load-path)))
+
+;; (defun add-subdirs-to-load-path (&rest _)
+;;   "Add subdirectories to `load-path'."
+;;   (let ((default-directory (expand-file-name "elisp" user-emacs-directory)))
+;;     (normal-top-level-add-subdirs-to-load-path)))
+
+;; (advice-add #'package-initialize :after #'update-load-path)
+;; (advice-add #'package-initialize :after #'add-subdirs-to-load-path)
+
+;; (update-load-path)
+
+(package-initialize)
+;; Packages
+;; Without this comment Emacs25 adds (package-initialize) here
+(let ((file-name-handler-alist nil))
   (add-to-list 'load-path "~/.emacs.d/lisp/")
-  ;; (add-to-list `load-path (expand-file-name "~/.emacs.d/elisp"))
-  ;; (add-to-list `load-path (expand-file-name "~/.emacs.d/elisp/awesome-tray"))
-  ;; (add-to-list `load-path (expand-file-name "~/.emacs.d/elisp/awesome-tab"))
   (add-to-list `load-path (expand-file-name "~/.emacs.d/elisp/auto-save"))
   (add-to-list `load-path (expand-file-name "~/.emacs.d/elisp/yasnippet-snippets"))
 
@@ -230,7 +253,7 @@
   ;; eshell
   ;; ------------------------------------------------------
   ;; (require 'init-eshell)
-  (require 'init-shell)
+  ;; (require 'init-shell)
 
   ;; editorconfig
   ;; ------------------------------------------------------
@@ -269,8 +292,6 @@
   ;; dashboard
   (require 'init-dashboard))
 
-
-
 (custom-set-variables
  ;; custom-set-variables was added by Custom.
  ;; If you edit it by hand, you could mess it up, so be careful.
@@ -282,7 +303,7 @@
    '("fa2b58bb98b62c3b8cf3b6f02f058ef7827a8e497125de0254f56e373abee088" default))
  '(flycheck-checker-error-threshold 1500)
  '(package-selected-packages
-   '(org-pomodoro treemacs-persp treemacs-magit treemacs-projectile company-web company hungry-delete swiper counsel smartparens js2-mode nodejs-repl exec-path-from-shell popwin monokai-theme emmet-mode js2-refactor web-mode expand-region iedit pyim prettier-js typescript-mode flycheck magit use-package rjsx-mode tide))
+   '(esup org-pomodoro treemacs-persp treemacs-magit treemacs-projectile company-web company hungry-delete swiper counsel smartparens js2-mode nodejs-repl exec-path-from-shell popwin monokai-theme emmet-mode js2-refactor web-mode expand-region iedit pyim prettier-js typescript-mode flycheck magit use-package rjsx-mode tide))
  '(popwin:popup-window-position 'right)
  '(popwin:popup-window-width 60))
 (custom-set-faces

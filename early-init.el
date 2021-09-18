@@ -1,8 +1,14 @@
 (setq
- ;; 不要缩放frame.
+ ;; no frame resize when setting font, menu bar, tool bar, tab bar, internal borders, fringes or scroll bars
  frame-inhibit-implied-resize t
- ;; 默认用最简单的模式
+ ;; use simpliest major mode
  initial-major-mode 'fundamental-mode
- ;; 不要自动启用package
- package-enable-at-startup nil
- package--init-file-ensured t)
+ ;; Disable package.el in favor of straight.el
+ package-enable-at-startup nil)
+
+;; Faster to disable these here (before they've been initialized)
+(push '(menu-bar-lines . 0) default-frame-alist)
+(push '(tool-bar-lines . 0) default-frame-alist)
+(push '(vertical-scroll-bars) default-frame-alist)
+(when (featurep 'ns)
+  (push '(ns-transparent-titlebar . t) default-frame-alist))

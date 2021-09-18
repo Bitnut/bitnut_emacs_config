@@ -27,21 +27,52 @@
 ;;
 ;;; Code:
 
+(require 'init-const)
+(require 'init-my-funcs)
+
+;; ;; Load `custom-file'
+;; (when (and (file-exists-p my-custom-file-template)
+;;            (not (file-exists-p my-custom-file)))
+;;   ;; At the first startup copy `custom-file' from the example
+;;   (copy-file my-custom-file-template my-custom-file)
+
+;;   ;; Select the package archives
+;;   (if (or (executable-find "curl") (executable-find "wget"))
+;;       (progn
+;;         ;; Get and select the fastest package archives automatically
+;;         (message "Testing connection... Just wait a sec.")
+;;         (set-package-archives
+;;          (my-test-package-archives 'no-chart)))
+;;     ;; Select package archives manually
+;;     ;; Use `ido-completing-read' for better experience since
+;;     ;; `ivy-mode' is not available at this moment.
+;;     (set-package-archives
+;;      (intern
+;;       (ido-completing-read
+;;        "Select package archives: "
+;;        (mapcar #'symbol-name
+;;                (mapcar #'car my-package-archives-alist)))))))
+
+
+;; (and (file-readable-p custom-file) (load custom-file))
+
+
 
 ;; cl - Common Lisp Extension
 (require 'cl)
 
 (setq package-user-dir (expand-file-name "elpa" user-emacs-directory))
 
-(when (>= emacs-major-version 24)
-  (setq package-archives '(("gnu"   . "http://elpa.emacs-china.org/gnu/")
-			   ("melpa" . "http://elpa.emacs-china.org/melpa/"))))
-
+;; (when (>= emacs-major-version 24)
+ ;; ((setq package-archives '(("gnu"   . "http://elpa.emacs-china.org/gnu/")
+	;; (		   ("melpa" . "http://elpa.emacs-china.org/melpa/"))))
+(setq package-archives
+      '(("gnu"   . "http://mirrors.tuna.tsinghua.edu.cn/elpa/gnu/")
+        ("melpa" . "http://mirrors.tuna.tsinghua.edu.cn/elpa/melpa/")))
 ;; Add Packages
 (defvar my/packages '(
 		      ;; --- Auto-completion ---
 		      company
-                      company-quickhelp
 		      ;; --- Better Editor ---
 		      hungry-delete
 		      swiper
@@ -236,7 +267,6 @@
 ;;; all-the icons/modeline;;remember to call 'M-x all-the-icons-install-fonts'
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 (use-package all-the-icons)
-
 (add-hook 'dired-mode-hook 'all-the-icons-dired-mode)
 
 ;; code folding

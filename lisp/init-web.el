@@ -1,6 +1,6 @@
 (use-package web-mode
   :ensure t
-  :mode ("\\.html\\'" "\\.vue\\'" "\\.php\\'")
+  :mode ("\\.html\\'" "\\.vue\\'" "\\.php\\'" "\\.tpl\\'")
   :config
   (setq web-mode-markup-indent-offset  4)
   (setq web-mode-css-indent-offset 4)
