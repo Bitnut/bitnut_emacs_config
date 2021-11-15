@@ -1,28 +1,41 @@
-
-
 ;; theme here
-;; (require 'awesome-tray)
-;; (require 'awesome-tab)
+
+(use-package modus-themes
+  :ensure
+  :init
+  ;; Add all your customizations prior to loading the themes
+  (setq modus-themes-italic-constructs t
+        modus-themes-bold-constructs nil
+        modus-themes-region '(bg-only no-extend))
+
+  ;; Load the theme files before enabling a theme
+  (modus-themes-load-themes)
+  )
 
 
 (defvar bitnut-theme-status "init")
 
 (defun bitnut-theme-load-light ()
+  "load customize light theme"
   ;; chose theme used in daytime
-  (load-theme 'spacemacs-light t)
+  (modus-themes-load-operandi)
+  ;; (load-theme 'spacemacs-light t)
   (setq bitnut-theme-status "light")
   ;; (awesome-tray-mode 1)
   ;; (awesome-tab-mode t)
   )
 
 (defun bitnut-theme-load-dark ()
+  "load customize night theme"
   ;; chose theme used in night
-  (load-theme 'spacemacs-dark t)
-  (setq bitnut-theme-status "dark")
+  (modus-themes-load-vivendi)
+  ;; (load-theme 'spacemacs-dark t)
+  ;; (setq bitnut-theme-status "dark")
   ;; (awesome-tray-mode 1)
   ;; (awesome-tab-mode t)
   )
 
+(bitnut-theme-load-dark)
 
 (defun bitnut-theme-is-day ()
   (let ((current-hour (string-to-number (format-time-string "%H"))))
@@ -39,25 +52,6 @@
               (string-equal bitnut-theme-status "light"))
       (bitnut-theme-load-dark))))
 
-;; (defun bitnut-theme-load ()
-;;   "check if its during the day, then load theme"
-;;   (if (bitnut-theme-is-day)
-;;       (if (string-equal bitnut-theme-status "init")
-;;         ((bitnut-theme-load-light)
-;;          (bitnut-renew-hl-todo))
-;;         ((bitnut-theme-load-light)
-;;          (bitnut-renew-hl-todo)
-;;          (bitnut-renew-hl-todo))
-;;         )
-;;     (if (string-equal bitnut-theme-status "init")
-;;       ((bitnut-theme-load-dark)
-;;        (bitnut-renew-hl-todo))
-;;       ((bitnut-theme-load-dark)
-;;        (bitnut-renew-hl-todo)
-;;        (bitnut-renew-hl-todo))
-;;       )
-;;     ))
-
 (defun bitnut-auto-load-theme ()
   (run-with-timer 0 (* 30 60) 'bitnut-theme-load))
 
@@ -72,6 +66,24 @@
   )
 
 (bitnut-auto-load-theme)
+
+(add-hook 'after-load-theme-hook
+          (lambda ()
+            (awesome-tray-mode 1)
+            ;; (sort-tab-mode 1)
+            ;; (global-set-key (kbd "<C-iso-lefttab>") 'sort-tab-select-prev-tab)
+            ;; (global-set-key (kbd "<C-tab>") 'sort-tab-select-next-tab)
+            ;; (global-set-key (kbd "s-1") sort-tab-select-visible-tab)
+            ;; (global-set-key (kbd "s-2") sort-tab-select-visible-tab)
+            ;; (global-set-key (kbd "s-3") sort-tab-select-visible-tab)
+            ;; (global-set-key (kbd "s-4") sort-tab-select-visible-tab)
+            ;; (global-set-key (kbd "s-5") sort-tab-select-visible-tab)
+            ;; (global-set-key (kbd "s-6") sort-tab-select-visible-tab)
+            ;; (global-set-key (kbd "s-7") sort-tab-select-visible-tab)
+            ;; (global-set-key (kbd "s-8") sort-tab-select-visible-tab)
+            ;; (global-set-key (kbd "s-9") sort-tab-select-visible-tab)
+            ;; (global-set-key (kbd "s-0") sort-tab-select-visible-tab)
+            ))
 
 ;; FIXME disrupt hl-todo face config
 ;; (add-hook 'after-init-hook 'bitnut-auto-load-theme)

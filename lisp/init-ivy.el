@@ -1,6 +1,7 @@
 ;; swiper counsel
 (ivy-mode 1)
 (global-set-key (kbd "C-c n") 'counsel-fzf)
+(global-set-key (kbd "C-c C-s") 'counsel-rg)
 (setq ivy-use-virtual-buffers t)
 (setq enable-recursive-minibuffers t)
 (global-set-key (kbd "C-c v") 'ivy-push-view)
@@ -32,7 +33,7 @@
                                         ; of the current word, or current text selection if exists
 
                    ;; put your code here.
-                   
+
                    ;; Some example of things you might want to do
                    (downcase-region pos1 pos2) ; example of a func that takes region as args
                    (setq meat (buffer-substring-no-properties pos1 pos2)) ; grab the text.
