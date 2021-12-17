@@ -41,10 +41,8 @@
   (add-to-list `load-path (expand-file-name "~/.emacs.d/elisp/auto-save"))
   (add-to-list `load-path (expand-file-name "~/.emacs.d/elisp/yasnippet-snippets"))
   (add-to-list `load-path (expand-file-name "~/.emacs.d/elisp/awesome-tray"))
-  (setq pyim-dicts
-        '((:name "dict1" :file "/home/picher/.emacs.d/pyim-another-dict.pyim")))
-  (add-hook 'emacs-startup-hook
-            #'(lambda () (pyim-restart-1 t)))
+  (add-to-list `load-path (expand-file-name "~/.emacs.d/elisp/emacs-rime"))
+  (add-to-list 'load-path (expand-file-name "~/.emacs.d/elisp/find-orphan"))
 
   ;; Package Management
   ;; ------------------------------------------------------
@@ -91,10 +89,6 @@
   ;; ivy
   ;; ------------------------------------------------------
   (require 'init-ivy)
-
-  ;; pyim
-  ;; ------------------------------------------------------
-  (require 'init-pyim)
 
   ;; markdown
   ;; ------------------------------------------------------
@@ -155,6 +149,10 @@
   ;; ------------------------------------------------------
   ;; (require 'init-rust)
 
+  (require 'init-rime)
+
+  (require 'init-treesitter)
+
   ;; dashboard
   (require 'init-dashboard)
 
@@ -167,13 +165,13 @@
  ;; If you edit it by hand, you could mess it up, so be careful.
  ;; Your init file should contain only one such instance.
  ;; If there is more than one, they won't work right.
- '(company-idle-delay 0.08)
- '(company-minimum-prefix-length 1)
+ '(company-idle-delay 0.08 t)
+ '(company-minimum-prefix-length 1 t)
  '(custom-safe-themes
    '("fa2b58bb98b62c3b8cf3b6f02f058ef7827a8e497125de0254f56e373abee088" default))
  '(flycheck-checker-error-threshold 1500)
  '(package-selected-packages
-   '(modus-themes esup org-pomodoro treemacs-persp treemacs-magit treemacs-projectile company-web company hungry-delete swiper counsel smartparens js2-mode nodejs-repl exec-path-from-shell popwin monokai-theme emmet-mode js2-refactor web-mode expand-region iedit pyim prettier-js typescript-mode flycheck magit use-package rjsx-mode tide))
+   '(modus-themes esup org-pomodoro treemacs-persp treemacs-magit treemacs-projectile company-web company hungry-delete swiper counsel smartparens js2-mode nodejs-repl exec-path-from-shell popwin monokai-theme emmet-mode js2-refactor web-mode expand-region iedit prettier-js typescript-mode flycheck magit use-package rjsx-mode tide))
  '(popwin:popup-window-position 'right)
  '(popwin:popup-window-width 60))
 (custom-set-faces

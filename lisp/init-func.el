@@ -31,4 +31,12 @@
   (interactive)
   (find-file "~/.emacs.d/init.el"))
 
+;; UI
+(defvar after-load-theme-hook nil
+  "Hook run after a color theme is loaded using `load-theme'.")
+(defun run-after-load-theme-hook (&rest _)
+  "Run `after-load-theme-hook'."
+  (run-hooks 'after-load-theme-hook))
+(advice-add #'load-theme :after #'run-after-load-theme-hook)
+
 (provide 'init-func)

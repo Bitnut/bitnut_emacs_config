@@ -6,7 +6,7 @@
 
 ;; Show all headings but no content in Outline mode.
 (add-hook 'outline-minor-mode-hook
-	  (defun baba/outline-overview ()
+	  (defun my/outline-overview ()
 	    "Show only outline headings."
 	    (outline-show-all)
 	    (outline-hide-body)))

@@ -124,8 +124,6 @@
                       git-timemachine
 		              use-package
 		              rjsx-mode
-		              ;; tide
-		              ;; pyim 弹窗
 		              posframe
 		              ;; markdown
 		              markdown-mode
@@ -163,9 +161,6 @@
 		              flycheck-posframe
 		              flycheck-pos-tip
 		              flycheck-popup-tip
-		              ;;pyim input method
-		              pyim
-		              pyim-basedict
 		              ;; --- Themes ---
 		              spacemacs-theme
                       modus-themes

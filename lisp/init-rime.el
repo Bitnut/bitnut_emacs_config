@@ -1,5 +1,7 @@
 (require 'rime)
 
+(setq rime-emacs-module-header-root "/opt/emacs/include/")
+
 ;;; Code:
 (setq rime-user-data-dir "~/.config/fcitx/rime")
 
