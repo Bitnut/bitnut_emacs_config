@@ -1,4 +1,4 @@
-;;; init-package.el --- initialize packages from melpa -*- lexical-binding: t -*-
+;;; init-packages.el --- initialize packages from melpa -*- lexical-binding: t -*-
 ;;
 ;; Filename: init-packages.el
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
@@ -30,168 +30,57 @@
 (require 'init-const)
 (require 'init-my-funcs)
 
-;; ;; Load `custom-file'
-;; (when (and (file-exists-p my-custom-file-template)
-;;            (not (file-exists-p my-custom-file)))
-;;   ;; At the first startup copy `custom-file' from the example
-;;   (copy-file my-custom-file-template my-custom-file)
-
-;;   ;; Select the package archives
-;;   (if (or (executable-find "curl") (executable-find "wget"))
-;;       (progn
-;;         ;; Get and select the fastest package archives automatically
-;;         (message "Testing connection... Just wait a sec.")
-;;         (set-package-archives
-;;          (my-test-package-archives 'no-chart)))
-;;     ;; Select package archives manually
-;;     ;; Use `ido-completing-read' for better experience since
-;;     ;; `ivy-mode' is not available at this moment.
-;;     (set-package-archives
-;;      (intern
-;;       (ido-completing-read
-;;        "Select package archives: "
-;;        (mapcar #'symbol-name
-;;                (mapcar #'car my-package-archives-alist)))))))
-
-
-;; (and (file-readable-p custom-file) (load custom-file))
-
-
-
-;; cl - Common Lisp Extension
-(require 'cl)
-
-(setq package-user-dir (expand-file-name "elpa" user-emacs-directory))
-
+;; Set ELPA packages
 (setq package-archives
       '(("gnu"   . "http://mirrors.tuna.tsinghua.edu.cn/elpa/gnu/")
         ("melpa" . "http://mirrors.tuna.tsinghua.edu.cn/elpa/melpa/")))
-;; Add Packages
-(defvar my/packages '(
-		              ;; --- Auto-completion ---
-		              company
-		              ;; --- Better Editor ---
-		              hungry-delete
-		              swiper
-		              counsel
-		              smartparens
-                      wgrep
-                      keyfreq
-                      meow
-                      elfeed
-                      elfeed-dashboard
-                      elfeed-org
-                      ;; --- Hydra ---
-                      hydra
-                      pretty-hydra
-		              ;; --- Major Mode ---
-		              js2-mode
-                      go-mode
-                      php-mode
-                      json-mode
-                      ;; dashboard
-                      dashboard
-                      page-break-lines
-		              ;; --- Minor Mode ---
-                      treemacs
-                      treemacs-icons-dired
-		              nodejs-repl
-		              exec-path-from-shell
-                      vterm
-                      shell-pop
-		              popwin
-                      projectile
-		              emmet-mode
-		              js2-refactor
-		              web-mode
-		              expand-region
-		              iedit
-                      yasnippet
-                      ivy-yasnippet
-                      ivy-rich
-                      all-the-icons-ivy-rich
-                      hl-todo
-                      ccls
-                      doom-modeline
-                      ;; dap
-                      dap-mode
-                      ;; org
-                      org-superstar
-		              ;;typescritpt
-		              typescript-mode
-		              ;; magit
-		              magit
-                      git-timemachine
-		              use-package
-		              rjsx-mode
-		              posframe
-		              ;; markdown
-		              markdown-mode
-		              grip-mode
-		              ;; editorconfig
-		              editorconfig
-                      ;; ace-window
-                      ace-window
-                      ;; diminish
-                      diminish
-		              ;; package groups
-		      ;;;;;;;;;;;;;;;;;;;;;;;;;;;
-		              ;; code folding
-		              origami
-		              ;; icons
-		              all-the-icons
-		              spaceline-all-the-icons
-		              all-the-icons-dired
-		              ;; lsp
-		              lsp-mode
-                      lsp-ui
-		              eglot
-		              ;; shell
-		              shell
-		              xterm-color
-		              shell-pop
-		              ;; esh-doc
-		              esh-help
-		              eshell-z
-		              eshell-prompt-extras
-                      ;; which key
-                      which-key
-		              ;; flycheck
-		              flycheck
-		              flycheck-posframe
-		              flycheck-pos-tip
-		              flycheck-popup-tip
-		              ;; --- Themes ---
-		              spacemacs-theme
-                      modus-themes
-		              request
-		              async
-                      ;; --- fonts ---
-                      font-utils
-                      list-utils
-                      ucs-utils
-                      ;;
-		              ) "Default packages")
 
-(setq package-selected-packages my/packages)
 
-(defun my/packages-installed-p ()
-  (loop for pkg in my/packages
-	    when (not (package-installed-p pkg)) do (return nil)
-	    finally (return t)))
-(unless (my/packages-installed-p)
-  (message "%s" "Refreshing package database...")
+;; Initialize packages
+(unless (bound-and-true-p package--initialized) ; To avoid warnings in 27
+  (setq package-enable-at-startup nil)          ; To prevent initializing twice
+  (package-initialize))
+
+;; ensure `use-package'
+(unless (package-installed-p 'use-package)
   (package-refresh-contents)
-  (dolist (pkg my/packages)
-    (when (not (package-installed-p pkg))
-      (package-install pkg))))
+  (package-install 'use-package))
 
-;; (use-package doom-modeline
-;;   :init (doom-modeline-mode 1)
-;;   )
+;; globally hack use-package
+;; Should set before loading `use-package'
+(eval-and-compile
+  (setq use-package-always-ensure t)
+  (setq use-package-always-defer t)
+  (setq use-package-expand-minimally t)
+  (setq use-package-enable-imenu-support t))
 
-;; requirements bellow
-;; same order as above
+(eval-when-compile
+  (require 'use-package))
+
+;; Required by `use-package'
+(use-package diminish)
+(use-package bind-key)
+
+;; Update GPG keyring for GNU ELPA
+;; (use-package gnu-elpa-keyring-update)
+
+;; A modern Packages Menu
+(use-package paradox
+  :hook (after-init . paradox-enable)
+  :init (setq paradox-execute-asynchronously t
+              paradox-github-token t
+              paradox-display-star-count nil)
+  :config
+  (when (fboundp 'page-break-lines-mode)
+    (add-hook 'paradox-after-execute-functions
+              (lambda (&rest _)
+                "Display `page-break-lines' in \"*Paradox Report*\"."
+                (let ((buf (get-buffer "*Paradox Report*"))
+                      (inhibit-read-only t))
+                  (when (buffer-live-p buf)
+                    (with-current-buffer buf
+                      (page-break-lines-mode 1)))))
+              t)))
 
 ;; hungry
 (require 'hungry-delete)
@@ -201,6 +90,13 @@
 (smartparens-global-mode t)
 (sp-local-pair '(emacs-lisp-mode lisp-interaction-mode) "'" nil :actions nil)
 (add-hook 'awk-mode-hook (lambda () (setq-local smartparens-global-mode nil)))
+
+(add-hook 'emacs-lisp-mode-hook 'show-paren-mode)
+
+;; popwin
+(require 'popwin)
+(popwin-mode 1)
+
 
 
 ;; js2-mode
@@ -216,19 +112,10 @@
     ;; (set (make-local-variable 'indent-line-function) 'my-js2-indent-function)
     (set (make-local-variable 'semantic-mode) nil)
     ))
+
 (add-hook 'js2-mode-hook 'my-js2-mode-hook)
 
-(add-hook 'emacs-lisp-mode-hook 'show-paren-mode)
 
-
-;; nodejs
-;; (require 'nodejs-repl)
-;; (global-set-key (kbd "<f5>") 'nodejs-repl-send-buffer)
-
-
-;; popwin
-(require 'popwin)
-(popwin-mode 1)
 
 (defun js2-imenu-make-index ()
   (interactive)
@@ -253,9 +140,9 @@
 (global-set-key (kbd "M-s i") 'counsel-imenu)
 
 
-
 ;; expand-region. = to expand, - to contract, 0 to reset
 (global-set-key (kbd "C-=") 'er/expand-region)
+
 ;; iedit
 (require 'iedit)
 

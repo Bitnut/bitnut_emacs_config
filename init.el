@@ -13,7 +13,6 @@
 ;;
 ;;; Commentary:
 ;;
-;; This is the init.el file for M-EMACS
 ;;
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;;
@@ -34,130 +33,160 @@
 ;;
 ;;; Code:
 
-(package-initialize)
+;;; gc part
+;; set gc first, largest gc while starting emacs
+(setq gc-cons-threshold most-positive-fixnum
+      gc-cons-percentage 0.5)
+
+;; recover GC values after startup.
+(add-hook 'emacs-startup-hook
+          (lambda ()
+            (setq gc-cons-threshold 800000  ;; ~781KB
+                  gc-cons-percentage 0.1)))
+
+
+;; Load path
+;; Optimize: Force "lisp"" and "site-lisp" at the head to reduce the startup time.
+(defun update-load-path (&rest _)
+  "Update `load-path'."
+  (dolist (dir '("lisp" "elisp"))
+    (push (expand-file-name dir user-emacs-directory) load-path)))
+
+(defun add-subdirs-to-load-path (&rest _)
+  "Add subdirectories to `load-path'."
+  (let ((default-directory (expand-file-name "elisp" user-emacs-directory)))
+    (normal-top-level-add-subdirs-to-load-path)))
+
+(advice-add #'package-initialize :after #'update-load-path)
+(advice-add #'package-initialize :after #'add-subdirs-to-load-path)
+
+(update-load-path)
+
+;; (package-initialize)
+
+;; Package Management
+;; ------------------------------------------------------
+(require 'init-packages)
+
+;; Basic settings
+;; ------------------------------------------------------
+(require 'init-basic)
+
+;; UI Management
+;; ------------------------------------------------------
+(require 'init-ui)
+
+;; functions
+;; ------------------------------------------------------
+(require 'init-func)
+
+;; move-text
+(require 'init-move-text)
+
+;; hydra
+;; ------------------------------------------------------
+(require 'init-hydra)
+
+;; Default Managementq
+;; ------------------------------------------------------
+(require 'init-better-default)
+
+;; Org-mode Management
+;; ------------------------------------------------------
+(require 'init-org)
+
+;; witch-mode
+;; ------------------------------------------------------
+(require 'init-witch)
+
+;; Keybindings Management
+;; ------------------------------------------------------
+(require 'init-keybindings)
+
+;; web config
+;; ------------------------------------------------------
+(require 'init-web)
+
+;; ivy
+;; ------------------------------------------------------
+(require 'init-ivy)
+
+;; markdown
+;; ------------------------------------------------------
+(require 'init-md)
+
+;; shell
+;; ------------------------------------------------------
+(require 'init-shell)
+
+;; ediff
+;; ------------------------------------------------------
+(require 'init-ediff)
+
+;; editorconfig
+;; ------------------------------------------------------
+(require 'init-editorconfig)
+
+;; autosave
+;; ------------------------------------------------------
+(require 'init-autosave)
+
+;; acewindow
+;; ------------------------------------------------------
+(require 'init-acewindow)
+
+;; lsp
+(require 'init-lsp)
+
+;; meow
+(require 'init-meow)
+
+;; projectile
+;; ------------------------------------------------------
+(require 'init-projectile)
+
+;; treemacs
+;; ------------------------------------------------------
+(require 'init-treemacs)
+
+;; theme
+;; ------------------------------------------------------
+(require 'init-theme)
+
+;; yasnippet
+;; ------------------------------------------------------
+(require 'init-yasnippet)
+
+;; company
+;; ------------------------------------------------------
+(require 'init-company)
+
+;; scdv
+;;
+;; (require 'init-sdcv)
+
+
+;; rust-mode
+;; ------------------------------------------------------
+;; (require 'init-rust)
+
+(require 'init-rime)
+
+;; dashboard
+(require 'init-dashboard)
+
+(require 'awesome-tray)
+;; (require 'sort-tab)
+
 
 (let ((file-name-handler-alist nil))
-  (add-to-list 'load-path "~/.emacs.d/lisp/")
-  (add-to-list `load-path (expand-file-name "~/.emacs.d/elisp/auto-save"))
-  (add-to-list `load-path (expand-file-name "~/.emacs.d/elisp/yasnippet-snippets"))
-  (add-to-list `load-path (expand-file-name "~/.emacs.d/elisp/awesome-tray"))
-  (add-to-list `load-path (expand-file-name "~/.emacs.d/elisp/emacs-rime"))
-  (add-to-list 'load-path (expand-file-name "~/.emacs.d/elisp/find-orphan"))
+  ;; (add-to-list 'load-path "~/.emacs.d/lisp/")
+  ;; (add-to-list `load-path (expand-file-name "~/.emacs.d/elisp/auto-save"))
+  ;; (add-to-list `load-path (expand-file-name "~/.emacs.d/elisp/yasnippet-snippets"))
+  ;; (add-to-list `load-path (expand-file-name "~/.emacs.d/elisp/awesome-tray"))
+  ;; (add-to-list `load-path (expand-file-name "~/.emacs.d/elisp/emacs-rime"))
+  ;; (add-to-list 'load-path (expand-file-name "~/.emacs.d/elisp/find-orphan"))
 
-  ;; Package Management
-  ;; ------------------------------------------------------
-  (require 'init-packages)
-
-  ;; utils
-  (require 'init-utils)
-
-  ;; const vars
-  ;; ------------------------------------------------------
-  (require 'init-const)
-
-  ;; UI Management
-  ;; ------------------------------------------------------
-  (require 'init-ui)
-
-  ;; recentf config
-  ;; ------------------------------------------------------
-  (require 'init-recentf)
-
-  ;; recentf config
-  ;; ------------------------------------------------------
-  (require 'init-func)
-
-  ;; move-text
-  (require 'init-move-text)
-
-  ;; Default Managementq
-  ;; ------------------------------------------------------
-  (require 'init-better-default)
-
-  ;; Org-mode Management
-  ;; ------------------------------------------------------
-  (require 'init-org)
-
-  ;; Keybindings Management
-  ;; ------------------------------------------------------
-  (require 'init-keybindings)
-
-  ;; web config
-  ;; ------------------------------------------------------
-  (require 'init-web)
-
-  ;; ivy
-  ;; ------------------------------------------------------
-  (require 'init-ivy)
-
-  ;; markdown
-  ;; ------------------------------------------------------
-  (require 'init-md)
-
-  ;; shell
-  ;; ------------------------------------------------------
-  (require 'init-shell)
-
-  ;; ediff
-  ;; ------------------------------------------------------
-  (require 'init-ediff)
-
-  ;; editorconfig
-  ;; ------------------------------------------------------
-  (require 'init-editorconfig)
-
-  ;; autosave
-  ;; ------------------------------------------------------
-  (require 'init-autosave)
-
-  ;; acewindow
-  ;; ------------------------------------------------------
-  (require 'init-acewindow)
-
-  ;; lsp
-  (require 'init-lsp)
-
-  ;; meow
-  (require 'init-meow)
-
-  ;; projectile
-  ;; ------------------------------------------------------
-  (require 'init-projectile)
-
-  ;; treemacs
-  ;; ------------------------------------------------------
-  (require 'init-treemacs)
-
-  ;; theme
-  ;; ------------------------------------------------------
-  (require 'init-theme)
-
-  ;; yasnippet
-  ;; ------------------------------------------------------
-  (require 'init-yasnippet)
-
-  ;; company
-  ;; ------------------------------------------------------
-  (require 'init-company)
-
-  ;; scdv
-  ;;
-  ;; (require 'init-sdcv)
-
-
-  ;; rust-mode
-  ;; ------------------------------------------------------
-  ;; (require 'init-rust)
-
-  (require 'init-rime)
-
-  (require 'init-treesitter)
-
-  ;; dashboard
-  (require 'init-dashboard)
-
-  (require 'awesome-tray)
-  ;; (require 'sort-tab)
   )
 
 (custom-set-variables

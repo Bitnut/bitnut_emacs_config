@@ -12,7 +12,8 @@
 
 (setq inhibit-splash-screen 1)
 
-(setq initial-frame-alist (quote ((fullscreen . maximized))))
+;; Fullscreen
+(add-hook 'after-init-hook (setq initial-frame-alist (quote ((fullscreen . maximized)))))
 
 ;; 字体大小
 (cond

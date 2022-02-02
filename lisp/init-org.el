@@ -12,7 +12,7 @@
   :hook (((org-babel-after-execute org-mode) . org-redisplay-inline-images) ; display image
          (org-mode . (lambda ()
                        "Beautify org symbols."
-                       (setq prettify-symbols-alist centaur-prettify-org-symbols-alist)
+                       (setq prettify-symbols-alist prettify-org-symbols-alist)
                        (prettify-symbols-mode 1)))
          (org-indent-mode . (lambda()
                               (diminish 'org-indent-mode)

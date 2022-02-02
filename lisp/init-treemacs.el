@@ -1,9 +1,8 @@
 (require 'init-const)
 
-(when emacs/>=25.2p
+(when emacs/>=26p
   ;; A tree layout file explorer
   (use-package treemacs
-    :ensure t
     :commands (treemacs-follow-mode
                treemacs-filewatch-mode
                treemacs-fringe-indicator-mode
@@ -25,7 +24,6 @@
           treemacs-follow-after-init       t
           treemacs-width                   30
           )
-    :config
     (treemacs-follow-mode t)
     (treemacs-filewatch-mode t)
     (pcase (cons (not (null (executable-find "git")))
