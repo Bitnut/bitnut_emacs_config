@@ -96,8 +96,6 @@ shuffling is done in place."
 ;; -DashboardPac
 
 ;; tang poem start
-
-
 (defvar poem-file "~/.emacs.d/.poem.json")
 (defvar poem-cache nil)
 

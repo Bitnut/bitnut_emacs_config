@@ -87,7 +87,7 @@
 (use-package meow
   :demand t
   :init
-  (meow-global-mode 1)
+  :hook (after-init . meow-global-mode)
   :config
   ;; meow-setup is your custom function, see below
   (meow-setup)

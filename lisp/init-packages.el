@@ -82,10 +82,6 @@
                       (page-break-lines-mode 1)))))
               t)))
 
-;; hungry
-(require 'hungry-delete)
-(global-hungry-delete-mode t)
-
 ;; smartparens
 (smartparens-global-mode t)
 (sp-local-pair '(emacs-lisp-mode lisp-interaction-mode) "'" nil :actions nil)
@@ -139,24 +135,13 @@
 ;; call imenu to list functions
 (global-set-key (kbd "M-s i") 'counsel-imenu)
 
-
-;; expand-region. = to expand, - to contract, 0 to reset
-(global-set-key (kbd "C-=") 'er/expand-region)
-
-;; iedit
-(require 'iedit)
-
-;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
-;;; all-the icons/modeline;;remember to call 'M-x all-the-icons-install-fonts'
-;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 (use-package all-the-icons)
-(add-hook 'dired-mode-hook 'all-the-icons-dired-mode)
 
 ;; code folding
-(add-hook 'prog-mode-hook 'origami-mode)
-(with-eval-after-load 'origami
-  (define-key origami-mode-map (kbd "C-c f") 'origami-recursively-toggle-node)
-  (define-key origami-mode-map (kbd "C-c F") 'origami-toggle-all-nodes))
+;; (add-hook 'prog-mode-hook 'origami-mode)
+;; (with-eval-after-load 'origami
+;;   (define-key origami-mode-map (kbd "C-c f") 'origami-recursively-toggle-node)
+;;   (define-key origami-mode-map (kbd "C-c F") 'origami-toggle-all-nodes))
 
 ;; eshell
 (global-set-key (kbd "C-`") 'vterm)

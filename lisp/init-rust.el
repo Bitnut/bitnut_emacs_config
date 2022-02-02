@@ -1,4 +1,3 @@
-(use-package rust-mode
-  :ensure)
+(use-package rust-mode)
 
 (provide 'init-rust)

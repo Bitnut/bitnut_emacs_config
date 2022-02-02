@@ -1,5 +1,3 @@
-;; 设置默认 Org Agenda 文件目录
-
 (require 'init-const)
 
 (use-package org

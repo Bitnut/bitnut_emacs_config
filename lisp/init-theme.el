@@ -1,7 +1,6 @@
 ;; theme here
 
 (use-package modus-themes
-  :ensure
   :init
   ;; Add all your customizations prior to loading the themes
   (setq modus-themes-italic-constructs t
@@ -62,24 +61,6 @@
           ("done"   . "#1E90FF")))
   (global-hl-todo-mode 1)
   )
-(add-hook 'after-init-hook 'bitnut-auto-load-theme)
-
-(setq my-rest-hook nil)
-
-(defun my-rest ()
-  (interactive)
-  (progn
-    (setq org-timer-start-time
-          (time-add (current-time) 1200))
-    (org-timer-set-mode-line 'on)
-    (run-with-timer
-     1200 nil
-     (lambda ()
-       (run-hooks 'my-rest-hook)))))
-
-(add-hook 'my-rest-hook (lambda ()
-                          (if (y-or-n-p "take a rest and type y or stop")
-                              (my-rest)
-                            (org-timer-stop))))
+(add-hook 'emacs-startup-hook 'bitnut-auto-load-theme)
 
 (provide 'init-theme)

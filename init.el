@@ -72,6 +72,14 @@
 ;; ------------------------------------------------------
 (require 'init-basic)
 
+;; Default Management
+;; ------------------------------------------------------
+(require 'init-better-default)
+
+;; Keybindings Management
+;; ------------------------------------------------------
+(require 'init-keybindings)
+
 ;; UI Management
 ;; ------------------------------------------------------
 (require 'init-ui)
@@ -80,32 +88,25 @@
 ;; ------------------------------------------------------
 (require 'init-func)
 
-;; move-text
-(require 'init-move-text)
-
 ;; hydra
 ;; ------------------------------------------------------
 (require 'init-hydra)
 
-;; Default Managementq
+;; edit
 ;; ------------------------------------------------------
-(require 'init-better-default)
+(require 'init-edit)
 
-;; Org-mode Management
+;; dired
 ;; ------------------------------------------------------
-(require 'init-org)
+(require 'init-dired)
 
 ;; witch-mode
 ;; ------------------------------------------------------
 (require 'init-witch)
 
-;; Keybindings Management
+;; Org-mode Management
 ;; ------------------------------------------------------
-(require 'init-keybindings)
-
-;; web config
-;; ------------------------------------------------------
-(require 'init-web)
+(require 'init-org)
 
 ;; ivy
 ;; ------------------------------------------------------
@@ -135,10 +136,16 @@
 ;; ------------------------------------------------------
 (require 'init-acewindow)
 
+;; web config
+;; ------------------------------------------------------
+(require 'init-web)
+
 ;; lsp
+;; ------------------------------------------------------
 (require 'init-lsp)
 
 ;; meow
+;; ------------------------------------------------------
 (require 'init-meow)
 
 ;; projectile
@@ -165,29 +172,18 @@
 ;;
 ;; (require 'init-sdcv)
 
-
 ;; rust-mode
 ;; ------------------------------------------------------
-;; (require 'init-rust)
+(require 'init-rust)
 
+;; rime-mode
+;; ------------------------------------------------------
 (require 'init-rime)
 
 ;; dashboard
 (require 'init-dashboard)
 
 (require 'awesome-tray)
-;; (require 'sort-tab)
-
-
-(let ((file-name-handler-alist nil))
-  ;; (add-to-list 'load-path "~/.emacs.d/lisp/")
-  ;; (add-to-list `load-path (expand-file-name "~/.emacs.d/elisp/auto-save"))
-  ;; (add-to-list `load-path (expand-file-name "~/.emacs.d/elisp/yasnippet-snippets"))
-  ;; (add-to-list `load-path (expand-file-name "~/.emacs.d/elisp/awesome-tray"))
-  ;; (add-to-list `load-path (expand-file-name "~/.emacs.d/elisp/emacs-rime"))
-  ;; (add-to-list 'load-path (expand-file-name "~/.emacs.d/elisp/find-orphan"))
-
-  )
 
 (custom-set-variables
  ;; custom-set-variables was added by Custom.
@@ -200,7 +196,7 @@
    '("fa2b58bb98b62c3b8cf3b6f02f058ef7827a8e497125de0254f56e373abee088" default))
  '(flycheck-checker-error-threshold 1500)
  '(package-selected-packages
-   '(modus-themes esup org-pomodoro treemacs-persp treemacs-magit treemacs-projectile company-web company hungry-delete swiper counsel smartparens js2-mode nodejs-repl exec-path-from-shell popwin monokai-theme emmet-mode js2-refactor web-mode expand-region iedit prettier-js typescript-mode flycheck magit use-package rjsx-mode tide))
+   '(dired-git-info modus-themes esup org-pomodoro treemacs-persp treemacs-magit treemacs-projectile company-web company hungry-delete swiper counsel smartparens js2-mode nodejs-repl exec-path-from-shell popwin monokai-theme emmet-mode js2-refactor web-mode expand-region iedit prettier-js typescript-mode flycheck magit use-package rjsx-mode tide))
  '(popwin:popup-window-position 'right)
  '(popwin:popup-window-width 60))
 (custom-set-faces

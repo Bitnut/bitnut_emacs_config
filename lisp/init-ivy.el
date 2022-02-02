@@ -1,13 +1,21 @@
 ;; swiper counsel
-(ivy-mode 1)
-(global-set-key (kbd "C-c n") 'counsel-fzf)
-(global-set-key (kbd "C-c C-s") 'counsel-rg)
-(setq ivy-use-virtual-buffers t)
-(setq enable-recursive-minibuffers t)
-(global-set-key (kbd "C-c v") 'ivy-push-view)
-(global-set-key (kbd "C-c V") 'ivy-pop-view)
-(global-set-key (kbd "C-c s") 'ivy-switch-view)
 
+(use-package counsel
+  :diminish ivy-mode counsel-mode
+  :bind(("C-c n" . 'counsel-fzf)
+        ("C-c C-s" . 'counsel-rg)
+        ("C-c v p" . 'ivy-push-view)
+        ("C-c v o" . 'ivy-pop-view)
+        ("C-c v ." . 'ivy-switch-view))
+  :hook ((after-init . ivy-mode)
+         (ivy-mode . counsel-mode))
+  :init
+  (setq enable-recursive-minibuffers t) ; Allow commands in minibuffers)
+  (setq ivy-height 12
+        ivy-use-selectable-prompt t
+        ivy-use-virtual-buffers t    ; Enable bookmarks and recentf
+        ivy-fixed-height-minibuffer t)
+  )
 
 (use-package ivy-yasnippet
   :bind ("C-c C-y" . ivy-yasnippet))

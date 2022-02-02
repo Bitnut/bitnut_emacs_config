@@ -40,6 +40,9 @@
   (>= emacs-major-version 27)
   "Emacs is 27 or above.")
 
+(defconst show-icon (or (display-graphic-p) (daemonp))
+  "Display icons or not.")
+
 (defcustom prettify-org-symbols-alist
   '(("[ ]" . ?☐)
     ("[X]" . ?☑)
