@@ -30,6 +30,16 @@
 (require 'init-const)
 (require 'init-my-funcs)
 
+;; HACK: DO NOT save package-selected-packages to `custom-file'.
+;; https://github.com/jwiegley/use-package/issues/383#issuecomment-247801751
+(defun my-package--save-selected-packages (&optional value)
+  "Set `package-selected-packages' to VALUE but don't save to `custom-file'."
+  (when value
+    (setq package-selected-packages value))
+  (unless after-init-time
+    (add-hook 'after-init-hook #'my-package--save-selected-packages)))
+(advice-add 'package--save-selected-packages :override #'my-package--save-selected-packages)
+
 ;; Set ELPA packages
 (setq package-archives
       '(("gnu"   . "http://mirrors.tuna.tsinghua.edu.cn/elpa/gnu/")
@@ -52,7 +62,8 @@
   (setq use-package-always-ensure t)
   (setq use-package-always-defer t)
   (setq use-package-expand-minimally t)
-  (setq use-package-enable-imenu-support t))
+  (setq use-package-enable-imenu-support t)
+  )
 
 (eval-when-compile
   (require 'use-package))
@@ -62,65 +73,6 @@
 (use-package bind-key)
 
 ;; Update GPG keyring for GNU ELPA
-;; (use-package gnu-elpa-keyring-update)
-
-;; A modern Packages Menu
-(use-package paradox
-  :hook (after-init . paradox-enable)
-  :init (setq paradox-execute-asynchronously t
-              paradox-github-token t
-              paradox-display-star-count nil)
-  :config
-  (when (fboundp 'page-break-lines-mode)
-    (add-hook 'paradox-after-execute-functions
-              (lambda (&rest _)
-                "Display `page-break-lines' in \"*Paradox Report*\"."
-                (let ((buf (get-buffer "*Paradox Report*"))
-                      (inhibit-read-only t))
-                  (when (buffer-live-p buf)
-                    (with-current-buffer buf
-                      (page-break-lines-mode 1)))))
-              t)))
-
-;; smartparens
-(use-package smartparens
-  :hook ((after-init . smartparens-global-mode)
-         ;; (awk-mode (lambda () (setq-local smartparens-global-mode nil)))
-         )
-  :config
-  )
-;; (smartparens-global-mode t)
-;; (sp-local-pair '(emacs-lisp-mode lisp-interaction-mode) "'" nil :actions nil)
-;; (add-hook 'awk-mode-hook (lambda () (setq-local smartparens-global-mode nil)))
-
-(use-package paren
-  :ensure nil
-  :hook (after-init . show-paren-mode)
-  :init (setq show-paren-when-point-inside-paren t
-              show-paren-when-point-in-periphery t))
-
-;; (add-hook 'emacs-lisp-mode-hook 'show-paren-mode)
-
-;; popwin
-(use-package popwin
-  :hook (after-init . popwin-mode))
-
-(use-package all-the-icons)
-
-;; code folding
-;; (add-hook 'prog-mode-hook 'origami-mode)
-;; (with-eval-after-load 'origami
-;;   (define-key origami-mode-map (kbd "C-c f") 'origami-recursively-toggle-node)
-;;   (define-key origami-mode-map (kbd "C-c F") 'origami-toggle-all-nodes))
-
-
-;; keyfreq
-(use-package keyfreq
-  :hook (after-init . keyfreq-mode)
-  :config
-  (keyfreq-autosave-mode 1)
-  )
-;; (require 'keyfreq)
-;; (keyfreq-mode 1)
+(use-package gnu-elpa-keyring-update)
 
 (provide 'init-packages)

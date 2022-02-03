@@ -1,5 +1,14 @@
 ;; theme here
 
+;; Highlight TODO and similar keywords in comments and strings
+(use-package hl-todo
+  :bind (:map hl-todo-mode-map
+              ([C-f3] . hl-todo-occur)
+              ("C-c t p" . hl-todo-previous)
+              ("C-c t n" . hl-todo-next)
+              ("C-c t o" . hl-todo-occur)
+              ("C-c t i" . hl-todo-insert)))
+
 (use-package modus-themes
   :init
   ;; Add all your customizations prior to loading the themes
@@ -10,7 +19,6 @@
   ;; Load the theme files before enabling a theme
   (modus-themes-load-themes)
   )
-
 
 (defvar bitnut-theme-status "init")
 
@@ -45,9 +53,6 @@
   (bitnut-renew-hl-todo)
   )
 
-(defun bitnut-auto-load-theme ()
-  (run-with-timer 0 (* 30 60) 'bitnut-theme-load))
-
 (defun bitnut-renew-hl-todo ()
   (setq hl-todo-keyword-faces
         '(("TODO"   . "#00FF00")
@@ -59,8 +64,11 @@
           ("GOTCHA" . "#FF4500")
           ("DONE"   . "#1E90FF")
           ("done"   . "#1E90FF")))
-  (global-hl-todo-mode 1)
-  )
+  (global-hl-todo-mode 1))
+
+(defun bitnut-auto-load-theme ()
+  (run-with-timer 0 (* 30 60) 'bitnut-theme-load))
+
 (add-hook 'emacs-startup-hook 'bitnut-auto-load-theme)
 
 (provide 'init-theme)

@@ -28,50 +28,8 @@
         ivy-fixed-height-minibuffer t)
   )
 
-;; ;; call imenu to list functions
-;; (global-set-key (kbd "M-s i") 'counsel-imenu)
-
 (use-package ivy-yasnippet
   :bind ("C-c C-y" . ivy-yasnippet))
-
-;; Better experience with icons
-;; Enable it before`ivy-rich-mode' for better performance
-(use-package all-the-icons-ivy-rich
-    :hook (ivy-mode . all-the-icons-ivy-rich-mode)
-    :config
-    (plist-put all-the-icons-ivy-rich-display-transformers-list
-               'centaur-load-theme;; example of a command that works on current word or text selection
-               (defun down-case-word-or-region ()
-                 "Lower case the current word or text selection."
-                 (interactive)
-                 (let (pos1 pos2 meat)
-                   (if (and transient-mark-mode mark-active)
-                       (setq pos1 (region-beginning)
-                             pos2 (region-end))
-                     (setq pos1 (car (bounds-of-thing-at-point 'symbol))
-                           pos2 (cdr (bounds-of-thing-at-point 'symbol))))
-
-                                        ; now, pos1 and pos2 are the starting and ending positions
-                                        ; of the current word, or current text selection if exists
-
-                   ;; put your code here.
-
-                   ;; Some example of things you might want to do
-                   (downcase-region pos1 pos2) ; example of a func that takes region as args
-                   (setq meat (buffer-substring-no-properties pos1 pos2)) ; grab the text.
-                   (delete-region pos1 pos2) ; get rid of it
-                   (insert "newText") ; insert your new text
-
-                   )
-                 )
-               '(:columns
-                 ((all-the-icons-ivy-rich-theme-icon)
-                  (ivy-rich-candidate))
-                 :delimiter "\t"))
-    (all-the-icons-ivy-rich-reload))
-;; (when (icons-displayable-p)
-;;   )
-
 
 ;; More friendly display transformer for Ivy
 (use-package ivy-rich

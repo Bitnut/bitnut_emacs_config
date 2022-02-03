@@ -1,10 +1,5 @@
 (require 'init-const)
 
-;; remove toolbar & menu bar
-(tool-bar-mode -1)
-(menu-bar-mode -1)
-
-(scroll-bar-mode -1)
 
 (global-linum-mode -1)
 
@@ -12,8 +7,16 @@
 
 (setq inhibit-splash-screen 1)
 
+(defun my-fullscreen ()
+  (interactive)
+  (set-frame-parameter nil 'fullscreen 'fullboth) ;; this makes the frame go fullscreen
+  (tool-bar-mode -1)  ;; remove toolbar & menu bar
+  (scroll-bar-mode -1)
+  (menu-bar-mode -1))
+
 ;; Fullscreen
-(add-hook 'after-init-hook (setq initial-frame-alist (quote ((fullscreen . maximized)))))
+(add-hook 'after-init-hook #'my-fullscreen)
+
 
 ;; 字体大小
 (cond

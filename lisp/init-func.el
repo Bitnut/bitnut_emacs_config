@@ -25,6 +25,8 @@
 ;;
 ;;; Code:
 
+(require 'cl-lib)
+
 ;; EditConfig
 (defun edit-configs ()
   "Opens the README.org file."
