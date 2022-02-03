@@ -1,4 +1,4 @@
-;;; init-packages.el --- initialize packages from melpa -*- lexical-binding: t -*-
+;; init-packages.el --- initialize packages from melpa -*- lexical-binding: t -*-
 ;;
 ;; Filename: init-packages.el
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
@@ -83,57 +83,27 @@
               t)))
 
 ;; smartparens
-(smartparens-global-mode t)
-(sp-local-pair '(emacs-lisp-mode lisp-interaction-mode) "'" nil :actions nil)
-(add-hook 'awk-mode-hook (lambda () (setq-local smartparens-global-mode nil)))
+(use-package smartparens
+  :hook ((after-init . smartparens-global-mode)
+         ;; (awk-mode (lambda () (setq-local smartparens-global-mode nil)))
+         )
+  :config
+  )
+;; (smartparens-global-mode t)
+;; (sp-local-pair '(emacs-lisp-mode lisp-interaction-mode) "'" nil :actions nil)
+;; (add-hook 'awk-mode-hook (lambda () (setq-local smartparens-global-mode nil)))
 
-(add-hook 'emacs-lisp-mode-hook 'show-paren-mode)
+(use-package paren
+  :ensure nil
+  :hook (after-init . show-paren-mode)
+  :init (setq show-paren-when-point-inside-paren t
+              show-paren-when-point-in-periphery t))
+
+;; (add-hook 'emacs-lisp-mode-hook 'show-paren-mode)
 
 ;; popwin
-(require 'popwin)
-(popwin-mode 1)
-
-
-
-;; js2-mode
-(setq auto-mode-alist
-      (append
-       '(("\\.js\\'" . js2-mode)
-	     ("\\.js\\'" . js2-refactor-mode))
-       auto-mode-alist))
-
-(defun my-js2-mode-hook ()
-  (progn
-    (setq forward-sexp-function nil)
-    ;; (set (make-local-variable 'indent-line-function) 'my-js2-indent-function)
-    (set (make-local-variable 'semantic-mode) nil)
-    ))
-
-(add-hook 'js2-mode-hook 'my-js2-mode-hook)
-
-
-
-(defun js2-imenu-make-index ()
-  (interactive)
-  (save-excursion
-    ;; (setq imenu-generic-expression '((nil "describe\\(\"\\(.+\\)\"" 1)))
-    (imenu--generic-function '(("describe" "\\s-*describe\\s-*(\\s-*[\"']\\(.+\\)[\"']\\s-*,.*" 1)
-			                   ("it" "\\s-*it\\s-*(\\s-*[\"']\\(.+\\)[\"']\\s-*,.*" 1)
-			                   ("test" "\\s-*test\\s-*(\\s-*[\"']\\(.+\\)[\"']\\s-*,.*" 1)
-			                   ("before" "\\s-*before\\s-*(\\s-*[\"']\\(.+\\)[\"']\\s-*,.*" 1)
-			                   ("after" "\\s-*after\\s-*(\\s-*[\"']\\(.+\\)[\"']\\s-*,.*" 1)
-			                   ("Function" "function[ \t]+\\([a-zA-Z0-9_$.]+\\)[ \t]*(" 1)
-			                   ("Function" "^[ \t]*\\([a-zA-Z0-9_$.]+\\)[ \t]*=[ \t]*function[ \t]*(" 1)
-			                   ("Function" "^var[ \t]*\\([a-zA-Z0-9_$.]+\\)[ \t]*=[ \t]*function[ \t]*(" 1)
-			                   ("Function" "^[ \t]*\\([a-zA-Z0-9_$.]+\\)[ \t]*()[ \t]*{" 1)
-			                   ("Function" "^[ \t]*\\([a-zA-Z0-9_$.]+\\)[ \t]*:[ \t]*function[ \t]*(" 1)
-			                   ("Task" "[. \t]task([ \t]*['\"]\\([^'\"]+\\)" 1)))))
-(add-hook 'js2-mode-hook
-	      (lambda ()
-	        (setq imenu-create-index-function 'js2-imenu-make-index)))
-
-;; call imenu to list functions
-(global-set-key (kbd "M-s i") 'counsel-imenu)
+(use-package popwin
+  :hook (after-init . popwin-mode))
 
 (use-package all-the-icons)
 
@@ -143,12 +113,14 @@
 ;;   (define-key origami-mode-map (kbd "C-c f") 'origami-recursively-toggle-node)
 ;;   (define-key origami-mode-map (kbd "C-c F") 'origami-toggle-all-nodes))
 
-;; eshell
-(global-set-key (kbd "C-`") 'vterm)
 
 ;; keyfreq
-(require 'keyfreq)
-(keyfreq-mode 1)
-(keyfreq-autosave-mode 1)
+(use-package keyfreq
+  :hook (after-init . keyfreq-mode)
+  :config
+  (keyfreq-autosave-mode 1)
+  )
+;; (require 'keyfreq)
+;; (keyfreq-mode 1)
 
 (provide 'init-packages)

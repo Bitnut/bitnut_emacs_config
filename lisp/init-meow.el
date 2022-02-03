@@ -85,15 +85,14 @@
    '("<escape>" . meow-last-buffer)))
 
 (use-package meow
-  :demand t
-  :init
-  :hook (after-init . meow-global-mode)
+  :demand nil
   :config
   ;; meow-setup is your custom function, see below
   (meow-setup)
   ;; If you want relative line number in NORMAL state(for display-line-numbers-mode)
   (meow-setup-line-number)
   ;; If you need setup indicator, see `meow-indicator' for customizing by hand.
-  (meow-setup-indicator))
+  (meow-setup-indicator)
+  (meow-global-mode 1))
 
 (provide 'init-meow)

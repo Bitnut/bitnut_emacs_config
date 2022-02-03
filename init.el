@@ -96,9 +96,17 @@
 ;; ------------------------------------------------------
 (require 'init-edit)
 
+;; ivy
+;; ------------------------------------------------------
+(require 'init-ivy)
+
+;; company
+;; ------------------------------------------------------
+(require 'init-company)
+
 ;; dired
 ;; ------------------------------------------------------
-(require 'init-dired)
+;; (require 'init-dired)
 
 ;; witch-mode
 ;; ------------------------------------------------------
@@ -107,10 +115,6 @@
 ;; Org-mode Management
 ;; ------------------------------------------------------
 (require 'init-org)
-
-;; ivy
-;; ------------------------------------------------------
-(require 'init-ivy)
 
 ;; markdown
 ;; ------------------------------------------------------
@@ -164,10 +168,6 @@
 ;; ------------------------------------------------------
 (require 'init-yasnippet)
 
-;; company
-;; ------------------------------------------------------
-(require 'init-company)
-
 ;; scdv
 ;;
 ;; (require 'init-sdcv)
@@ -196,7 +196,7 @@
    '("fa2b58bb98b62c3b8cf3b6f02f058ef7827a8e497125de0254f56e373abee088" default))
  '(flycheck-checker-error-threshold 1500)
  '(package-selected-packages
-   '(dired-git-info modus-themes esup org-pomodoro treemacs-persp treemacs-magit treemacs-projectile company-web company hungry-delete swiper counsel smartparens js2-mode nodejs-repl exec-path-from-shell popwin monokai-theme emmet-mode js2-refactor web-mode expand-region iedit prettier-js typescript-mode flycheck magit use-package rjsx-mode tide))
+   '(org-superstar dired-git-info modus-themes esup org-pomodoro treemacs-persp treemacs-magit treemacs-projectile company-web company hungry-delete swiper counsel smartparens js2-mode nodejs-repl exec-path-from-shell popwin monokai-theme emmet-mode js2-refactor web-mode expand-region iedit prettier-js typescript-mode flycheck magit use-package rjsx-mode tide))
  '(popwin:popup-window-position 'right)
  '(popwin:popup-window-width 60))
 (custom-set-faces

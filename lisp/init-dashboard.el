@@ -35,7 +35,7 @@
 (defun shuffle (LIST)
   "Shuffle the elements in LIST.
 shuffling is done in place."
-  (loop for i in (reverse (number-sequence 1 (1- (length LIST))))
+  (cl-loop for i in (reverse (number-sequence 1 (1- (length LIST))))
         do (let ((j (random (+ i 1))))
              (swap LIST i j)))
   LIST)

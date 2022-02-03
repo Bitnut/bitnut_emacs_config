@@ -2,11 +2,22 @@
 
 (use-package counsel
   :diminish ivy-mode counsel-mode
-  :bind(("C-c n" . 'counsel-fzf)
-        ("C-c C-s" . 'counsel-rg)
-        ("C-c v p" . 'ivy-push-view)
-        ("C-c v o" . 'ivy-pop-view)
-        ("C-c v ." . 'ivy-switch-view))
+  :bind (
+         ("C-s" . 'swiper-isearch)
+         ("C-r"   . swiper-isearch-backward)
+
+         ("M-x" . 'counsel-M-x)
+         ("M-s i" . 'counsel-imenu)
+         ("C-c c n" . 'counsel-fzf)
+         ("C-c C-r" . 'ivy-resume)
+         ("C-c c s" . 'counsel-rg)
+         ("C-c c g" . 'counsel-git)
+         ("C-c c j" . 'counsel-git-grep)
+         ("C-x C-f" . 'counsel-find-file)
+
+         ("C-c v p" . 'ivy-push-view)
+         ("C-c v o" . 'ivy-pop-view)
+         ("C-c v ." . 'ivy-switch-view))
   :hook ((after-init . ivy-mode)
          (ivy-mode . counsel-mode))
   :init
@@ -16,6 +27,9 @@
         ivy-use-virtual-buffers t    ; Enable bookmarks and recentf
         ivy-fixed-height-minibuffer t)
   )
+
+;; ;; call imenu to list functions
+;; (global-set-key (kbd "M-s i") 'counsel-imenu)
 
 (use-package ivy-yasnippet
   :bind ("C-c C-y" . ivy-yasnippet))
