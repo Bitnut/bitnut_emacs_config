@@ -1,5 +1,7 @@
 ;; theme here
 
+(require 'awesome-tray)
+
 ;; Highlight TODO and similar keywords in comments and strings
 (use-package hl-todo
   :bind (:map hl-todo-mode-map
@@ -50,6 +52,13 @@
               (string-equal bitnut-theme-status "light"))
       (bitnut-theme-load-dark)))
   (awesome-tray-mode 1)
+  (setq awesome-tray-active-modules '("git"
+                                      "location"
+                                      "mode-name"
+                                      "buffer-name"
+                                      "battery"
+                                      "date"
+                                      ))
   (bitnut-renew-hl-todo)
   )
 
