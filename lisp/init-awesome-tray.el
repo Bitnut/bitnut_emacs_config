@@ -1,7 +1,10 @@
 ;;; Require
-(require 'awesome-tray)
 
-;;; Code:
-(awesome-tray-mode 1)
+(use-package awesome-tray
+  :ensure nil
+  :hook after-init
+  :config
+  (add-to-list 'awesome-tray-active-modules
+             '"buffer-name"))
 
 (provide 'init-awesome-tray)

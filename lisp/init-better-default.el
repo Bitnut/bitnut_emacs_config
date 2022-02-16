@@ -74,5 +74,6 @@
   :diminish
   :hook (after-init . global-auto-revert-mode))
 
+(global-set-key (kbd "C-c c c") 'compile)
 
 (provide 'init-better-default)

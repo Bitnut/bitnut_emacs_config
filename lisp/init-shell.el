@@ -9,17 +9,17 @@
            ([f9] . (lambda ()
                      (interactive)
                      (and (fboundp 'shell-pop)
-                          (shell-pop nil))))))
+                          (shell-pop nil)))))))
 
 ;; eshell
-;; (global-set-key (kbd "C-`") 'vterm)
+(global-set-key (kbd "C-`") 'vterm)
 
 ;; Shell Pop
 (use-package shell-pop
   :bind ([f9] . shell-pop)
   :init (setq shell-pop-window-size 30
               shell-pop-shell-type
-	      shell-pop-universal-key C-t
+	          shell-pop-universal-key C-t
               (cond ((fboundp 'vterm) '("vterm" "*vterm*" #'vterm))
                     (t '("terminal" "*terminal*"
                          (lambda () (term shell-pop-term-shell)))))))

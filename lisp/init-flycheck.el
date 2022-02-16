@@ -35,6 +35,7 @@
           :hook (global-flycheck-mode . flycheck-pos-tip-mode)
           :config (setq flycheck-pos-tip-timeout 30)))
     (use-package flycheck-popup-tip
-      :hook (flycheck-mode . flycheck-popup-tip-mode))))
+      :hook (flycheck-mode . flycheck-popup-tip-mode)))
+  )
 
 (provide 'init-flycheck)

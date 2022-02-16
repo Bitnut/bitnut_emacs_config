@@ -108,6 +108,10 @@
 ;; ------------------------------------------------------
 (require 'init-dired)
 
+;; flycheck
+;; ------------------------------------------------------
+(require 'init-flycheck)
+
 ;; witch-mode
 ;; ------------------------------------------------------
 (require 'init-witch)
@@ -122,7 +126,7 @@
 
 ;; shell
 ;; ------------------------------------------------------
-;; (require 'init-shell)
+(require 'init-shell)
 
 ;; ediff
 ;; ------------------------------------------------------
@@ -135,6 +139,10 @@
 ;; autosave
 ;; ------------------------------------------------------
 (require 'init-autosave)
+
+;; pangu
+;; ------------------------------------------------------
+(require 'init-pangu)
 
 ;; acewindow
 ;; ------------------------------------------------------
@@ -181,36 +189,9 @@
 (require 'init-rime)
 
 ;; dashboard
+;; ------------------------------------------------------
 (require 'init-dashboard)
 
+;; awesome-tray
+;; ------------------------------------------------------
 (require 'awesome-tray)
-
-;; (custom-set-variables
-;;  ;; custom-set-variables was added by Custom.
-;;  ;; If you edit it by hand, you could mess it up, so be careful.
-;;  ;; Your init file should contain only one such instance.
-;;  ;; If there is more than one, they won't work right.
-;;  '(company-idle-delay 0.08 t)
-;;  '(company-minimum-prefix-length 1 t)
-;;  '(custom-safe-themes
-;;    '("fa2b58bb98b62c3b8cf3b6f02f058ef7827a8e497125de0254f56e373abee088" default))
-;;  '(flycheck-checker-error-threshold 1500)
-;;  '(package-selected-packages
-;;    '(org-superstar dired-git-info modus-themes esup org-pomodoro treemacs-persp treemacs-magit treemacs-projectile company-web company hungry-delete swiper counsel smartparens js2-mode nodejs-repl exec-path-from-shell popwin monokai-theme emmet-mode js2-refactor web-mode expand-region iedit prettier-js typescript-mode flycheck magit use-package rjsx-mode tide))
-;;  '(popwin:popup-window-position 'right)
-;;  '(popwin:popup-window-width 60))
-;; (custom-set-faces
-;;  ;; custom-set-faces was added by Custom.
-;;  ;; If you edit it by hand, you could mess it up, so be careful.
-;;  ;; Your init file should contain only one such instance.
-;;  ;; If there is more than one, they won't work right.
-;;  '(flycheck-posframe-border-face ((t (:inherit font-lock-comment-face))))
-;;  '(iedit-occurrence ((t (:inherit region))))
-;;  '(js2-error ((t (:foreground "red"))))
-;;  '(js2-external-variable ((t (:foreground "dark gray"))))
-;;  '(js2-function-call ((t (:foreground "yellow green"))))
-;;  '(lsp-ui-sideline-code-action ((t (:inherit warning))))
-;;  '(org-ellipsis ((t (:foreground nil))))
-;;  '(org-pomodoro-mode-line ((t (:inherit warning))))
-;;  '(org-pomodoro-mode-line-break ((t (:inherit success))))
-;;  '(org-pomodoro-mode-line-overtime ((t (:inherit error)))))

@@ -42,7 +42,6 @@
 (defun my/web-vue-setup()
   "Setup for js related."
   (message "web-mode use vue related setup")
-  ;; (add-hook 'typescript-mode-hook 'eglot-ensure)
   (add-to-list (make-local-variable 'company-backends)
                '(company-tide company-web-html company-css company-files))
   )
@@ -174,44 +173,14 @@
 	      (lambda ()
 	        (setq imenu-create-index-function 'js2-imenu-make-index)))
 
-;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
-                                        ;              typescript             ;
-;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
-
-(defun setup-tide-mode ()
-  "Setup tide mode for other mode."
-  (interactive)
-  (flycheck-mode +1)
-  (setq flycheck-check-syntax-automatically '(save mode-enabled))
-  (eldoc-mode +1)
-  (tide-hl-identifier-mode +1)
-  ;; company is an optional dependency. You have to
-  ;; install it separately via package-install
-  ;; `M-x package-install [ret] company`
-  (company-mode +1))
-
-;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
-                                        ;              php                    ;
-;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
-
-;; (use-package php-mode
-;;   :ensure t
-;;   :mode ("\\.php\\'")
-;;   )
-
-;; (add-hook 'js2-mode-hook 'eglot-ensure)
-;; (add-hook 'typescript-mode-hook 'eglot-ensure)
-(add-hook 'go-mode-hook 'eglot-ensure)
-
 ;; flymake-keybindings
-(require 'flymake)
-(define-key flymake-mode-map (kbd "M-n") 'flymake-goto-next-error)
-(define-key flymake-mode-map (kbd "M-p") 'flymake-goto-prev-error)
+;; (require 'flymake)
+;; (define-key flymake-mode-map (kbd "M-n") 'flymake-goto-next-error)
+;; (define-key flymake-mode-map (kbd "M-p") 'flymake-goto-prev-error)
 
-
+(use-package typescript-mode)
 
 (use-package go-mode
-  :ensure t
   :mode ("\\.go\\'")
   )
 
