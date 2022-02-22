@@ -19,6 +19,8 @@
   :init (setq recentf-max-saved-items 200)
   :config
   (push (expand-file-name recentf-save-file) recentf-exclude)
+  (push "~/org/*" recentf-exclude)
+  (push "~/.emacs.d/bookmarks" recentf-exclude)
   (add-to-list 'recentf-filename-handlers #'abbreviate-file-name))
 
 ;; When buffer is closed, saves the cursor location
@@ -36,7 +38,11 @@
                                               extended-command-history)
               savehist-autosave-interval 300))
 
-
-
+;; Search tools
+;; Writable `grep' buffer
+(use-package wgrep
+  :init
+  (setq wgrep-auto-save-buffer t
+        wgrep-change-readonly-file t))
 
 (provide 'init-basic)
