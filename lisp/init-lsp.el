@@ -13,6 +13,8 @@
          (php-mode . lsp)
          (typescript-mode . lsp)
          (web-mode . lsp)
+         (go-mode . lsp)
+         (sql-mode . lsp)
          (lsp-mode . lsp-enable-which-key-integration)
          ((c-mode c++-mode objc-mode cuda-mode) .
           (lambda () (require 'ccls) (lsp))))
@@ -23,7 +25,7 @@
   :init
   ;; @see https://emacs-lsp.github.io/lsp-mode/page/performance
   (setq read-process-output-max (* 1024 1024)) ;; 1MB
-  (setq lsp-idle-delay 3)
+  (setq lsp-idle-delay 2)
   (setq ccls-executable "~/languageServer/ccls/Release/ccls")
   (setq lsp-keymap-prefix "C-c l"
         lsp-keep-workspace-alive nil
@@ -36,7 +38,10 @@
         lsp-enable-symbol-highlighting nil
         lsp-enable-text-document-color nil
         lsp-enable-indentation nil
-        lsp-enable-on-type-formatting nil)
+        lsp-enable-on-type-formatting nil
+        lsp-sqls-workspace-config-path nil
+        lsp-sqls-connections
+        '(((driver . "mysql") (dataSourceName . "root:B0AF021760898F54C11E6D36F67EFCA2@tcp(localhost:3306)/dev_us_order"))))
   :config
   (add-to-list 'lsp-language-id-configuration '(web-mode . "html"))
   (with-no-warnings
@@ -178,18 +183,18 @@
                    (set-face-background 'lsp-ui-doc-background (face-background 'tooltip nil t)))))
   )
 
-(when emacs/>=26p
-  (use-package dap-mode
-    :bind (:map lsp-mode-map
-                ("<f5>" . dap-debug)
-                ("M-<f5>" . dap-hydra))
-    :config
-    (require 'dap-node)
-    :hook (
-           (after-init . dap-auto-configure-mode)
-           ;; (dap-stopped . (lambda (_args) (dap-hydra)))
-           ;; (dap-terminated . (lambda (_args) (dap-hydra/nil)))
-           )
-    ))
+;; (when emacs/>=26p
+;;   (use-package dap-mode
+;;     :bind (:map lsp-mode-map
+;;                 ("<f5>" . dap-debug)
+;;                 ("M-<f5>" . dap-hydra))
+;;     :config
+;;     (require 'dap-node)
+;;     :hook (
+;;            (after-init . dap-auto-configure-mode)
+;;            ;; (dap-stopped . (lambda (_args) (dap-hydra)))
+;;            ;; (dap-terminated . (lambda (_args) (dap-hydra/nil)))
+;;            )
+;;     ))
 
 (provide 'init-lsp)

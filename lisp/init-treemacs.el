@@ -22,7 +22,8 @@
           treemacs-missing-project-action  'remove
           treemacs-sorting                 'alphabetic-asc
           treemacs-follow-after-init       t
-          treemacs-width                   30
+          treemacs-width                   35
+          treemacs-wide-toggle-width       70
           )
     (treemacs-follow-mode t)
     (treemacs-filewatch-mode t)

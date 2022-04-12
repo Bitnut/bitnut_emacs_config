@@ -184,5 +184,13 @@
   :mode ("\\.go\\'")
   )
 
+;; YAML mode
+(use-package yaml-mode)
+
+;; sql mode
+(use-package sqlup-mode
+  :hook ((sql-mode . sqlup-mode)
+         (sql-interactive-mode . sqlup-mode)))
+
 (provide 'init-web)
 ;;; web.el ends here
