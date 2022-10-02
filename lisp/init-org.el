@@ -110,6 +110,26 @@ prepended to the element after the #+HEADER: tag."
       :if (and (display-graphic-p) (char-displayable-p ?⚫))
       :hook (org-mode . org-superstar-mode)
       :init (setq org-superstar-headline-bullets-list '("⚫" "⚫" "⚫" "⚫"))))
+  (setq org-tag-alist '(("@objective" . ?t) ("@key_result" . ?k) ("@future" . ?f) ("@week" . ?w) ("@indicator" . ?i)))
+  (setq org-agenda-custom-commands
+        '((" " "OKR"
+           ((agenda "" nil)
+            (tags "@objective"
+                  ((org-agenda-overriding-header "OKR Objectives")
+                   (org-tags-match-list-sublevels nil)))
+            (tags "@key_result"
+                  ((org-agenda-overriding-header "Key Results")
+                   (org-tags-match-list-sublevels nil)))
+            (tags "@week"
+                  ((org-agenda-overriding-header "this week")
+                   (org-tags-match-list-sublevels nil)))
+            (tags "@future"
+                  ((org-agenda-overriding-header "futrue plan")
+                   (org-tags-match-list-sublevels nil)))
+            (tags "@indicator"
+                  ((org-agenda-overriding-header "Indicator")
+                   (org-tags-match-list-sublevels nil)))
+            ))))
   ;; Pomodoro
   (use-package org-pomodoro
     :custom-face
@@ -128,6 +148,41 @@ prepended to the element after the #+HEADER: tag."
 (setq org-startup-indented t)
 
 (require 'org-tempo)
+
+(use-package org-roam
+  :ensure t
+  :custom
+  (org-roam-directory (file-truename "~/org-roam/"))
+  :bind (("C-c n l" . org-roam-buffer-toggle)
+         ("C-c n f" . org-roam-node-find)
+         ("C-c n i" . org-roam-node-insert)
+         ("C-c n g" . org-roam-graph)
+         ("C-c n c" . org-roam-capture)
+         ;; Dailies
+         ("C-c n j" . org-roam-dailies-capture-today))
+  :config
+  ;; If you're using a vertical completion framework, you might want a more informative completion interface
+  ;; (setq org-roam-node-display-template (concat "${title:*} " (propertize "${tags:10}" 'face 'org-tag)))
+  (setq org-roam-capture-templates
+      '(("m" "main" plain
+         "%?"
+         :if-new (file+head "main/${slug}.org"
+                            "#+title: ${title}\n")
+         :immediate-finish t
+         :unnarrowed t)
+        ("r" "reference" plain "%?"
+         :if-new
+         (file+head "reference/${title}.org" "#+title: ${title}\n")
+         :immediate-finish t
+         :unnarrowed t)
+        ("a" "article" plain "%?"
+         :if-new
+         (file+head "articles/${title}.org" "#+title: ${title}\n#+filetags: :article:\n")
+         :immediate-finish t
+         :unnarrowed t)))
+  (org-roam-db-autosync-mode)
+  ;; If using org-roam-protocol
+  (require 'org-roam-protocol))
 
 ;; r represents remember
 (global-set-key (kbd "C-c r") 'org-capture)
